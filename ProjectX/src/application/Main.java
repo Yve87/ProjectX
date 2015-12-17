@@ -14,24 +14,21 @@ import java.sql.*;
 
 
 public class Main extends Application {
+
 	
 	public void start(Stage primaryStage) {
 		try {
-			Between_Window between = new Between_Window();
-			AnchorPane pane = new AnchorPane();
 			Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
-			Scene scene = new Scene(pane, 500,500);
+			Scene scene = new Scene(root, 500,500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			Button button = new Button("Drück mich:D");
-			button.setOnAction(e -> between.start(primaryStage));
-			pane.getChildren().add(button);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Test");
+			primaryStage.setTitle("Start");
 			primaryStage.show();
-			
+					
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public static void main(String[] args) {
@@ -51,8 +48,6 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		System.out.println("Database connected!");
-		launch(args);
-
-		
+		launch(args);	
 	}
 }

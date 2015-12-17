@@ -11,18 +11,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.*;
 
 
-public class Between_Window extends Application {
+public class Insert_fikus_window extends Application {
 	
 	Scene scene;
 
 	public void start(Stage primaryStage) {
 		try {
-			
-			Parent root = FXMLLoader.load(getClass().getResource("Betweenwindow.fxml"));
+
+			Parent root = FXMLLoader.load(getClass().getResource("fikuswindowinsert.fxml"));
 			scene = new Scene(root, 500,500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Choose the Table");
+			primaryStage.setTitle("Insert");
 			primaryStage.show();
 			
 		} catch(Exception e) {
