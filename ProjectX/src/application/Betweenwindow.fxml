@@ -17,27 +17,27 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" onAction="#irgendwas" prefHeight="177.0" prefWidth="307.0" text="Fikus">
+      <Button mnemonicParsing="false" onAction="#fikus_button" prefHeight="177.0" prefWidth="307.0" text="Fikus">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#irgendwas" prefHeight="205.0" prefWidth="294.0" text="Perkus" GridPane.columnIndex="1">
+      <Button mnemonicParsing="false" onAction="#perkus_button" prefHeight="205.0" prefWidth="294.0" text="Perkus" GridPane.columnIndex="1">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#irgendwas" prefHeight="183.0" prefWidth="278.0" text="Standort" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" prefHeight="183.0" prefWidth="278.0" text="Standort" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#irgendwas" prefHeight="274.0" prefWidth="424.0" text="Produkt" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" prefHeight="274.0" prefWidth="424.0" text="Produkt" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#irgendwas" prefHeight="263.0" prefWidth="391.0" text="Button" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#irgendwas" prefHeight="258.0" prefWidth="364.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" prefHeight="263.0" prefWidth="391.0" text="Button" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" prefHeight="258.0" prefWidth="364.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
 </GridPane>
