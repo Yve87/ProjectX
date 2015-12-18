@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.*?>
+<<<<<<< HEAD
 <?import javafx.scene.text.*?>
+=======
+>>>>>>> origin/master
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<<<<<<< HEAD
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane prefHeight="144.0" prefWidth="1000.0" style="-fx-background-color: #add8e6;">
@@ -31,3 +35,24 @@
       <Button layoutX="105.0" layoutY="503.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Datenbank modifizieren" />
    </children>
 </AnchorPane>
+=======
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainControler">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Button mnemonicParsing="false" onAction="#delete" prefHeight="218.0" prefWidth="250.0" text="Delete" GridPane.columnIndex="1" />
+      <Button mnemonicParsing="false" onAction="#search" prefHeight="210.0" prefWidth="250.0" text="Search" />
+      <Button mnemonicParsing="false" onAction="#create" prefHeight="211.0" prefWidth="250.0" text="Create Table" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#update" prefHeight="169.0" prefWidth="250.0" text="Update" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#insert" prefHeight="179.0" prefWidth="250.0" text="Insert" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#show" prefHeight="172.0" prefWidth="250.0" text="Show" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   </children>
+</GridPane>
+>>>>>>> origin/master
