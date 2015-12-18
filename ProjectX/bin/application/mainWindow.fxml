@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane prefHeight="144.0" prefWidth="1000.0" style="-fx-background-color: #add8e6;">
+         <items>
+            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: transparent;" text="ProjectX: Firmensoftware mit Datenbank">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </TextField>
+         </items>
+      </SplitPane>
+      <Button layoutX="105.0" layoutY="228.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" style="-fx-background-color: #d6ebf2;" text="Neue Rechnung" textOverrun="CLIP" />
+      <Button layoutX="379.0" layoutY="228.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Neues Angebot" />
+      <Button layoutX="651.0" layoutY="228.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Neuer Lieferschein" />
+      <Button layoutX="105.0" layoutY="372.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Bisherige Rechnungen" />
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="41.0" prefWidth="1000.0" style="-fx-background-color: #add8e6;">
+         <items>
+            <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: transparent;" text="copyright ProjectX" />
+         </items>
+      </SplitPane>
+      <Button layoutX="379.0" layoutY="372.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Bisherige Angebote" />
+      <Button layoutX="651.0" layoutY="372.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Bisherige Lieferscheine" />
+      <Button layoutX="105.0" layoutY="503.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="230.0" text="Datenbank modifizieren" />
+   </children>
+</AnchorPane>
