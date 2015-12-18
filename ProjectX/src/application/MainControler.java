@@ -4,12 +4,11 @@ import javafx.stage.Stage;
 
 public class MainControler {
 	
-	Between_Window window;
+	auswahl_window window;
 	Stage primaryStage = new Stage();
 	
 	public void Datenbank_modifizieren(){
-		BetweenControler.counter = 1;
-		window = new Between_Window();
+		window = new auswahl_window();
 		window.start(primaryStage);
 	}
 }

@@ -17,7 +17,6 @@ public class Between_Window extends Application {
 
 	public void start(Stage primaryStage) {
 		try {
-			
 			Parent root = FXMLLoader.load(getClass().getResource("Betweenwindow.fxml"));
 			scene = new Scene(root, 500,500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
