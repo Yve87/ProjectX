@@ -24,7 +24,6 @@ public class Between_Window extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Choose the Table");
 			primaryStage.show();
-			System.out.println("hi");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
