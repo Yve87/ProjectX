@@ -5,19 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.standort_insert_controler">
    <children>
-      <Button layoutX="388.0" layoutY="425.0" mnemonicParsing="false" text="Insert" />
-      <TextField layoutX="35.0" layoutY="302.0" promptText="StandortID" />
-      <TextField layoutX="35.0" layoutY="328.0" promptText="Name" />
-      <TextField layoutX="35.0" layoutY="354.0" promptText="Strasse" />
-      <TextField layoutX="35.0" layoutY="380.0" promptText="Hausnummer" />
-      <TextField layoutX="35.0" layoutY="406.0" promptText="PLZ" />
-      <TextField layoutX="35.0" layoutY="432.0" promptText="PLS" />
-      <TextField layoutX="198.0" layoutY="302.0" promptText="Postfachnummer" />
-      <TextField layoutX="198.0" layoutY="328.0" promptText="Telefon" />
-      <TextField layoutX="198.0" layoutY="354.0" promptText="FikusID" />
-      <TextField layoutX="198.0" layoutY="380.0" promptText="PerkusID" />
+      <Button layoutX="388.0" layoutY="425.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
+      <TextField fx:id="standortid" layoutX="35.0" layoutY="302.0" promptText="StandortID" />
+      <TextField fx:id="name" layoutX="35.0" layoutY="328.0" promptText="Name" />
+      <TextField fx:id="strasse" layoutX="35.0" layoutY="354.0" promptText="Strasse" />
+      <TextField fx:id="hausnummer" layoutX="35.0" layoutY="380.0" promptText="Hausnummer" />
+      <TextField fx:id="plz" layoutX="35.0" layoutY="406.0" promptText="PLZ" />
+      <TextField fx:id="pls" layoutX="35.0" layoutY="432.0" promptText="PLS" />
+      <TextField fx:id="postfachnummer" layoutX="198.0" layoutY="302.0" promptText="Postfachnummer" />
+      <TextField fx:id="telefon" layoutX="198.0" layoutY="328.0" promptText="Telefon" />
+      <TextField fx:id="fikusid" layoutX="198.0" layoutY="354.0" promptText="FikusID" />
+      <TextField fx:id="perkusid" layoutX="198.0" layoutY="380.0" promptText="PerkusID" />
    </children>
 </Pane>

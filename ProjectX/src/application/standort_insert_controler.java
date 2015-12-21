@@ -43,8 +43,8 @@ public class standort_insert_controler {
 		perid = Integer.parseInt(perkusid.getText());
 		
 		java.sql.Connection conn = Connection.connecten();
-		String query = "INSERT INTO Standort(standortid,name,strasse,hausnummer,plz,pls,"
-				+ "postfachnummer,telefon,fikusid,perkusid)"
+		String query = "INSERT INTO Standort(idstandort,name,strasse,hausnummer,plz,pls,"
+				+ "postfachnummer,telefon,Fikus_idFikus,Perkus_idPerkus)"
 				+ "values('"+ids+"','"+nametext+"','"+strassetext+"','"+hntext+"','"+plztext+"','"
 				+plstext+"','"+pfntext+"','"+tel+"','"+fid+"','"+perid+"')";
 		PreparedStatement stmt = conn.prepareStatement(query);

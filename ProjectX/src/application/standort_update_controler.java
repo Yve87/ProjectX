@@ -43,7 +43,7 @@ public void update() throws InstantiationException, IllegalAccessException, Clas
 		perid = Integer.parseInt(perkusid.getText());
 
 		java.sql.Connection conn = Connection.connecten();
-		String query = "UPDATE Perkus SET name = '"+ nametext +"' WHERE idStandort IN ("+ids+")";
+		String query = "UPDATE Standort SET Name = '"+ nametext +"' WHERE idStandort IN ("+ids+")";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("Update at Table Perkus is completed.");
