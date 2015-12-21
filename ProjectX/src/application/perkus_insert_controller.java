@@ -58,7 +58,12 @@ public class perkus_insert_controller {
 		ids = Integer.parseInt(idtext);
 		idfikus = Integer.parseInt(idtextf);
 		java.sql.Connection conn = Connection.connecten();
-		String query = "INSERT INTO Perkus(idPerkus,Name,Fikus_idFikus)" + "values('"+ids+"','"+nametext+"','"+idfikus+"')";
+		String query = "INSERT INTO Perkus(idPerkus,Name,Anrede,Vorname,Titel,"
+				+ "Abteilung,Gebaeudenummer,Zimmernummer,Tel,Fax,Email,Position,Fikus_idFikus)"
+				+ "values('"+ids+"','"+nametext+"','"+anredetext+"','"+vornametext+"','"
+				+titeltext+"','"+abteilungtext+"','"+gebaeudenummertext+"','"
+				+zimmernummertext+"','"+teltext+"','"+faxtext+"','"+emailtext+"','"
+				+positiontext+"','"+idfikus+"')";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Perkus is completed.");

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="388.0" layoutY="425.0" mnemonicParsing="false" text="Update" />
+      <TextField layoutX="35.0" layoutY="302.0" promptText="StandortID" />
+      <TextField layoutX="35.0" layoutY="328.0" promptText="Name" />
+      <TextField layoutX="35.0" layoutY="354.0" promptText="Strasse" />
+      <TextField layoutX="35.0" layoutY="380.0" promptText="Hausnummer" />
+      <TextField layoutX="35.0" layoutY="406.0" promptText="PLZ" />
+      <TextField layoutX="35.0" layoutY="432.0" promptText="PLS" />
+      <TextField layoutX="198.0" layoutY="302.0" promptText="Postfachnummer" />
+      <TextField layoutX="198.0" layoutY="328.0" promptText="Telefon" />
+      <TextField layoutX="198.0" layoutY="354.0" promptText="FikusID" />
+      <TextField layoutX="198.0" layoutY="380.0" promptText="PerkusID" />
+   </children>
+</Pane>

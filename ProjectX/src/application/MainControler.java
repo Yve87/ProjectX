@@ -11,4 +11,8 @@ public class MainControler {
 		window = new auswahl_window();
 		window.start(primaryStage);
 	}
+	
+	public void angebot_erstellen(){
+		
+	}
 }

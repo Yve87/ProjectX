@@ -38,6 +38,22 @@ public class BetweenControler {
 			Insert_perkus_window window = new Insert_perkus_window();
 			window.start(primarystage);
 		}
-
+	}
+	
+	public void standort_button(){
+		if(counter == 6){
+			Stage primarystage = new Stage();
+			standort_update_window window = new standort_update_window();
+			window.start(primarystage);
+		}
+		
+		else if(counter == 2){
+			Stage primarystage = new Stage();
+			Standort_insert_window window = new Standort_insert_window();
+			window.start(primarystage);
+		}
+	}
+	public void produkt_button(){
+		
 	}
 }

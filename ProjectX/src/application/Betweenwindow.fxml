@@ -27,12 +27,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="183.0" prefWidth="278.0" text="Standort" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onAction="#standort_button" prefHeight="183.0" prefWidth="278.0" text="Standort" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="274.0" prefWidth="424.0" text="Produkt" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onAction="#produkt_button" prefHeight="274.0" prefWidth="424.0" text="Produkt" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font size="15.0" />
          </font>
