@@ -17,7 +17,7 @@
          </items>
       </SplitPane>
       <Button layoutX="130.0" layoutY="250.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Neue Rechnung" />
-      <Button layoutX="474.0" layoutY="256.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Neues Angebot" />
+      <Button layoutX="474.0" layoutY="256.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="100.0" prefWidth="252.0" text="Neues Angebot" />
       <Button layoutX="820.0" layoutY="256.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Neuer Lieferschein" />
       <Button layoutX="130.0" layoutY="413.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Bisherige Dokumente" />
       <Button layoutX="474.0" layoutY="413.0" mnemonicParsing="false" onAction="#Datenbank_modifizieren" prefHeight="100.0" prefWidth="252.0" text="Datenbank modifizieren" />

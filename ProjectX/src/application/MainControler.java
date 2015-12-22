@@ -2,6 +2,10 @@ package application;
 
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class MainControler {
 	
 	auswahl_window window;
@@ -13,6 +17,7 @@ public class MainControler {
 	}
 	
 	public void angebot_erstellen(){
-		
+		DateiSchreiben datei = new DateiSchreiben();
+		datei.schreibeString("Neues Angebot");
 	}
 }

@@ -5,12 +5,12 @@ import javafx.stage.Stage;
 public class auswahl_controler {
 	
 	Between_Window window;
-	Stage primaryStage = new Stage();
+	static Stage primaryStage = new Stage();
 	
 	public void update(){
 		BetweenControler.counter = 6;
 		window = new Between_Window(); // erstellt betweenwindow
-		window.start(primaryStage);		//startet window	
+		window.start(primaryStage);	//startet window
 	}
 	public void delete(){
 		BetweenControler.counter = 1;

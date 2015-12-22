@@ -11,7 +11,6 @@ public class BetweenControler {
 	static int counter = 0;
 	static int inside_counter = 0;
 	
-	
 	public void fikus_button(){
 		if(counter == 6){
 			Stage primarystage = new Stage();
@@ -53,7 +52,18 @@ public class BetweenControler {
 			window.start(primarystage);
 		}
 	}
+	
 	public void produkt_button(){
+		if(counter == 6){
+			Stage primarystage = new Stage();
+			produkt_update_window window = new produkt_update_window();
+			window.start(primarystage);
+		}
 		
+		else if(counter == 2){
+			Stage primarystage = new Stage();
+			produkt_insert_window window = new produkt_insert_window();
+			window.start(primarystage);
+		}
 	}
 }

@@ -46,6 +46,6 @@ public void update() throws InstantiationException, IllegalAccessException, Clas
 		String query = "UPDATE Standort SET Name = '"+ nametext +"' WHERE idStandort IN ("+ids+")";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
-		System.out.println("Update at Table Perkus is completed.");
+		System.out.println("New Update at Table Perkus is completed.");
 	}
 }
