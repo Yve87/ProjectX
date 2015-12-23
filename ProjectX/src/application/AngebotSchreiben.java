@@ -4,11 +4,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
-public class DateiSchreiben {
+public class AngebotSchreiben {
 
 	public void schreibeString(String input){
 	
-		File a =new File("./Angebot.txt");
+		File a = new File("./Angebot.txt");
 		FileWriter fw=null;
 			try {
 			fw = new FileWriter(a);

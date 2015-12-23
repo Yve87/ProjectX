@@ -17,7 +17,17 @@ public class MainControler {
 	}
 	
 	public void angebot_erstellen(){
-		DateiSchreiben datei = new DateiSchreiben();
+		AngebotSchreiben datei = new AngebotSchreiben();
 		datei.schreibeString("Neues Angebot");
+	}
+	
+	public void rechnung_erstellen(){
+		Rechnungschreiben datei = new Rechnungschreiben();
+		datei.schreibeString("Neue Rechnung");
+	}
+	
+	public void leiferschein_erstellen(){
+		Lieferscheinschreiben datei = new Lieferscheinschreiben();
+		datei.schreibeString("Neuer Lieferschein");
 	}
 }
