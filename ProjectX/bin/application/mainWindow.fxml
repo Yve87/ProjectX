@@ -5,23 +5,22 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainControler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="button" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainControler">
    <children>
-      <SplitPane orientation="VERTICAL" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: #add8e6;">
+      <SplitPane orientation="VERTICAL" prefHeight="150.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css">
          <items>
-            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: transparent;" text="ProjectX: Firmensoftware mit Datenbank">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </TextField>
+            <Label styleClass="label-header" text="Project X" />
          </items>
       </SplitPane>
-      <Button layoutX="130.0" layoutY="250.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="100.0" prefWidth="252.0" text="Neue Rechnung" />
-      <Button layoutX="474.0" layoutY="256.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="100.0" prefWidth="252.0" text="Neues Angebot" />
+      <Button layoutX="130.0" layoutY="250.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="100.0" prefWidth="252.0" stylesheets="@DarkTheme.css" text="Neue Rechnung" />
+      <Button layoutX="474.0" layoutY="256.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="100.0" prefWidth="252.0" stylesheets="@DarkTheme.css" text="Neues Angebot">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Button>
       <Button layoutX="820.0" layoutY="256.0" mnemonicParsing="false" onAction="#leiferschein_erstellen" prefHeight="100.0" prefWidth="252.0" text="Neuer Lieferschein" />
       <Button layoutX="130.0" layoutY="413.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Bisherige Dokumente" />
       <Button layoutX="474.0" layoutY="413.0" mnemonicParsing="false" onAction="#Datenbank_modifizieren" prefHeight="100.0" prefWidth="252.0" text="Datenbank modifizieren" />
-      <SplitPane layoutY="630.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #add8e6;">
+      <SplitPane layoutY="630.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="1200.0">
          <items>
             <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: transparent;" text="copyright ProjectX" />
          </items>
