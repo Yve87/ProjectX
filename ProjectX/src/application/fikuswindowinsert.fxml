@@ -5,11 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.fikus_insert_controller">
    <children>
-      <Button layoutX="369.0" layoutY="393.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
+      <Button layoutX="58.0" layoutY="436.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
       <TextField fx:id="name" layoutX="58.0" layoutY="348.0" promptText="Name" />
-      <TextField fx:id="id" layoutX="58.0" layoutY="419.0" promptText="ID" />
+      <TextField fx:id="id" layoutX="58.0" layoutY="374.0" promptText="ID" />
+      <Button layoutX="133.0" layoutY="436.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="221.0" layoutY="436.0" mnemonicParsing="false" text="Delete" />
    </children>
 </Pane>
