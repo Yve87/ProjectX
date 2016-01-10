@@ -12,6 +12,8 @@ public class rechnung_controler {
 	private float rabatttext;
 	
 	public void erstellen(){
+		Rechnungschreiben datei1 = new Rechnungschreiben();
+		datei1.schreibeString("Neue Rechnung");
 		
 		AngebotSchreiben datei = new AngebotSchreiben();
 		datei.schreibeString("Neues Angebot\n");

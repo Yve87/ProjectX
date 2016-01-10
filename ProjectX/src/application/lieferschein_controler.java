@@ -12,6 +12,8 @@ public class lieferschein_controler {
 	private float rabatttext;
 	
 	public void erstellen(){
+		Lieferscheinschreiben datei1 = new Lieferscheinschreiben();
+		datei1.schreibeString("Neuer Lieferschein");
 		
 		AngebotSchreiben datei = new AngebotSchreiben();
 		datei.schreibeString("Neues Angebot\n");

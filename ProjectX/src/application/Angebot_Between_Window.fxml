@@ -17,8 +17,8 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#erstellen" prefHeight="70.0" prefWidth="239.0" text="Lieferschein erstellen" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Lieferschein - Bitte geben Sie die Daten ein:" />
+      <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#erstellen" prefHeight="70.0" prefWidth="239.0" text="Angebot erstellen" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Angebot - Bitte geben Sie die Daten ein:" />
       <TextField layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField layoutX="455.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />

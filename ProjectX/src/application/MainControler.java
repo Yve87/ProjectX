@@ -10,6 +10,8 @@ public class MainControler {
 	
 	Between_Window window;
 	Lieferschein_Between_Window window1;
+	Rechnung_Between_Window window2;
+	Angebot_Between_Window window3;
 	Stage primaryStage = new Stage();
 	
 	
@@ -19,19 +21,17 @@ public class MainControler {
 	}
 	
 	public void angebot_erstellen(){
-		AngebotSchreiben datei = new AngebotSchreiben();
-		datei.schreibeString("Neues Angebot");
+		window3 = new Angebot_Between_Window();
+		window3.start(primaryStage);
 	}
 	
 	public void rechnung_erstellen(){
-		Rechnungschreiben datei = new Rechnungschreiben();
-		datei.schreibeString("Neue Rechnung");
+		window2 = new Rechnung_Between_Window();
+		window2.start(primaryStage);
 	}
 	
 	public void leiferschein_erstellen(){
 		window1 = new Lieferschein_Between_Window();
 		window1.start(primaryStage);
-		Lieferscheinschreiben datei = new Lieferscheinschreiben();
-		datei.schreibeString("Neuer Lieferschein");
 	}
 }
