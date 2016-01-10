@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class MainControler {
 	
-	auswahl_window window;
+	Between_Window window;
 	Stage primaryStage = new Stage();
 	
 	
 	public void Datenbank_modifizieren(){
-		window = new auswahl_window();
+		window = new Between_Window();
 		window.start(primaryStage);
 	}
 	

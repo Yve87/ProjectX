@@ -10,7 +10,7 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: transparent;" styleClass="label-bright" stylesheets="@DarkTheme.css" text="copyright ProjectX" />
+            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: transparent;" styleClass="label-footer" stylesheets="@DarkTheme.css" text="copyright ProjectX" />
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
