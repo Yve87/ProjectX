@@ -9,6 +9,7 @@ import java.io.IOException;
 public class MainControler {
 	
 	Between_Window window;
+	Lieferschein_Between_Window window1;
 	Stage primaryStage = new Stage();
 	
 	
@@ -28,6 +29,8 @@ public class MainControler {
 	}
 	
 	public void leiferschein_erstellen(){
+		window1 = new Lieferschein_Between_Window();
+		window1.start(primaryStage);
 		Lieferscheinschreiben datei = new Lieferscheinschreiben();
 		datei.schreibeString("Neuer Lieferschein");
 	}
