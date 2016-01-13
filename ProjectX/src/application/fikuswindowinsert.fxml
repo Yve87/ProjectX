@@ -12,5 +12,7 @@
       <TextField fx:id="id" layoutX="58.0" layoutY="374.0" promptText="ID" />
       <Button layoutX="133.0" layoutY="436.0" mnemonicParsing="false" text="Update" />
       <Button layoutX="221.0" layoutY="436.0" mnemonicParsing="false" text="Delete" />
+      <ListView prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="304.0" layoutY="436.0" mnemonicParsing="false" text="Search" />
    </children>
 </Pane>

@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.perkus_insert_controller">
    <children>
-      <Button fx:id="button" layoutX="398.0" layoutY="429.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
+      <Button fx:id="button" layoutX="401.0" layoutY="250.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
       <TextField fx:id="id" layoutX="37.0" layoutY="250.0" promptText="ID" />
       <TextField fx:id="name" layoutX="37.0" layoutY="276.0" promptText="Name" />
       <TextField fx:id="vorname" layoutX="37.0" layoutY="302.0" promptText="Vorname" />
@@ -21,5 +21,8 @@
       <TextField fx:id="email" layoutX="200.0" layoutY="328.0" promptText="Email" />
       <TextField fx:id="position" layoutX="200.0" layoutY="354.0" promptText="Postion" />
       <TextField fx:id="fikusid" layoutX="200.0" layoutY="380.0" promptText="Fikus ID" />
+      <Button layoutX="398.0" layoutY="289.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="400.0" layoutY="328.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="399.0" layoutY="373.0" mnemonicParsing="false" text="Search" />
    </children>
 </Pane>

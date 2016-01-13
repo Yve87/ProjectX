@@ -7,12 +7,15 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.produkt_insert_controler">
    <children>
-      <Button layoutX="388.0" layoutY="430.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
+      <Button layoutX="37.0" layoutY="428.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
       <TextField fx:id="produktid" layoutX="37.0" layoutY="324.0" promptText="ProduktID" />
       <TextField fx:id="name" layoutX="37.0" layoutY="350.0" promptText="Name" />
       <TextField fx:id="versionsnummer" layoutX="37.0" layoutY="376.0" promptText="Versionsnummer" />
       <TextField fx:id="listenpreis" layoutX="200.0" layoutY="324.0" promptText="Listenpreis" />
       <TextField fx:id="systemvoraussetzung" layoutX="200.0" layoutY="350.0" promptText="Systemvoraussetzungen" />
       <TextField fx:id="produktcol" layoutX="200.0" layoutY="376.0" promptText="Produktcol" />
+      <Button layoutX="119.0" layoutY="428.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="221.0" layoutY="428.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="319.0" layoutY="428.0" mnemonicParsing="false" text="Search" />
    </children>
 </Pane>
