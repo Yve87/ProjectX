@@ -50,7 +50,7 @@ public class fikus_insert_controller {
 		nametext = name.getText();
 		ids = Integer.parseInt(idtext);
 		java.sql.Connection conn = Connection.connecten();
-		String query = "DELETE Fikus(idFikus,Name)" + "values('"+ ids +"','"+ nametext +"')";
+		String query = "DELETE FROM Fikus WHERE idFikus = '"+ ids +"' AND Name = '"+ nametext +"'";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Fikus is completed.");
