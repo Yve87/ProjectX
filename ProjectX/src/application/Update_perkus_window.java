@@ -13,7 +13,7 @@ public class Update_perkus_window {
 		try {
 
 			Parent root = FXMLLoader.load(getClass().getResource("perkuswindowupdate.fxml"));
-			scene = new Scene(root, 500,500);
+			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Update");

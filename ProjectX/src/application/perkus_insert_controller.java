@@ -68,4 +68,16 @@ public class perkus_insert_controller {
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Perkus is completed.");
 	}
+	
+	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		idtext = fikusid.getText();
+		nametext = name.getText();
+		ids = Integer.parseInt(idtext);
+		java.sql.Connection conn = Connection.connecten();
+		String query = "UPDATE Perkus SET Name = '"+ nametext +"' WHERE Fikus_idFikus IN ("+ids+")";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("Update at Table Perkus is completed.");
+	}
 }

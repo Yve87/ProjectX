@@ -29,4 +29,30 @@ public class fikus_insert_controller {
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Fikus is completed.");
 	}
+	
+	@FXML
+	public void updaten() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		idtext = id.getText();
+		nametext = name.getText();
+		ids = Integer.parseInt(idtext);
+		java.sql.Connection conn = Connection.connecten();
+		String query = "UPDATE Fikus SET Name = '"+ nametext +"' WHERE idFikus IN ("+ids+")";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("Update at Table Fikus is completed.");
+	}
+	
+	@FXML
+	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		idtext = id.getText();
+		nametext = name.getText();
+		ids = Integer.parseInt(idtext);
+		java.sql.Connection conn = Connection.connecten();
+		String query = "DELETE Fikus(idFikus,Name)" + "values('"+ ids +"','"+ nametext +"')";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Delete at Table Fikus is completed.");
+	}
 }

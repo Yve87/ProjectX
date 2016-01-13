@@ -18,7 +18,7 @@ public class Rechnung_Between_Window extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Rechnung_Between_Window.fxml"));
-			scene = new Scene(root, 500,500);
+			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Choose the Table");
