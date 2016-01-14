@@ -86,11 +86,11 @@ public class standort_insert_controler {
 		perid = Integer.parseInt(perkusid.getText());
 		
 		java.sql.Connection conn = Connection.connecten();
-		String query = "DELETE FROM Standort WHERE idStandort = '"+ids+"' AND name = "
-				+ "'"+nametext+"' AND strasse = '"+strassetext+"' AND hausnummer ='"+hntext+"'"
-						+ "AND plz ='"+plztext+"' AND pls ='"+plstext+"' AND postfachnummer ='"
-				+pfntext+"' AND tel ='"+telefon+"' AND Fikus_idFikus ='"+fid+"' AND Perkus_idPerkus ='"
-						+perid+"')";
+		String query = "DELETE FROM Standort WHERE idStandort = '"+ids+"' AND Name = "
+				+ "'"+nametext+"' AND Strasse = '"+strassetext+"' AND Hausnummer ='"+hntext+"'"
+						+ " AND PLZ ='"+plztext+"' AND PLS ='"+plstext+"' AND Postfachnummer ='"
+				+pfntext+"' AND Telefon ='"+telefon+"' AND Fikus_idFikus ='"+fid+"' AND Perkus_idPerkus ='"
+						+perid+"'";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Standort is completed.");

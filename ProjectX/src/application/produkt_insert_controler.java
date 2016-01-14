@@ -68,7 +68,7 @@ public class produkt_insert_controler {
 		java.sql.Connection conn = Connection.connecten();
 		String query = "DELETE FROM Produkt WHERE idProdukt = '"+ ids +"' AND Name = '"+ nametext +"'"
 				+ "AND Versionsnummer = '"+ versionsnummertext +"' AND Listenpreis = '"+ listenpreistext +"'"
-						+ "AND Systemvorraussetzung = '"+ systemvoraussetzungtext+"' AND Produktcol"
+						+ "AND Systemvoraussetzung = '"+ systemvoraussetzungtext+"' AND Produktcol"
 								+ "= '"+ produktcoltext+"'";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
