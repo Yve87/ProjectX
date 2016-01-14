@@ -21,8 +21,8 @@
       <TextField fx:id="email" layoutX="200.0" layoutY="328.0" promptText="Email" />
       <TextField fx:id="position" layoutX="200.0" layoutY="354.0" promptText="Postion" />
       <TextField fx:id="fikusid" layoutX="200.0" layoutY="380.0" promptText="Fikus ID" />
-      <Button layoutX="398.0" layoutY="289.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="400.0" layoutY="328.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="398.0" layoutY="289.0" mnemonicParsing="false" onAction="#update" text="Update" />
+      <Button layoutX="400.0" layoutY="328.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <Button layoutX="399.0" layoutY="373.0" mnemonicParsing="false" text="Search" />
    </children>
 </Pane>

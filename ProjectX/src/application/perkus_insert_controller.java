@@ -80,4 +80,34 @@ public class perkus_insert_controller {
 		stmt.executeUpdate();
 		System.out.println("Update at Table Perkus is completed.");
 	}
+	
+	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		idtext = id.getText();
+		nametext = name.getText();
+		anredetext = anrede.getText();
+		vornametext = vorname.getText();
+		titeltext = titel.getText();
+		abteilungtext = abteilung.getText();
+		gebaeudenummertext = gebaeudenummer.getText();
+		zimmernummertext = zimmernummer.getText();
+		teltext = tel.getText();
+		faxtext = fax.getText();
+		emailtext = email.getText();
+		positiontext = position.getText();
+		idtextf = fikusid.getText();
+		
+		ids = Integer.parseInt(idtext);
+		idfikus = Integer.parseInt(idtextf);
+		java.sql.Connection conn = Connection.connecten();
+		String query = "DELETE FROM Perkus WHERE idPerkus ='"+ids+"' AND Name ='"+nametext+"' AND"
+				+ " AND Anrede ='"+anredetext+"' AND Vorname ='"+vornametext+"' AND Titel ='"
+				+titeltext+"' AND Abteilung ='"+abteilungtext+"' AND Gebaeudenummer ='"+gebaeudenummertext+"'"
+						+ " AND Zimmernummer ="+zimmernummertext+"' AND Tel ='"+teltext+"' AND "
+								+ " Fax ='"+faxtext+"' Email ='"+emailtext+"' AND Position ='"+positiontext+"'"
+										+ " AND Fikus_idFikus ='"+idfikus+"')";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Delete at Table Perkus is completed.");
+	}
 }

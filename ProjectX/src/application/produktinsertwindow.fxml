@@ -14,8 +14,8 @@
       <TextField fx:id="listenpreis" layoutX="200.0" layoutY="324.0" promptText="Listenpreis" />
       <TextField fx:id="systemvoraussetzung" layoutX="200.0" layoutY="350.0" promptText="Systemvoraussetzungen" />
       <TextField fx:id="produktcol" layoutX="200.0" layoutY="376.0" promptText="Produktcol" />
-      <Button layoutX="119.0" layoutY="428.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="221.0" layoutY="428.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="119.0" layoutY="428.0" mnemonicParsing="false" onAction="#update" text="Update" />
+      <Button layoutX="221.0" layoutY="428.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <Button layoutX="319.0" layoutY="428.0" mnemonicParsing="false" text="Search" />
    </children>
 </Pane>

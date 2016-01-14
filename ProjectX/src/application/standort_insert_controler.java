@@ -51,5 +51,49 @@ public class standort_insert_controler {
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Standort is completed.");
 	}
+	
+	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		ids = Integer.parseInt(standortid.getText());
+		nametext = name.getText();
+		strassetext = strasse.getText();
+		hntext = Integer.parseInt(hausnummer.getText());
+		plztext = Integer.parseInt(plz.getText());
+		plstext = Integer.parseInt(pls.getText());
+		pfntext = Integer.parseInt(postfachnummer.getText());
+		tel = Integer.parseInt(telefon.getText());
+		fid = Integer.parseInt(fikusid.getText());
+		perid = Integer.parseInt(perkusid.getText());
+
+		java.sql.Connection conn = Connection.connecten();
+		String query = "UPDATE Standort SET Name = '"+ nametext +"' WHERE idStandort IN ("+ids+")";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Update at Table Perkus is completed.");
+	}
+	
+	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		ids = Integer.parseInt(standortid.getText());
+		nametext = name.getText();
+		strassetext = strasse.getText();
+		hntext = Integer.parseInt(hausnummer.getText());
+		plztext = Integer.parseInt(plz.getText());
+		plstext = Integer.parseInt(pls.getText());
+		pfntext = Integer.parseInt(postfachnummer.getText());
+		tel = Integer.parseInt(telefon.getText());
+		fid = Integer.parseInt(fikusid.getText());
+		perid = Integer.parseInt(perkusid.getText());
+		
+		java.sql.Connection conn = Connection.connecten();
+		String query = "DELETE FROM Standort WHERE idStandort = '"+ids+"' AND name = "
+				+ "'"+nametext+"' AND strasse = '"+strassetext+"' AND hausnummer ='"+hntext+"'"
+						+ "AND plz ='"+plztext+"' AND pls ='"+plstext+"' AND postfachnummer ='"
+				+pfntext+"' AND tel ='"+telefon+"' AND Fikus_idFikus ='"+fid+"' AND Perkus_idPerkus ='"
+						+perid+"')";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Delete at Table Standort is completed.");
+	}
 
 }

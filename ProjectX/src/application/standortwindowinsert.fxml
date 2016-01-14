@@ -18,8 +18,8 @@
       <TextField fx:id="telefon" layoutX="198.0" layoutY="328.0" promptText="Telefon" />
       <TextField fx:id="fikusid" layoutX="198.0" layoutY="354.0" promptText="FikusID" />
       <TextField fx:id="perkusid" layoutX="198.0" layoutY="380.0" promptText="PerkusID" />
-      <Button layoutX="386.0" layoutY="341.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="388.0" layoutY="380.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="386.0" layoutY="341.0" mnemonicParsing="false" onAction="#update" text="Update" />
+      <Button layoutX="388.0" layoutY="380.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <Button layoutX="388.0" layoutY="419.0" mnemonicParsing="false" text="Search" />
    </children>
 </Pane>

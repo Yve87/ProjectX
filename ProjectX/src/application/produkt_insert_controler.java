@@ -39,5 +39,40 @@ public class produkt_insert_controler {
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Produkt is completed.");
 	}
+	
+	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		ids = Integer.parseInt(produktid.getText());
+		nametext = name.getText();
+		versionsnummertext = Integer.parseInt(versionsnummer.getText());
+		listenpreistext = Integer.parseInt(listenpreis.getText());
+		systemvoraussetzungtext = systemvoraussetzung.getText();
+		produktcoltext = produktcol.getText();
+
+		java.sql.Connection conn = Connection.connecten();
+		String query = "UPDATE Produkt SET Name = '"+ nametext +"' WHERE idProdukt IN ("+ids+")";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Update at Table Produkt is completed.");
+	}
+	
+	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		ids = Integer.parseInt(produktid.getText());
+		nametext = name.getText();
+		versionsnummertext = Integer.parseInt(versionsnummer.getText());
+		listenpreistext = Integer.parseInt(listenpreis.getText());
+		systemvoraussetzungtext = systemvoraussetzung.getText();
+		produktcoltext = produktcol.getText();
+
+		java.sql.Connection conn = Connection.connecten();
+		String query = "DELETE FROM Produkt WHERE idProdukt = '"+ ids +"' AND Name = '"+ nametext +"'"
+				+ "AND Versionsnummer = '"+ versionsnummertext +"' AND Listenpreis = '"+ listenpreistext +"'"
+						+ "AND Systemvorraussetzung = '"+ systemvoraussetzungtext+"' AND Produktcol"
+								+ "= '"+ produktcoltext+"'";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Delete at Table Produkt is completed.");
+	}
 
 }
