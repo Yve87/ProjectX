@@ -1,6 +1,0 @@
-1. Angebot: 
- ID: 0
- Name: null
- Price:0.0
- New Price: 0.0
- Rabatt: 0.0
