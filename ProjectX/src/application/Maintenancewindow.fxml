@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.maintenance_controler">
+   <children>
+      <TextField fx:id="maintenanceid" layoutX="192.0" layoutY="397.0" promptText="Maintenanceid" />
+      <TextField fx:id="betrag" layoutX="192.0" layoutY="449.0" promptText="Betrag" />
+      <Button layoutX="192.0" layoutY="512.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
+      <Button layoutX="285.0" layoutY="512.0" mnemonicParsing="false" onAction="#update" text="Update" />
+      <Button layoutX="380.0" layoutY="512.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button layoutX="476.0" layoutY="512.0" mnemonicParsing="false" onAction="#search" text="Search" />
+      <DatePicker fx:id="gueltigkeit" layoutX="192.0" layoutY="423.0" prefHeight="26.0" prefWidth="163.0" promptText="gueltigkeit" />
+   </children>
+</Pane>

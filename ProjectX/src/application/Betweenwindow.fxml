@@ -23,9 +23,9 @@
       </Button>
       <Button layoutX="820.0" layoutY="313.0" mnemonicParsing="false" onAction="#standort_button" prefHeight="100.0" prefWidth="252.0" text="Standort" />
       <Button layoutX="130.0" layoutY="463.0" mnemonicParsing="false" onAction="#produkt_button" prefHeight="100.0" prefWidth="252.0" text="Produkt" />
-      <Button layoutX="474.0" layoutY="463.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Button (Leasing?)" />
+      <Button layoutX="474.0" layoutY="463.0" mnemonicParsing="false" onAction="#lizenz_button" prefHeight="100.0" prefWidth="252.0" text="Lizenz" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="820.0" layoutY="463.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="252.0" text="Button (Maintenance?)" />
+      <Button layoutX="820.0" layoutY="463.0" mnemonicParsing="false" onAction="#maintenance_button" prefHeight="100.0" prefWidth="252.0" text="Maintenance" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Welche Tabelle möchten Sie modifizieren?" />
    </children>
 </AnchorPane>

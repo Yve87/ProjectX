@@ -1,8 +1,11 @@
 package application;
 
-import java.util.Date;
-
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.sql.Date;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class Lizenz_controller {
@@ -12,12 +15,12 @@ public class Lizenz_controller {
 	@FXML private TextField status;
 	@FXML private TextField maintenanceinfo;
 	@FXML private TextField rabatt;
-	@FXML private TextField verkaufsdatum;
-	@FXML private TextField ablaufdatum;
+	@FXML private DatePicker verkaufsdatum;
+	@FXML private DatePicker ablaufdatum;
 	@FXML private TextField lizenzcol;
 	@FXML private TextField maintenanceid;
 	@FXML private TextField produktid;
-	@FXML private TextField pekusid;
+	@FXML private TextField perkusid;
 	@FXML private TextField installationsschlüssel;
 	int idlizenztext;
 	String typtext;
@@ -32,15 +35,77 @@ public class Lizenz_controller {
 	int produktidtext;
 	int perkusidtext;
 	
-	public void insert(){
+	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
+		verkaufsdatumtext = Date.valueOf(verkaufsdatum.getValue());
+		ablaufdatumtext = Date.valueOf(ablaufdatum.getValue());
+		idlizenztext = Integer.parseInt(idlizenz.getText());
+		lizenzcoltext = lizenzcol.getText();
+		typtext = typ.getText();
+		installationsschlüsseltext = installationsschlüssel.getText();
+		statustext = Integer.parseInt(status.getText());
+		maintenanceinfotext = Integer.parseInt(maintenanceinfo.getText());
+		rabatttext = Integer.parseInt(rabatt.getText());
+		maintenanceidtext = Integer.parseInt(maintenanceid.getText());
+		produktidtext = Integer.parseInt(produktid.getText());
+		perkusidtext = Integer.parseInt(perkusid.getText());
+
+		java.sql.Connection conn = Connection.connecten();
+		String query = "INSERT INTO Lizenz(idLizenz,Typ,Installationsschluessel,Status,MaintenanceInfo,"
+				+ "Rabatt,Verkaufsdatum,Ablaufdatum,Lizenzcol,Maintenance_idMaintenance,"
+				+ "Produkt_idProdukt"+ ",Perkus_idPerkus)"
+				+ "values('"+idlizenztext+"','"+typtext+"','"+installationsschlüsseltext+"'"
+						+ ",'"+statustext+"','"+maintenanceinfotext+"','"+rabatttext+"','"
+				+verkaufsdatumtext+"','"+ablaufdatumtext+"','"+lizenzcoltext+"','"+maintenanceidtext+"'"
+						+ ",'"+produktidtext+"','"+perkusidtext+"')";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Insert into Table Lizenz is completed.");
 	}
 	
-	public void update(){
+	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
+		idlizenztext = Integer.parseInt(idlizenz.getText());
+		lizenzcoltext = lizenzcol.getText();
+		typtext = typ.getText();
+		installationsschlüsseltext = installationsschlüssel.getText();
+		statustext = Integer.parseInt(status.getText());
+		maintenanceinfotext = Integer.parseInt(maintenanceinfo.getText());
+		rabatttext = Integer.parseInt(rabatt.getText());
+		maintenanceidtext = Integer.parseInt(maintenanceid.getText());
+		produktidtext = Integer.parseInt(produktid.getText());
+		perkusidtext = Integer.parseInt(perkusid.getText());
+		
+		java.sql.Connection conn = Connection.connecten();
+		String query = "UPDATE Lizenz SET Typ = '"+ typtext +"' WHERE idLizenz IN ("+idlizenztext+")";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Update at Table Lizenz is completed.");
 	}
 	
-	public void delete(){
+	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
+		idlizenztext = Integer.parseInt(idlizenz.getText());
+		lizenzcoltext = lizenzcol.getText();
+		typtext = typ.getText();
+		installationsschlüsseltext = installationsschlüssel.getText();
+		statustext = Integer.parseInt(status.getText());
+		maintenanceinfotext = Integer.parseInt(maintenanceinfo.getText());
+		rabatttext = Integer.parseInt(rabatt.getText());
+		maintenanceidtext = Integer.parseInt(maintenanceid.getText());
+		produktidtext = Integer.parseInt(produktid.getText());
+		perkusidtext = Integer.parseInt(perkusid.getText());
+		
+		java.sql.Connection conn = Connection.connecten();
+		String query = "DELETE FROM Lizenz WHERE idLizenz = '"+ idlizenztext +"' AND Typ ='"+typtext+"'"
+				+ " AND Installationsschlüssel ='"+installationsschlüsseltext+"'"
+				+ " AND Status ='"+statustext+"' AND Maintenance-Info'"+maintenanceinfotext+"'"
+				+ " AND Rabatt ='"+rabatttext+"' AND Verkaufsdatum ='"+verkaufsdatumtext+"'"
+				+ " AND Ablaufdatum ='"+ablaufdatumtext+"' AND Lizenzcol ='"+lizenzcoltext+"'"
+				+ " AND Maintenance_idMaintenance ='"+maintenanceidtext+"'"
+				+ " AND Produkt_idProdukt ='"+produktidtext+"' AND Perus_idPerkus ='"+perkusidtext+"')";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Update at Table Lizenz is completed.");
 	}
 }

@@ -30,14 +30,7 @@ public class Rechnung_Between_Controller {
 	int lieferantennummer;
 	int bestellnummer;
 	int lieferscheinid;
-	Rechnung_Between_Window window;
-	Stage primaryStage = new Stage();
-	
-	public void Rechnung_Eingabe(){
-		window = new Rechnung_Between_Window();
-		window.start(primaryStage);
-	}
-	
+
 	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();

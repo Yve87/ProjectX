@@ -18,19 +18,13 @@ public class Angebot_Between_Controller {
 	@FXML private TextField standortname;
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
-	Angebot_Between_Window window;
-	Stage primaryStage = new Stage();
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
 	String standortnametext;
 	int preistext;
 	int rabatttext;
-	
-	public void Angebot_Eingabe(){
-		window = new Angebot_Between_Window();
-		window.start(primaryStage);
-	}
+
 	
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		fikusnametext = fikusname.getText();
