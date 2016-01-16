@@ -3,11 +3,12 @@ package application;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -19,6 +20,7 @@ public class Rechnung_Between_Controller {
 	@FXML private TextField standortname;
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
+	@FXML private DatePicker rechnungdatum;
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
@@ -32,6 +34,8 @@ public class Rechnung_Between_Controller {
 	int lieferscheinid;
 
 	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
 		fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
