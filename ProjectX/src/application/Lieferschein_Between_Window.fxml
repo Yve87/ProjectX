@@ -21,8 +21,8 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Lieferschein - Bitte geben Sie die Daten ein:" />
       <TextField layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" />
       <TextField layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="455.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="455.0" layoutY="488.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="444.0" layoutY="330.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="444.0" layoutY="412.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
    </children>
 </AnchorPane>

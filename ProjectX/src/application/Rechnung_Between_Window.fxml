@@ -17,7 +17,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="803.0" layoutY="560.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="70.0" prefWidth="239.0" text="Rechnung erstellen" />
+      <Button layoutX="815.0" layoutY="529.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="70.0" prefWidth="239.0" text="Rechnung erstellen" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Rechnung - Bitte geben Sie die Daten ein:" />
       <TextField fx:id="fikusname" layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="perkusname" layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
@@ -25,6 +25,23 @@
       <TextField fx:id="rabatt" layoutX="455.0" layoutY="488.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="standortname" layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="455.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <DatePicker layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" />
+    
+    <!-- <children>
+        <Label layoutX="43.0" layoutY="37.0" styleClass="header" promptTest="Rechnungsdatum" text="Date Picker" styleClass="date-picker" stylesheets="@DarkTheme.css" >
+        </Label>
+        <Label layoutX="43.0" layoutY="165.0" styleClass="item-title" text="normal" textFill="WHITE">
+        </Label>
+        <Label layoutX="300" layoutY="165.0" styleClass="item-title" text="disabled">
+
+        </Label>
+        <DatePicker layoutX="43.0" layoutY="187.0">
+
+        </DatePicker>
+        <DatePicker disable="true" layoutX="300.0" layoutY="188.0">
+
+        </DatePicker>
+    </children>-->
+     <DatePicker layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" styleClass="date-picker" stylesheets="@DarkTheme.css" />
    </children>
+ 
 </AnchorPane>
