@@ -7,7 +7,7 @@
 }
 
 .label-footer {
-    -fx-font-size: 14pt;
+    -fx-font-size: 17pt;
     -fx-font-weight: bold;
     -fx-font-family: "Segoe UI Light";
     -fx-text-fill: white;
@@ -29,7 +29,6 @@
     -fx-text-fill: #ff3300;
     -fx-opacity: 1;
 }
-
 
 .table-view {
     -fx-base: #1d1d1d;
