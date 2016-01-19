@@ -11,7 +11,7 @@ public class BetweenControler {
 	public void fikus_button(){
 
 			Stage primarystage = new Stage();
-			Insert_fikus_window window = new Insert_fikus_window();
+			Fikus_Window window = new Fikus_Window();
 			window.start(primarystage);
 	}
 		

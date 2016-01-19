@@ -14,18 +14,13 @@ public class fikus_insert_controller {
 	@FXML private TextField name; 
 	@FXML private TextField id;
 	@FXML private Button button;
-	@FXML private ListView listview;
 	private String idtext;
 	private String nametext;
 	private int ids;
 	
-	
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
-		
-		listview = new ListView<String>();
-		ObservableList<String> items =FXCollections.observableArrayList("ids","nametext");
-		listview.setItems(items);
+
 		idtext = id.getText();
 		nametext = name.getText();
 		ids = Integer.parseInt(idtext);

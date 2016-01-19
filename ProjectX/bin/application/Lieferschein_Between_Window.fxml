@@ -11,7 +11,7 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: transparent;" styleClass="label-footer" stylesheets="@DarkTheme.css" text="copyright ProjectX" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
@@ -19,6 +19,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#lieferschein_erstellen" prefHeight="70.0" prefWidth="239.0" text="Lieferschein erstellen" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Lieferschein - Bitte geben Sie die Daten ein:" />
+<<<<<<< HEAD
       <TextField fx:id="fikusname" layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" />
       <TextField fx:id="perkusname" layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="preis" layoutX="455.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
@@ -26,5 +27,12 @@
       <TextField fx:id="standortname" layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="455.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <DatePicker fx:id="lieferdatum" layoutX="775.0" layoutY="330.0" prefHeight="36.0" prefWidth="233.0" promptText="Lieferdatum" />
+=======
+      <TextField layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" />
+      <TextField layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="444.0" layoutY="330.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="444.0" layoutY="412.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
+>>>>>>> origin/master
    </children>
 </AnchorPane>
