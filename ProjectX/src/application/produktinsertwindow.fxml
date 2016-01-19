@@ -5,17 +5,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.produkt_insert_controler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.produkt_insert_controler">
    <children>
-      <Button layoutX="37.0" layoutY="428.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
-      <TextField fx:id="produktid" layoutX="37.0" layoutY="324.0" promptText="ProduktID" />
-      <TextField fx:id="name" layoutX="37.0" layoutY="350.0" promptText="Name" />
-      <TextField fx:id="versionsnummer" layoutX="37.0" layoutY="376.0" promptText="Versionsnummer" />
-      <TextField fx:id="listenpreis" layoutX="200.0" layoutY="324.0" promptText="Listenpreis" />
-      <TextField fx:id="systemvoraussetzung" layoutX="200.0" layoutY="350.0" promptText="Systemvoraussetzungen" />
-      <TextField fx:id="produktcol" layoutX="200.0" layoutY="376.0" promptText="Produktcol" />
-      <Button layoutX="119.0" layoutY="428.0" mnemonicParsing="false" onAction="#update" text="Update" />
-      <Button layoutX="221.0" layoutY="428.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
-      <Button layoutX="319.0" layoutY="428.0" mnemonicParsing="false" text="Search" />
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Button layoutX="621.0" layoutY="563.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Produkt - Bitte geben Sie die Daten ein:" />
+      <TextField fx:id="name" layoutX="130.0" layoutY="310.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <TextField fx:id="systemvoraussetzung" layoutX="412.0" layoutY="360.0" promptText="Systemvoraussetzungen" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="versionsnummer" layoutX="130.0" layoutY="360.0" promptText="Versionsnimmer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="listenpreis" layoutX="412.0" layoutY="310.0" promptText="Listenpreis" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktid" layoutX="130.0" layoutY="412.0" promptText="ProduktID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktcol" layoutX="412.0" layoutY="412.0" promptText="Produktcol" styleClass="text-field" stylesheets="@DarkTheme.css" />
    </children>
-</Pane>
+</AnchorPane>
