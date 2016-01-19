@@ -21,10 +21,10 @@ public class Lizenz_controller {
 	@FXML private TextField maintenanceid;
 	@FXML private TextField produktid;
 	@FXML private TextField perkusid;
-	@FXML private TextField installationsschlüssel;
+	@FXML private TextField installationsschluessel;
 	int idlizenztext;
 	String typtext;
-	String installationsschlüsseltext;
+	String installationsschluesseltext;
 	int statustext;
 	int maintenanceinfotext;
 	int rabatttext;
@@ -42,7 +42,7 @@ public class Lizenz_controller {
 		idlizenztext = Integer.parseInt(idlizenz.getText());
 		lizenzcoltext = lizenzcol.getText();
 		typtext = typ.getText();
-		installationsschlüsseltext = installationsschlüssel.getText();
+		installationsschluesseltext = installationsschluessel.getText();
 		statustext = Integer.parseInt(status.getText());
 		maintenanceinfotext = Integer.parseInt(maintenanceinfo.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
@@ -54,7 +54,7 @@ public class Lizenz_controller {
 		String query = "INSERT INTO Lizenz(idLizenz,Typ,Installationsschluessel,Status,MaintenanceInfo,"
 				+ "Rabatt,Verkaufsdatum,Ablaufdatum,Lizenzcol,Maintenance_idMaintenance,"
 				+ "Produkt_idProdukt"+ ",Perkus_idPerkus)"
-				+ "values('"+idlizenztext+"','"+typtext+"','"+installationsschlüsseltext+"'"
+				+ "values('"+idlizenztext+"','"+typtext+"','"+installationsschluesseltext+"'"
 						+ ",'"+statustext+"','"+maintenanceinfotext+"','"+rabatttext+"','"
 				+verkaufsdatumtext+"','"+ablaufdatumtext+"','"+lizenzcoltext+"','"+maintenanceidtext+"'"
 						+ ",'"+produktidtext+"','"+perkusidtext+"')";
@@ -68,7 +68,7 @@ public class Lizenz_controller {
 		idlizenztext = Integer.parseInt(idlizenz.getText());
 		lizenzcoltext = lizenzcol.getText();
 		typtext = typ.getText();
-		installationsschlüsseltext = installationsschlüssel.getText();
+		installationsschluesseltext = installationsschluessel.getText();
 		statustext = Integer.parseInt(status.getText());
 		maintenanceinfotext = Integer.parseInt(maintenanceinfo.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
@@ -88,7 +88,7 @@ public class Lizenz_controller {
 		idlizenztext = Integer.parseInt(idlizenz.getText());
 		lizenzcoltext = lizenzcol.getText();
 		typtext = typ.getText();
-		installationsschlüsseltext = installationsschlüssel.getText();
+		installationsschluesseltext = installationsschluessel.getText();
 		statustext = Integer.parseInt(status.getText());
 		maintenanceinfotext = Integer.parseInt(maintenanceinfo.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
@@ -98,7 +98,7 @@ public class Lizenz_controller {
 		
 		java.sql.Connection conn = Connection.connecten();
 		String query = "DELETE FROM Lizenz WHERE idLizenz = '"+ idlizenztext +"' AND Typ ='"+typtext+"'"
-				+ " AND Installationsschlüssel ='"+installationsschlüsseltext+"'"
+				+ " AND Installationsschlüssel ='"+installationsschluesseltext+"'"
 				+ " AND Status ='"+statustext+"' AND Maintenance-Info'"+maintenanceinfotext+"'"
 				+ " AND Rabatt ='"+rabatttext+"' AND Verkaufsdatum ='"+verkaufsdatumtext+"'"
 				+ " AND Ablaufdatum ='"+ablaufdatumtext+"' AND Lizenzcol ='"+lizenzcoltext+"'"
