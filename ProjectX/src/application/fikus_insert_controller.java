@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import application.Connection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -12,6 +14,7 @@ public class fikus_insert_controller {
 	@FXML private TextField name; 
 	@FXML private TextField id;
 	@FXML private Button button;
+	@FXML private ListView listview;
 	private String idtext;
 	private String nametext;
 	private int ids;
@@ -20,6 +23,9 @@ public class fikus_insert_controller {
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
+		listview = new ListView<String>();
+		ObservableList<String> items =FXCollections.observableArrayList("ids","nametext");
+		listview.setItems(items);
 		idtext = id.getText();
 		nametext = name.getText();
 		ids = Integer.parseInt(idtext);

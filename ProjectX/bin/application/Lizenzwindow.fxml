@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Lizenz_controller">
+   <children>
+      <TextField fx:id="typ" layoutX="292.0" layoutY="439.0" promptText="typ" />
+      <TextField fx:id="status" layoutX="292.0" layoutY="465.0" promptText="Status" />
+      <TextField fx:id="installationsschlüssel" layoutX="292.0" layoutY="517.0" promptText="installationsschlüssel" />
+      <TextField fx:id="maintenanceinfo" layoutX="292.0" layoutY="543.0" promptText="maintenanceinfo" />
+      <TextField fx:id="idlizenz" layoutX="292.0" layoutY="413.0" promptText="ID" />
+      <TextField fx:id="maintenanceid" layoutX="455.0" layoutY="413.0" promptText="maintenanceid" />
+      <TextField fx:id="lizenzcol" layoutX="455.0" layoutY="439.0" promptText="lizenzcol" />
+      <TextField fx:id="rabatt" layoutX="455.0" layoutY="465.0" promptText="rabatt" />
+      <TextField fx:id="perkusid" layoutX="455.0" layoutY="491.0" promptText="perkusid" />
+      <TextField fx:id="produktid" layoutX="455.0" layoutY="517.0" promptText="produktid" />
+      <Button layoutX="292.0" layoutY="612.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
+      <Button layoutX="389.0" layoutY="612.0" mnemonicParsing="false" onAction="#update" text="Update" />
+      <Button layoutX="493.0" layoutY="612.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button layoutX="600.0" layoutY="612.0" mnemonicParsing="false" text="Search" />
+      <DatePicker fx:id="ablaufdatum" layoutX="292.0" layoutY="491.0" prefHeight="26.0" prefWidth="163.0" promptText="Ablaufdatum" />
+      <DatePicker fx:id="verkaufsdatum" layoutX="454.0" layoutY="543.0" prefHeight="26.0" prefWidth="163.0" promptText="Verkaufsdatum" />
+   </children>
+</Pane>

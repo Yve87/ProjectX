@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.lieferschein_controler">
+   <children>
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: transparent;" styleClass="label-footer" stylesheets="@DarkTheme.css" text="copyright ProjectX" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#erstellen" prefHeight="70.0" prefWidth="239.0" text="Angebot erstellen" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Angebot - Bitte geben Sie die Daten ein:" />
+      <TextField layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="455.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="455.0" layoutY="488.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField layoutX="455.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
+   </children>
+</AnchorPane>
