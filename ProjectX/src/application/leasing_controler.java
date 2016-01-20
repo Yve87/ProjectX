@@ -53,7 +53,7 @@ public class leasing_controler {
 	}
 	
 	// update
-	public void update() {
+	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
 	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
 	    Rechnungsbetrag = Float.parseFloat(RechnungsbetragFXML.getText());
@@ -62,6 +62,9 @@ public class leasing_controler {
 	    Datum_naechster_Rechnungsbetrag = Date.valueOf(Datum_naechster_RechnungsbetragFXML.getValue());
 	    Nutzerzahl = Integer.parseInt(NutzerzahlFXML.getText());
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
+	    
+	    java.sql.Connection conn = Connection.connecten();
+	 //   String query = "UPDATE Leasing "
 	}
 	
 }
