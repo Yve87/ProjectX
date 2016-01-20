@@ -1,5 +1,44 @@
 package application;
 
-public class leasing_controler {
+import java.sql.Date;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
+public class leasing_controler {
+	
+	// FXML fields
+	@FXML private DatePicker VertragsdatumFXML;
+	@FXML private DatePicker RechnungsdatumFXML;
+	@FXML private TextField RechnungsbetragFXML;
+	@FXML private TextField Anzahl_RechnungenFXML;
+	@FXML private DatePicker Datum_letzter_RechnungsbetragFXML;
+	@FXML private DatePicker Datum_naechster_RechnungsbetragFXML;
+	@FXML private TextField NutzerzahlFXML;
+	@FXML private TextField idLeasingFXML;
+	
+	// attributes of class leasing_controller
+	Date Vertragsdatum;
+	Date Rechnungsdatum;
+	float Rechnungsbetrag;
+	int Anzahl_Rechnungen;
+	Date Datum_letzter_Rechnungsbetrag;
+	Date Datum_naechster_Rechnungsbetrag;
+	int Nutzerzahl;
+	int idLeasing;
+	
+	// insert values
+	public void insert() {
+		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
+	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
+	    Rechnungsbetrag = Float.parseFloat(RechnungsbetragFXML.getText());
+	    Anzahl_Rechnungen = Integer.parseInt(Anzahl_RechnungenFXML.getText());
+	    Datum_letzter_Rechnungsbetrag = Date.valueOf(Datum_letzter_RechnungsbetragFXML.getValue());
+	    Datum_naechster_Rechnungsbetrag = Date.valueOf(Datum_naechster_RechnungsbetragFXML.getValue());
+	    Nutzerzahl = Integer.parseInt(NutzerzahlFXML.getText());
+	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
+	    
+	}
+	
 }
