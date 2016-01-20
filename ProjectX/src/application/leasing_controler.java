@@ -1,6 +1,8 @@
 package application;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -28,8 +30,9 @@ public class leasing_controler {
 	int Nutzerzahl;
 	int idLeasing;
 	
-	// insert values
-	public void insert() {
+	// insert
+	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {	
+		// get values entered in the FXML window in the attributes 
 		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
 	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
 	    Rechnungsbetrag = Float.parseFloat(RechnungsbetragFXML.getText());
@@ -38,7 +41,27 @@ public class leasing_controler {
 	    Datum_naechster_Rechnungsbetrag = Date.valueOf(Datum_naechster_RechnungsbetragFXML.getValue());
 	    Nutzerzahl = Integer.parseInt(NutzerzahlFXML.getText());
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
+	   
+	    java.sql.Connection conn = Connection.connecten();	// connect database
+	    String query = "INSERT INTO Leasing(Vertragsdatum, Rechnungsdatum, Rechungsbetrag, Anzahl_Rechnungen,"
+	    		+ "Datum_letzter_Rechnungsbetrag, Datum_naechster_Rechnungsbetrag, Nutzerzahl, idLeasing)";
 	    
+	    // PreparedStatement for Connection and query
+	    PreparedStatement stmt = conn.prepareStatement(query);
+	    stmt.executeUpdate();			// execute preparedStatement
+	    System.out.println("New Insert into Table Leasing is completed");
+	}
+	
+	// update
+	public void update() {
+		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
+	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
+	    Rechnungsbetrag = Float.parseFloat(RechnungsbetragFXML.getText());
+	    Anzahl_Rechnungen = Integer.parseInt(Anzahl_RechnungenFXML.getText());
+	    Datum_letzter_Rechnungsbetrag = Date.valueOf(Datum_letzter_RechnungsbetragFXML.getValue());
+	    Datum_naechster_Rechnungsbetrag = Date.valueOf(Datum_naechster_RechnungsbetragFXML.getValue());
+	    Nutzerzahl = Integer.parseInt(NutzerzahlFXML.getText());
+	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
 	}
 	
 }
