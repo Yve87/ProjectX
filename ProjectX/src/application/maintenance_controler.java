@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class maintenance_controler {
@@ -18,6 +19,7 @@ public class maintenance_controler {
 	Date gueltigkeittext;
 	float betragtext;
 	LocalDate localdate;
+	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -43,5 +45,9 @@ public class maintenance_controler {
 	
 	public void search(){
 		
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }

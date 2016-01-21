@@ -5,23 +5,31 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Lizenz_controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Lizenz_controller">
    <children>
-      <TextField fx:id="typ" layoutX="292.0" layoutY="439.0" promptText="typ" />
-      <TextField fx:id="status" layoutX="292.0" layoutY="465.0" promptText="Status" />
-      <TextField fx:id="installationsschlüssel" layoutX="292.0" layoutY="517.0" promptText="installationsschlüssel" />
-      <TextField fx:id="maintenanceinfo" layoutX="292.0" layoutY="543.0" promptText="maintenanceinfo" />
-      <TextField fx:id="idlizenz" layoutX="292.0" layoutY="413.0" promptText="ID" />
-      <TextField fx:id="maintenanceid" layoutX="455.0" layoutY="413.0" promptText="maintenanceid" />
-      <TextField fx:id="lizenzcol" layoutX="455.0" layoutY="439.0" promptText="lizenzcol" />
-      <TextField fx:id="rabatt" layoutX="455.0" layoutY="465.0" promptText="rabatt" />
-      <TextField fx:id="perkusid" layoutX="455.0" layoutY="491.0" promptText="perkusid" />
-      <TextField fx:id="produktid" layoutX="455.0" layoutY="517.0" promptText="produktid" />
-      <Button layoutX="292.0" layoutY="612.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
-      <Button layoutX="389.0" layoutY="612.0" mnemonicParsing="false" onAction="#update" text="Update" />
-      <Button layoutX="493.0" layoutY="612.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
-      <Button layoutX="600.0" layoutY="612.0" mnemonicParsing="false" text="Search" />
-      <DatePicker fx:id="ablaufdatum" layoutX="292.0" layoutY="491.0" prefHeight="26.0" prefWidth="163.0" promptText="Ablaufdatum" />
-      <DatePicker fx:id="verkaufsdatum" layoutX="454.0" layoutY="543.0" prefHeight="26.0" prefWidth="163.0" promptText="Verkaufsdatum" />
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Button layoutX="621.0" layoutY="563.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Perkus - Bitte geben Sie die Daten ein:" />
+      <TextField fx:id="name" layoutX="130.0" layoutY="310.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="idlizenz" layoutX="691.0" layoutY="310.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <TextField fx:id="plz" layoutX="130.0" layoutY="462.0" promptText="PLZ" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="strasse" layoutX="130.0" layoutY="360.0" promptText="Straße" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="hausnummer" layoutX="130.0" layoutY="412.0" promptText="Hausnummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="fikusid" layoutX="691.0" layoutY="360.0" promptText="FikusID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="pls" layoutX="412.0" layoutY="310.0" promptText="PLS" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="tel" layoutX="412.0" layoutY="412.0" promptText="Telefon" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="perkusid" layoutX="691.0" layoutY="412.0" promptText="PerkusIF" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="postfachnummer" layoutX="412.0" layoutY="360.0" promptText="Postfachnummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="typ" layoutX="412.0" layoutY="462.0" promptText="Typ" styleClass="text-field" stylesheets="@DarkTheme.css" />
    </children>
-</Pane>
+</AnchorPane>

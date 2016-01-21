@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class standort_insert_controler {
@@ -28,6 +29,7 @@ public class standort_insert_controler {
 	private int tel;
 	private int fid;
 	private int perid;
+	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -94,6 +96,10 @@ public class standort_insert_controler {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Standort is completed.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 
 }

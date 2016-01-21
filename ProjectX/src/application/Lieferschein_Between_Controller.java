@@ -22,7 +22,6 @@ public class Lieferschein_Between_Controller {
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
 	@FXML private DatePicker lieferdatum;
-	@FXML private ListView<String> listview;
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
@@ -30,6 +29,7 @@ public class Lieferschein_Between_Controller {
 	int preistext;
 	int rabatttext;
 	Date lieferungsdatum;
+	ListView<Object> listview;
 	
 	public void lieferschein_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		fikusnametext = fikusname.getText();
@@ -67,5 +67,9 @@ public class Lieferschein_Between_Controller {
 				+rabatttext);
 		
 		System.out.println("New Lieferschein is ready.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }

@@ -1,5 +1,6 @@
 package application;
 
+import java.lang.reflect.AccessibleObject;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -17,6 +18,8 @@ public class fikus_insert_controller {
 	private String idtext;
 	private String nametext;
 	private int ids;
+	ListView<Object> listview;
+
 	
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -29,6 +32,7 @@ public class fikus_insert_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Fikus is completed.");
+		Fikus fikus = new Fikus(ids,nametext);
 	}
 	
 	@FXML
@@ -42,6 +46,7 @@ public class fikus_insert_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("Update at Table Fikus is completed.");
+		Fikus fikus = new Fikus(ids,nametext);
 	}
 	
 	@FXML
@@ -55,5 +60,9 @@ public class fikus_insert_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Fikus is completed.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }

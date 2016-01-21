@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.sql.Date;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class Lizenz_controller {
@@ -34,6 +35,7 @@ public class Lizenz_controller {
 	int maintenanceidtext;
 	int produktidtext;
 	int perkusidtext;
+	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -107,5 +109,9 @@ public class Lizenz_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Update at Table Lizenz is completed.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,6 +25,7 @@ public class Angebot_Between_Controller {
 	String standortnametext;
 	int preistext;
 	int rabatttext;
+	ListView<Object> listview;
 
 	
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -61,5 +63,9 @@ public class Angebot_Between_Controller {
 				+rabatttext);
 		
 		System.out.println("New Advertisement is ready.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }

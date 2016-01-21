@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -35,6 +36,7 @@ public class Rechnung_Between_Controller {
 	int lieferscheinid;
 	int vorgaengerrechnung;
 	int bezahlt;
+	ListView<Object> listview;
 	
 	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -85,5 +87,9 @@ public class Rechnung_Between_Controller {
 				+rabatttext);
 	
 		System.out.println("New Rechnung is ready.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }

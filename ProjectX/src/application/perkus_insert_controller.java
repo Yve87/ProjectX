@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class perkus_insert_controller {
@@ -38,6 +39,7 @@ public class perkus_insert_controller {
 	private String positiontext;
 	private int ids;
 	private int idfikus;
+	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -109,5 +111,9 @@ public class perkus_insert_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Perkus is completed.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
 	}
 }
