@@ -10,8 +10,8 @@ public class Fikus {
 	
 	
 	public Fikus(int id,String name){
-		this.name = new SimpleStringProperty (name);
 		this.id = new SimpleIntegerProperty(id);
+		this.name = new SimpleStringProperty(name);
 	}
 
 	public Integer getid(){

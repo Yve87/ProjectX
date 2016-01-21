@@ -1,45 +1,36 @@
 package application;
 
 import java.lang.reflect.AccessibleObject;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import application.Connection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class fikus_insert_controller {
+public class fikus_insert_controller implements Initializable{
 	
 	@FXML private TextField name; 
 	@FXML private TextField id;
 	@FXML private Button button;
 	private String idtext;
 	private String nametext;
-	private int ids;
+	private int ids = 1;
 	@FXML TableView<Fikus> tableview;
 	@FXML TableColumn<Fikus, Integer> first;
 	@FXML TableColumn<Fikus, String> second;
 	
 	
-	
-	public fikus_insert_controller(){
-		
-	}
-	public void listview(){
-		tableview = new TableView<Fikus>();
-		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
-		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		ObservableList<Fikus> data = FXCollections.observableArrayList();
-		data.add(new Fikus(23,"Nils"));
-		
-		tableview.setItems(data);
-	}
-	
-	
+	ObservableList<Fikus> data = FXCollections.observableArrayList(
+	new Fikus(ids, "Nils"),
+	new Fikus(ids,"Peter"));
 	
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -52,7 +43,6 @@ public class fikus_insert_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Fikus is completed.");
-		Fikus fikus = new Fikus(ids,nametext);
 	}
 	
 	@FXML
@@ -66,7 +56,6 @@ public class fikus_insert_controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("Update at Table Fikus is completed.");
-		Fikus fikus = new Fikus(ids,nametext);
 	}
 	
 	@FXML
@@ -83,6 +72,12 @@ public class fikus_insert_controller {
 	}
 	
 	public void show(){
-		tableview = new TableView<>();
+		
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
+		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+		tableview.setItems(data);
 	}
 }
