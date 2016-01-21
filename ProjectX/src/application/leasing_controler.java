@@ -1,37 +1,16 @@
 package application;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
-
-public class leasing_controler {
-
-	ListView<Object> listview;
-	
-	
-	public void show(){
-		listview = new ListView<>();
-	}
-=======
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-=======
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-
->>>>>>> origin/master
-public class leasing_controler {
+public class leasing_controler{
 	
 	// FXML fields
 	@FXML private DatePicker VertragsdatumFXML;
@@ -52,6 +31,8 @@ public class leasing_controler {
 	Date Datum_naechster_Rechnungsbetrag;
 	int Nutzerzahl;
 	int idLeasing;
+	
+	ListView<Object> listview;
 	
 	// insert
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {	
@@ -90,8 +71,8 @@ public class leasing_controler {
 	 //   String query = "UPDATE Leasing "
 	}
 	
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+	
+	public void show(){
+		listview = new ListView<>();
+	}
 }
