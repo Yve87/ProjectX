@@ -1,6 +1,7 @@
 package application;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.scene.control.ListView;
 
 public class leasing_controler {
@@ -20,6 +21,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
+=======
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
+>>>>>>> origin/master
 public class leasing_controler {
 	
 	// FXML fields
@@ -79,5 +90,8 @@ public class leasing_controler {
 	 //   String query = "UPDATE Leasing "
 	}
 	
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 }
