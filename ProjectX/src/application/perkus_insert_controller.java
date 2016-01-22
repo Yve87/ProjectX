@@ -1,14 +1,18 @@
 package application;
 
+import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class perkus_insert_controller {
+public class perkus_insert_controller implements Initializable{
 	
 	@FXML private TextField id;
 	@FXML private TextField name;
@@ -115,5 +119,21 @@ public class perkus_insert_controller {
 	
 	public void show(){
 		listview = new ListView<>();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		java.sql.Connection conn;
+		try {
+			conn = Connection.connecten();
+			String query = "SELECT * FROM Perkus";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+			
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

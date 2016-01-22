@@ -3,6 +3,7 @@ package application;
 import java.lang.reflect.AccessibleObject;
 import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -22,15 +23,16 @@ public class fikus_insert_controller implements Initializable{
 	@FXML private Button button;
 	private String idtext;
 	private String nametext;
-	private int ids = 1;
+	private int ids;
 	@FXML TableView<Fikus> tableview;
 	@FXML TableColumn<Fikus, Integer> first;
 	@FXML TableColumn<Fikus, String> second;
+	ArrayList<Fikus> list;
 	
 	
 	ObservableList<Fikus> data = FXCollections.observableArrayList(
-	new Fikus(ids, "Nils"),
-	new Fikus(ids,"Peter"));
+	new Fikus(23, "Nils"),
+	new Fikus(154,"Peter"));
 	
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -76,6 +78,27 @@ public class fikus_insert_controller implements Initializable{
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		list = new ArrayList<>();
+		try {
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Fikus";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+			list = (ArrayList<Fikus>) set;
+			data.addAll(list);
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);

@@ -1,16 +1,20 @@
 package application;
 
+import java.net.URL;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class maintenance_controler {
+public class maintenance_controler implements Initializable{
 	
 	@FXML TextField maintenanceid;
 	@FXML DatePicker gueltigkeit;
@@ -49,5 +53,21 @@ public class maintenance_controler {
 	
 	public void show(){
 		listview = new ListView<>();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		java.sql.Connection conn;
+		try {
+			conn = Connection.connecten();
+			String query = "SELECT * FROM Maintenance";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+			
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

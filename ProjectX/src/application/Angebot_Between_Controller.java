@@ -1,17 +1,21 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Angebot_Between_Controller {
+public class Angebot_Between_Controller implements Initializable{
 	
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
@@ -67,5 +71,30 @@ public class Angebot_Between_Controller {
 	
 	public void show(){
 		listview = new ListView<>();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		java.sql.Connection conn;
+		try {
+			conn = Connection.connecten();
+			String query = "SELECT * FROM Angebot";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 	}
 }

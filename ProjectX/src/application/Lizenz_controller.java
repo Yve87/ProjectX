@@ -1,15 +1,19 @@
 package application;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
+import java.net.URL;
 import java.sql.Date;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class Lizenz_controller {
+public class Lizenz_controller implements Initializable{
 
 	@FXML private TextField idlizenz;
 	@FXML private TextField typ;
@@ -113,5 +117,21 @@ public class Lizenz_controller {
 	
 	public void show(){
 		listview = new ListView<>();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		java.sql.Connection conn;
+		try {
+			conn = Connection.connecten();
+			String query = "SELECT * FROM Lizenz";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+			
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
