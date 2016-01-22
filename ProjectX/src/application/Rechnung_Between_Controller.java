@@ -34,7 +34,6 @@ public class Rechnung_Between_Controller implements Initializable{
 	int rabatttext;
 	int rechnungsid;
 	Date rechnungsdatum;
-	int lieferantennummer;
 	int bestellnummer;
 	int lieferscheinid;
 	int vorgaengerrechnung;
@@ -61,7 +60,7 @@ public class Rechnung_Between_Controller implements Initializable{
 		String query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorgängerrechnung,"
 				+ "Bezahlt,Betrag,Lieferantennummer,Bestellnummer,Lieferschein_idLieferschein)"
 				+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+vorgaengerrechnung+"',"
-				+ "'"+bezahlt+"','"+preistext+"','"+lieferantennummer+"','"
+				+ "'"+bezahlt+"','"+preistext+"','"
 				+ ""+bestellnummer+"','"+lieferscheinid+"')";
 		String query8 = "SELECT * FROM Rechnung WHERE idRechnung";
 

@@ -12,7 +12,6 @@ public class Rechnung {
 	int rabatt;
 	int rechnungsid;
 	Date rechnungsdatum;
-	int lieferantennummer;
 	int bestellnummer;
 	int lieferscheinid;
 	int vorgaengerrechnung;
@@ -32,7 +31,6 @@ public class Rechnung {
 		this.rabatt = rabatt;
 		this.rechnungsid = rechnungsid;
 		this.rechnungsdatum = rechnungsdatum;
-		this.lieferantennummer = lieferantennummer;
 		this.bestellnummer = bestellnummer;
 		this.lieferscheinid = lieferscheinid;
 		this.vorgaengerrechnung = vorgaengerrechnung;
