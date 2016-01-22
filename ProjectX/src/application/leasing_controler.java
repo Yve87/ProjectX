@@ -81,7 +81,7 @@ public class leasing_controler{
 	    System.out.println("New UPDATE of Table Leasing is completed");
 	}
 	
-	public void delete () {
+	public void delete () throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
 	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
 	    Rechnungsbetrag = Float.parseFloat(RechnungsbetragFXML.getText());
@@ -92,7 +92,7 @@ public class leasing_controler{
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
 	    
 	    java.sql.Connection conn = Connection.connecten();
-	    String query = "DELETE from Leasing "
+	    String query = "DELETE from Leasing ";
 	}
 	
 
