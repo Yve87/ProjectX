@@ -10,10 +10,12 @@ import javafx.stage.Stage;
 public class Fikus_Window {
 
 	Scene scene;
+	fikus_insert_controller fi;
 	
 	public void start(Stage primaryStage) {
 		try {
 
+			
 			Parent root = FXMLLoader.load(getClass().getResource("fikuswindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

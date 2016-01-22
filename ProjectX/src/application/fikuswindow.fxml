@@ -19,8 +19,14 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Perkus - Bitte geben Sie die Daten ein:" />
       <TextField fx:id="name" layoutX="130.0" layoutY="330.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="id" layoutX="130.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Search" />
       <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <TableView fx:id="tableview" layoutX="897.0" prefHeight="281.0" prefWidth="297.0">
+        <columns>
+          <TableColumn fx:id="first" prefWidth="112.0" text="ID" />
+          <TableColumn fx:id="second" prefWidth="180.0" text="Fikus" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

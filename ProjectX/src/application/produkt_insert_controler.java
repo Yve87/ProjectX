@@ -1,12 +1,17 @@
 package application;
 
+import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class produkt_insert_controler {
+public class produkt_insert_controler implements Initializable{
 	
 	@FXML private TextField produktid;
 	@FXML private TextField name;
@@ -20,6 +25,7 @@ public class produkt_insert_controler {
 	private int listenpreistext;
 	private String systemvoraussetzungtext;
 	private String produktcoltext;
+	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -73,6 +79,26 @@ public class produkt_insert_controler {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Produkt is completed.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		java.sql.Connection conn;
+		try {
+			conn = Connection.connecten();
+			String query = "SELECT * FROM Produkt";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+			
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

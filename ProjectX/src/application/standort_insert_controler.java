@@ -1,12 +1,17 @@
 package application;
 
+import java.net.URL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class standort_insert_controler {
+public class standort_insert_controler implements Initializable{
 	
 	@FXML private TextField standortid;
 	@FXML private TextField name;
@@ -28,6 +33,7 @@ public class standort_insert_controler {
 	private int tel;
 	private int fid;
 	private int perid;
+	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -94,6 +100,26 @@ public class standort_insert_controler {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Standort is completed.");
+	}
+	
+	public void show(){
+		listview = new ListView<>();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		java.sql.Connection conn;
+		try {
+			conn = Connection.connecten();
+			String query = "SELECT * FROM Standort";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();
+			
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
