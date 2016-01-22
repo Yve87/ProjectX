@@ -76,10 +76,9 @@ public class fikus_insert_controller implements Initializable{
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			while(set.next()){
-				list.add((Fikus) set.getObject(1));
-			}
+			stmt.executeQuery();
+			System.out.println(stmt);
+			
 			data.addAll(list);
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -98,7 +97,6 @@ public class fikus_insert_controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		list = new ArrayList<>();
-		
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);
