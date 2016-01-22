@@ -1,28 +1,32 @@
-package application;
+<?xml version="1.0" encoding="UTF-8"?>
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.stage.Stage;
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-public class leasing_window {
-
-	Scene scene;
-	
-	public void start(Stage primaryStage) {
-		try {
-
-			Parent root = FXMLLoader.load(getClass().getResource("fikuswindow.fxml"));
-			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Fikus");
-			primaryStage.show();
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-}
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.leasing_controler">
+   <children>
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Button layoutX="621.0" layoutY="563.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Leasing - Bitte geben Sie die Daten ein:" />
+      <TextField fx:id="RechnungsbetragFXML" layoutX="130.0" layoutY="310.0" promptText="Rechnungsbetrag" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <TextField fx:id="idLeasingFXML" layoutX="130.0" layoutY="462.0" promptText="Leasing ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="Anzahl_RechnungenFXML" layoutX="130.0" layoutY="360.0" promptText="Anzahl Rechnungen" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="NutzerzahlFXML" layoutX="130.0" layoutY="412.0" promptText="Nutzerzahl" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <DatePicker layoutX="451.0" layoutY="310.0" promptText="Vertragsdatum" />
+      <DatePicker fx:id="RechnungsdatumFXML" layoutX="451.0" layoutY="412.0" promptText="Rechnungsdatum" />
+      <DatePicker fx:id="Datum_letzter_RechnungsbetragFXML" layoutX="778.0" layoutY="310.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum letzter Rechnungsbetrag" />
+      <DatePicker fx:id="Datum_naechster_RechnungsbetragFXML" layoutX="778.0" layoutY="412.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum nächster Rechnungsbetrag" />
+   </children>
+</AnchorPane>

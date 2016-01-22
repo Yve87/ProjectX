@@ -44,8 +44,10 @@ public class leasing_controler {
 	   
 	    java.sql.Connection conn = Connection.connecten();	// connect database
 	    String query = "INSERT INTO Leasing(Vertragsdatum, Rechnungsdatum, Rechungsbetrag, Anzahl_Rechnungen,"
-	    		+ "Datum_letzter_Rechnungsbetrag, Datum_naechster_Rechnungsbetrag, Nutzerzahl, idLeasing)";
-	    
+	    		+ "Datum_letzter_Rechnungsbetrag, Datum_naechster_Rechnungsbetrag, Nutzerzahl, idLeasing)"
+	    		+ "values('"+Vertragsdatum+"', '"+Rechnungsdatum+"', '"+Rechnungsbetrag+"'," // get values
+	    		+ "'"+Anzahl_Rechnungen+"', '"+Datum_letzter_Rechnungsbetrag+"', "
+	    		+ "'"+Datum_naechster_Rechnungsbetrag+"', '"+Nutzerzahl+"', '"+idLeasing+"' ";
 	    // PreparedStatement for Connection and query
 	    PreparedStatement stmt = conn.prepareStatement(query);
 	    stmt.executeUpdate();			// execute preparedStatement
@@ -65,6 +67,10 @@ public class leasing_controler {
 	    
 	    java.sql.Connection conn = Connection.connecten();
 	 //   String query = "UPDATE Leasing "
+	}
+	
+	public void delete () {
+		
 	}
 	
 }

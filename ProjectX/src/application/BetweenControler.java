@@ -49,4 +49,10 @@ public class BetweenControler {
 			maintenance_window window = new maintenance_window();
 			window.start(primaryStage);
 	}
+	
+	public void leasing_button() {
+		Stage primaryStage = new Stage();
+		leasing_window window = new leasing_window();
+		window.start(primaryStage);
+	}
 }
