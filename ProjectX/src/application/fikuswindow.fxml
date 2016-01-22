@@ -24,8 +24,8 @@
       <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <TableView fx:id="tableview" layoutX="897.0" prefHeight="281.0" prefWidth="297.0">
         <columns>
-          <TableColumn fx:id="first" prefWidth="112.0" text="ID" />
-          <TableColumn fx:id="second" prefWidth="180.0" text="Fikus" />
+          <TableColumn fx:id="first" prefWidth="135.0" text="ID" />
+          <TableColumn fx:id="second" prefWidth="157.0" text="Fikus" />
         </columns>
       </TableView>
    </children>

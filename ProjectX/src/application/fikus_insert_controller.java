@@ -28,6 +28,8 @@ public class fikus_insert_controller implements Initializable{
 	@FXML TableColumn<Fikus, Integer> first;
 	@FXML TableColumn<Fikus, String> second;
 	ArrayList<Fikus> list;
+	int i = 1;
+	int j = 2;
 	
 	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	
@@ -71,13 +73,17 @@ public class fikus_insert_controller implements Initializable{
 	}
 	
 	public void show(){
-		
+		list = new ArrayList<>();
 		try {
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
-			stmt.executeQuery();
-			System.out.println(stmt);
+			ResultSet set = stmt.executeQuery();
+			
+			while(set.next()){
+				Fikus fikus = new Fikus(set.getInt(i),set.getString(j));
+				list.add(fikus);
+			}
 			
 			data.addAll(list);
 		} catch (InstantiationException e) {
@@ -96,8 +102,7 @@ public class fikus_insert_controller implements Initializable{
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		list = new ArrayList<>();
-		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
+		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);
 	}
