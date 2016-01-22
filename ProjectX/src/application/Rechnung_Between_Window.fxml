@@ -25,9 +25,7 @@
       <TextField fx:id="rabatt" layoutX="455.0" layoutY="488.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="standortname" layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="455.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
-<<<<<<< HEAD
       <DatePicker fx:id="rechnungdatum" layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" />
-=======
     
     <!-- <children>
         <Label layoutX="43.0" layoutY="37.0" styleClass="header" promptTest="Rechnungsdatum" text="Date Picker" styleClass="date-picker" stylesheets="@DarkTheme.css" >
@@ -45,7 +43,6 @@
         </DatePicker>
     </children>-->
      <DatePicker layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" styleClass="date-picker" stylesheets="@DarkTheme.css" />
->>>>>>> origin/master
    </children>
  
 </AnchorPane>

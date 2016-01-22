@@ -50,7 +50,7 @@ public class Rechnung_Between_Controller implements Initializable{
 		standortnametext = standortname.getText();
 		preistext = Integer.parseInt(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
-		
+		rechnungsid = 1;
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Name FROM Fikus WHERE Name='"+fikusnametext+"'";
 		String query2 = "SELECT * FROM Produkt WHERE Name='"+produktnametext+"'";
