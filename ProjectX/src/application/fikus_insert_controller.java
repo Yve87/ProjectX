@@ -29,10 +29,7 @@ public class fikus_insert_controller implements Initializable{
 	@FXML TableColumn<Fikus, String> second;
 	ArrayList<Fikus> list;
 	
-	
-	ObservableList<Fikus> data = FXCollections.observableArrayList(
-	new Fikus(23, "Nils"),
-	new Fikus(154,"Peter"));
+	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -75,16 +72,14 @@ public class fikus_insert_controller implements Initializable{
 	
 	public void show(){
 		
-	}
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		list = new ArrayList<>();
 		try {
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();
-			list = (ArrayList<Fikus>) set;
+			while(set.next()){
+				list.add((Fikus) set.getObject(1));
+			}
 			data.addAll(list);
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -99,6 +94,11 @@ public class fikus_insert_controller implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		list = new ArrayList<>();
+		
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);
