@@ -55,7 +55,7 @@ public class leasing_controler{
 	    // PreparedStatement for Connection and query
 	    PreparedStatement stmt = conn.prepareStatement(query);
 	    stmt.executeUpdate();			// execute preparedStatement
-	    System.out.println("New Insert into Table Leasing is completed");
+	    System.out.println("New INSERT into Table Leasing is completed");
 	}
 	
 	// update
@@ -70,11 +70,29 @@ public class leasing_controler{
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
 	    
 	    java.sql.Connection conn = Connection.connecten();
-	    String query = "UPDATE Leasing SET '"+VertragsdatumFXML+"' WHERE '"+Vertragsdatum+"' ";
+	    String query = "UPDATE Leasing SET Vertragsdatum = '"+VertragsdatumFXML+"', Rechnungsdatum = "
+	    		+ " '"+RechnungsbetragFXML+"', Rechungsbetrag = '"+RechnungsbetragFXML+"', "
+	    				+ " Anzahl_Rechnungen = '"+Anzahl_RechnungenFXML+"', Datum_letzter_Rechnungsbetrag ="
+	    				+ " '"+Datum_letzter_RechnungsbetragFXML+"', Datum_naechster_Rechnungsbetrag =  "
+	    				+ " '"+Datum_naechster_RechnungsbetragFXML+"', Nutzerzahl = '"+NutzerzahlFXML+"',"
+	    				+ " idLeasing = '"+idLeasingFXML+"' WHERE idLeasing IN ("+idLeasing+")";
+	    PreparedStatement stmt = conn.prepareStatement(query);
+	    stmt.executeUpdate();			// execute preparedStatement
+	    System.out.println("New UPDATE of Table Leasing is completed");
 	}
 	
 	public void delete () {
-		
+		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
+	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
+	    Rechnungsbetrag = Float.parseFloat(RechnungsbetragFXML.getText());
+	    Anzahl_Rechnungen = Integer.parseInt(Anzahl_RechnungenFXML.getText());
+	    Datum_letzter_Rechnungsbetrag = Date.valueOf(Datum_letzter_RechnungsbetragFXML.getValue());
+	    Datum_naechster_Rechnungsbetrag = Date.valueOf(Datum_naechster_RechnungsbetragFXML.getValue());
+	    Nutzerzahl = Integer.parseInt(NutzerzahlFXML.getText());
+	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
+	    
+	    java.sql.Connection conn = Connection.connecten();
+	    String query = "DELETE from Leasing "
 	}
 	
 
