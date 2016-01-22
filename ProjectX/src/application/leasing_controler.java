@@ -70,7 +70,7 @@ public class leasing_controler{
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
 	    
 	    java.sql.Connection conn = Connection.connecten();
-	 //   String query = "UPDATE Leasing "
+	    String query = "UPDATE Leasing SET '"+VertragsdatumFXML+"' WHERE '"+Vertragsdatum+"' ";
 	}
 	
 	public void delete () {

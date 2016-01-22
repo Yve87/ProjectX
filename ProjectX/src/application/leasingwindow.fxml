@@ -24,7 +24,7 @@
       <TextField fx:id="idLeasingFXML" layoutX="130.0" layoutY="462.0" promptText="Leasing ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="Anzahl_RechnungenFXML" layoutX="130.0" layoutY="360.0" promptText="Anzahl Rechnungen" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="NutzerzahlFXML" layoutX="130.0" layoutY="412.0" promptText="Nutzerzahl" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <DatePicker layoutX="451.0" layoutY="310.0" promptText="Vertragsdatum" />
+      <DatePicker fx:id="VertragsdatumFXML" layoutX="451.0" layoutY="310.0" promptText="Vertragsdatum" />
       <DatePicker fx:id="RechnungsdatumFXML" layoutX="451.0" layoutY="412.0" promptText="Rechnungsdatum" />
       <DatePicker fx:id="Datum_letzter_RechnungsbetragFXML" layoutX="778.0" layoutY="310.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum letzter Rechnungsbetrag" />
       <DatePicker fx:id="Datum_naechster_RechnungsbetragFXML" layoutX="778.0" layoutY="412.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum nächster Rechnungsbetrag" />
