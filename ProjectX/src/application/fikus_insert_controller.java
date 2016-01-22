@@ -25,11 +25,11 @@ public class fikus_insert_controller implements Initializable{
 	private String nametext;
 	private int ids;
 	@FXML TableView<Fikus> tableview;
-	@FXML TableColumn<Fikus, Integer> first;
+	@FXML TableColumn<Fikus, String> first;
 	@FXML TableColumn<Fikus, String> second;
 	ArrayList<Fikus> list;
 	int i = 1;
-	int j = 2;
+	int j = 1;
 	
 	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	
@@ -84,8 +84,9 @@ public class fikus_insert_controller implements Initializable{
 				Fikus fikus = new Fikus(set.getInt(i),set.getString(j));
 				list.add(fikus);
 			}
-			
 			data.addAll(list);
+			System.out.println(list);
+			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,7 +103,7 @@ public class fikus_insert_controller implements Initializable{
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
+		first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);
 	}
