@@ -25,14 +25,20 @@ public class fikus_insert_controller implements Initializable{
 	private String idtext;
 	private String nametext;
 	private int ids;
+<<<<<<< HEAD
 	@FXML TableView<ObservableList<Fikus>> table;
 	@FXML TableColumn<Fikus, Integer> idColumn;
 	@FXML TableColumn<Fikus, String> nameColumn;
+=======
+	@FXML TableView<Fikus> tableview;
+	@FXML TableColumn<Fikus, String> first;
+	@FXML TableColumn<Fikus, String> second;
+>>>>>>> origin/master
 	ArrayList<Fikus> list;
 	ArrayList<Integer> listInt;
 	Fikus fikus;
 	int i = 1;
-	int j = 2;
+	int j = 1;
 	
 	private ObservableList<ObservableList<Fikus>> data = FXCollections.observableArrayList();
 	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
@@ -113,9 +119,14 @@ public class fikus_insert_controller implements Initializable{
 				//data.add(fikus);
 				k++;
 			}
+<<<<<<< HEAD
 
 
 			
+=======
+			data.addAll(list);
+			System.out.println(list);
+>>>>>>> origin/master
 			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -133,6 +144,7 @@ public class fikus_insert_controller implements Initializable{
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+<<<<<<< HEAD
 		//first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		//second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		//first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
@@ -141,5 +153,10 @@ public class fikus_insert_controller implements Initializable{
 		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		table.setItems(data);
+=======
+		first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
+		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+		tableview.setItems(data);
+>>>>>>> origin/master
 	}
 }
