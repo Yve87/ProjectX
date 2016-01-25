@@ -14,7 +14,6 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
       <Button layoutX="130.0" layoutY="313.0" mnemonicParsing="false" onAction="#fikus_button" prefHeight="100.0" prefWidth="235.0" stylesheets="@DarkTheme.css" text="Firmenkunden" />
       <Button layoutX="402.0" layoutY="313.0" mnemonicParsing="false" onAction="#perkus_button" prefHeight="100.0" prefWidth="235.0" stylesheets="@DarkTheme.css" text="Personenkunden">
          <font>
@@ -28,5 +27,6 @@
       <Button layoutX="668.0" layoutY="463.0" mnemonicParsing="false" onAction="#maintenance_button" prefHeight="100.0" prefWidth="235.0" text="Maintenance" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Welche Tabelle möchten Sie modifizieren?" />
       <Button layoutX="924.0" layoutY="463.0" mnemonicParsing="false" onAction="#leasing_button" prefHeight="100.0" prefWidth="235.0" text="Leasing" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
    </children>
 </AnchorPane>
