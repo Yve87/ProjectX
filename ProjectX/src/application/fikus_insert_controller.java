@@ -25,15 +25,13 @@ public class fikus_insert_controller implements Initializable{
 	private String idtext;
 	private String nametext;
 	private int ids;
-<<<<<<< HEAD
 	@FXML TableView<ObservableList<Fikus>> table;
 	@FXML TableColumn<Fikus, Integer> idColumn;
 	@FXML TableColumn<Fikus, String> nameColumn;
-=======
+
 	@FXML TableView<Fikus> tableview;
 	@FXML TableColumn<Fikus, Integer> first;
 	@FXML TableColumn<Fikus, String> second;
->>>>>>> origin/master
 	ArrayList<Fikus> list;
 	ArrayList<Integer> listInt;
 	Fikus fikus;
@@ -97,17 +95,15 @@ public class fikus_insert_controller implements Initializable{
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();	// SQL Befehl für Inhalt
+			ResultSet set = stmt.executeQuery();	// SQL Befehl fï¿½r Inhalt
 			
 			int k=0;
 			while(set.next()){
-<<<<<<< HEAD
 				Fikus fikus = new Fikus(set.getInt(i),set.getString(j));
 				//list.add(fikus);
 				data.add(fikus);
 			}
 			//data.addAll(list);
-=======
 				ObservableList<Fikus> list = FXCollections.observableArrayList();
 				int idFikus = set.getInt(i);
 				String nameFikus = set.getString(j);
@@ -126,15 +122,9 @@ public class fikus_insert_controller implements Initializable{
 				//data.add(fikus);
 				k++;
 			}
-<<<<<<< HEAD
-
-
-			
-=======
 			data.addAll(list);
 			System.out.println(list);
->>>>>>> origin/master
->>>>>>> origin/master
+
 			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -152,10 +142,8 @@ public class fikus_insert_controller implements Initializable{
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-<<<<<<< HEAD
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
-=======
-<<<<<<< HEAD
+
 		//first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		//second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		//first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
@@ -164,11 +152,8 @@ public class fikus_insert_controller implements Initializable{
 		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		table.setItems(data);
-=======
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
->>>>>>> origin/master
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);
->>>>>>> origin/master
 	}
 }
