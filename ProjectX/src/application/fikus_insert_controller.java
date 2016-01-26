@@ -25,14 +25,23 @@ public class fikus_insert_controller implements Initializable{
 	private String idtext;
 	private String nametext;
 	private int ids;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	@FXML TableView<ObservableList<Fikus>> table;
 	@FXML TableColumn<Fikus, Integer> idColumn;
 	@FXML TableColumn<Fikus, String> nameColumn;
 
 	@FXML TableView<Fikus> tableview;
-	@FXML TableColumn<Fikus, Integer> first;
+	@FXML TableColumn<Fikus, String> first;
 	@FXML TableColumn<Fikus, String> second;
+<<<<<<< HEAD
 	ArrayList<Fikus> list;
+=======
+
+	Fikus[] list;
+>>>>>>> origin/master
 	ArrayList<Integer> listInt;
 	Fikus fikus;
 	int i = 1;
@@ -82,19 +91,20 @@ public class fikus_insert_controller implements Initializable{
 	
 	@SuppressWarnings("unchecked")
 	public void show(){
-		list = new ArrayList<>();
+		//list = new ArrayList<>();
 		listInt = new ArrayList<>();
 		idColumn = new TableColumn<Fikus, Integer>("ID");
 		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("idColumn"));
 		nameColumn = new TableColumn<Fikus, String>("Name");
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		table = new TableView<ObservableList<Fikus>>();
-		data = table.getItems();	// initialize 
+		//data = table.getItems();	// initialize 
 		
 		try {
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
+<<<<<<< HEAD
 			ResultSet set = stmt.executeQuery();	// SQL Befehl fï¿½r Inhalt
 			
 			int k=0;
@@ -104,6 +114,11 @@ public class fikus_insert_controller implements Initializable{
 				data.add(fikus);
 			}
 			//data.addAll(list);
+=======
+			ResultSet set = stmt.executeQuery();	// SQL Befehl für Inhalt
+		
+			while(set.next()){
+>>>>>>> origin/master
 				ObservableList<Fikus> list = FXCollections.observableArrayList();
 				int idFikus = set.getInt(i);
 				String nameFikus = set.getString(j);
@@ -111,19 +126,16 @@ public class fikus_insert_controller implements Initializable{
 				System.out.println(fikus.getName());
 				System.out.println(fikus.getid());
 				list.add(fikus);
+				System.out.println(list.contains(fikus));
+				System.out.println("list: " +list);
 				data.addAll(list);
-				//listInt.add(set.getInt(i));
-				//list.add(fikus);
-				//System.out.println("List index: " + list.get(k));
-				//System.out.println("List Index: " + list.get(k+1));
-				//System.out.println("ID: " + fikus.getid());
-				//System.out.println("Name: " + fikus.getName());
-				//list.add(fikus);
-				//data.add(fikus);
-				k++;
 			}
+<<<<<<< HEAD
 			data.addAll(list);
 			System.out.println(list);
+=======
+			System.out.println("data: " +data.get(0));
+>>>>>>> origin/master
 
 			
 		} catch (InstantiationException e) {
@@ -142,18 +154,29 @@ public class fikus_insert_controller implements Initializable{
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+<<<<<<< HEAD
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 
 		//first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		//second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		//first.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		//tableview.setItems(dataInt);
+=======
+>>>>>>> origin/master
 	
 		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		table.setItems(data);
+<<<<<<< HEAD
 		first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 		second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		tableview.setItems(data);
+=======
+
+	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
+	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+	  //  tableview.setItems(data);
+
+>>>>>>> origin/master
 	}
 }

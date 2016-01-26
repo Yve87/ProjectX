@@ -1,32 +1,34 @@
-.label {
+/*.label {
     -fx-font-size: 36pt;
     -fx-font-weight: bold;
-    -fx-font-family: "Segoe UI Light";
     -fx-text-fill: white;
     -fx-opacity: 1;
-}
+}*/
 
 .label-footer {
     -fx-font-size: 17pt;
     -fx-font-weight: bold;
-    -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: white;
+    -fx-text-fill: #01579B;
     -fx-opacity: 1;
 }
 
 .label-header {
+	 -fx-text-fill   : #01579B;
+    -fx-font-weight : bold;
     -fx-font-size: 44pt;
-    -fx-font-weight: bold;
-    -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #ff3300;
     -fx-opacity: 1;
 }
 
 .label-bright {
-    -fx-font-size: 24pt;
-    -fx-font-weight: bold;
-    -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #ff3300;
+    -fx-font-size: 22pt;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.label-subheader {
+    -fx-font-size: 28pt;
+    -fx-font-weight: 200;
+    -fx-text-fill: white;
     -fx-opacity: 1;
 }
 
@@ -74,7 +76,7 @@
 
 .split-pane {
     -fx-padding: 1 0 0 0;
-    -fx-background-color: #ff3300;
+    -fx-background-color: #29B6F6; /*#B3E5FC;*/
 }
 
 .bottom-pane {
@@ -111,13 +113,13 @@
  * Author: Pedro Duque Vieira
  * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
  */
- 
+ /* 
 .button {
  -fx-background-color: 
         linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
         linear-gradient(#020b02, #3a3a3a),
-        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
-        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
+        linear-gradient(blue),
+        linear-gradient(blue);
     -fx-background-insets: 0,1,4,5;
     -fx-background-radius: 9,8,5,4;
     -fx-padding: 15 30 15 30;
@@ -142,19 +144,20 @@
     -fx-background-color: #1d1d1d;
     -fx-text-fill: white;
 }
-
+*/
 .background.hover {
 	-fx-background-color: #1d1d1d;
 }
 
 .background {
-    -fx-background-color: #1d1d1d;
+-fx-background-color : #1d1d1d;
 }
 
-.button.hover {
-	-fx-background-color: #ff3300;
-}
-
+.button {
+    -fx-background-color : #29B6F6;
+    -fx-text-fill        : #E1F5FE;
+    -fx-font-weight      : 900;
+    }
 
 /*******************************************************************************
  *                                                                             *
@@ -163,18 +166,18 @@
  ******************************************************************************/
 
 .date-picker {
-    -fx-background-color: #00d95a;
+    -fx-background-color: #29B6F6;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
 
 }
 
 .date-picker:hover {
-    -fx-background-color: #00d95a;		/* date picker hover green */
+    -fx-background-color: #29B6F6;		/* date picker hover green */
 }
 
 .date-picker:focused , .date-picker:focused:hover {
-    -fx-background-color: #00d95a;
+    -fx-background-color: #29B6F6;
 }
 
 .date-picker > .arrow-button > .arrow {
@@ -207,27 +210,27 @@
 
 .date-picker > .arrow-button
 {
-    -fx-background-color: #00d95a;		/* button green */
+    -fx-background-color: #29B6F6;		/* button green */
     -fx-background-insets: 0;
     -fx-background-radius: 0;
 }
 
 .date-picker:hover > .arrow-button {
-    -fx-background-color: #00d95a;		/* button hover green */
+    -fx-background-color: #29B6F6;		/* button hover green */
 }
 
 .date-picker:focused > .arrow-button{
-    -fx-background-color: #00d95a;		/* button focused green */	
+    -fx-background-color: #29B6F6;		/* button focused green */	
 }
 
 .date-picker > .arrow-button:hover {
-    -fx-background-color: #00d95a;		/* button hover green */
+    -fx-background-color: #29B6F6;		/* button hover green */
     -fx-background-insets: 3;
     -fx-background-radius: 0;
 }
 
 .date-picker > .arrow-button:pressed {
-    -fx-background-color: #00d95a;		/* button pressed green */
+    -fx-background-color: #29B6F6;		/* button pressed green */
     -fx-background-insets: 3;
     -fx-background-radius: 0;
 }
@@ -265,7 +268,7 @@
 
 .date-picker-popup > * > .spinner > .button:hover > .left-arrow,
 .date-picker-popup > * > .spinner > .button:hover > .right-arrow {
-    -fx-background-color: #00d95a;				/* green */
+    -fx-background-color: #29B6F6;				/* green */
 }
 
 .date-picker-popup > * > .spinner {
@@ -297,12 +300,12 @@
 }
 
 .date-picker-popup > * > .day-cell:hover {
-    -fx-background-color: #00d95a, #4a4a4a;		/* green */
+    -fx-background-color: #29B6F6, #4a4a4a;		/* green */
     -fx-background-insets: 0, 3;
 }
 
 .date-picker-popup > * > .day-cell.selected {
-    -fx-background-color: #00d95a, #4a4a4a;		/* green */
+    -fx-background-color: #29B6F6, #4a4a4a;		/* green */
     -fx-background-insets: 0, 3;
 }
 
@@ -314,6 +317,123 @@
 }
 
 .date-picker-popup > * > .today {
-    -fx-background-color: #ff3300;				/* today = red */
+    -fx-background-color: #01579B;				/* today = red */
     -fx-background-insets: 0;
 }
+
+
+/*******************************************************************************
+ *                                                                             *
+ * List Box                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.list-view {
+    -fx-background-color: #1d1d1d;
+    -fx-background-insets: 0;
+    -fx-padding: 1;
+}
+
+.list-view:focused {
+    -fx-background-color: #1d1d1d;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 1em 2em 1em 2em;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: #1d1d1d;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:focused {
+    -fx-background-color: #d3d3d3;
+}
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: #1d1d1d;
+}
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:focused {
+    -fx-background-color: #1d1d1d;
+    -fx-background-insets: 0;
+}
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:focused:selected {
+    -fx-background-color: -fx-background;
+    -fx-background-insets: 0;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell{
+    -fx-text-fill: white;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:focused{
+    -fx-text-fill: #1d1d1d;
+}
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:focused{
+    -fx-text-fill: white;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Push Button                                                                 *
+ *                                                                             *
+ ******************************************************************************/
+/*
+.button {
+    -fx-padding: 5 22 5 22;
+
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+
+    -fx-background-radius: 0;
+
+    -fx-background-color: #1d1d1d;
+
+     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #d8d8d8;
+}
+
+.button:hover{
+    -fx-background-color: #3a3a3a;
+}
+/*
+.button:pressed, .button:default:hover
+{
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+/*
+.button:focused
+{
+    -fx-border-color: white, white;
+    -fx-border-width: 1, 2;
+    -fx-border-style: solid, segments(1, 2);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button:disabled, .button:default:disabled
+{
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default
+{
+    -fx-background-color: #008287;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover{
+    -fx-background-color: #219297;
+}
+*/
