@@ -19,16 +19,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class fikus_insert_controller implements Initializable{
 	
-	@FXML private TextField name; 
-	@FXML private TextField id;
+	@FXML private TextField namef; 
+	@FXML private TextField idf;
 	@FXML private Button button;
 	private String idtext;
 	private String nametext;
 	private int ids;
 
 	@FXML TableView<Fikus> table;
-	@FXML TableColumn<Fikus, Integer> idColumn;
-	@FXML TableColumn<Fikus, String> nameColumn;
+	@FXML TableColumn<Fikus, Integer> id;
+	@FXML TableColumn<Fikus, String> name;
 
 	@FXML TableView<Fikus> tableview;
 	@FXML TableColumn<Fikus, String> first;
@@ -45,8 +45,8 @@ public class fikus_insert_controller implements Initializable{
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 
-		idtext = id.getText();
-		nametext = name.getText();
+		idtext = idf.getText();
+		nametext = namef.getText();
 		ids = Integer.parseInt(idtext);
 		java.sql.Connection conn = Connection.connecten();
 		String query = "INSERT INTO Fikus(idFikus,Name)" + "values('"+ ids +"','"+ nametext +"')";
@@ -58,8 +58,8 @@ public class fikus_insert_controller implements Initializable{
 	@FXML
 	public void updaten() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
-		idtext = id.getText();
-		nametext = name.getText();
+		idtext = idf.getText();
+		nametext = namef.getText();
 		ids = Integer.parseInt(idtext);
 		java.sql.Connection conn = Connection.connecten();
 		String query = "UPDATE Fikus SET Name = '"+ nametext +"' WHERE idFikus IN ("+ids+")";
@@ -71,8 +71,8 @@ public class fikus_insert_controller implements Initializable{
 	@FXML
 	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
-		idtext = id.getText();
-		nametext = name.getText();
+		idtext = idf.getText();
+		nametext = namef.getText();
 		ids = Integer.parseInt(idtext);
 		java.sql.Connection conn = Connection.connecten();
 		String query = "DELETE FROM Fikus WHERE idFikus = '"+ ids +"' AND Name = '"+ nametext +"'";
@@ -85,10 +85,10 @@ public class fikus_insert_controller implements Initializable{
 	public void show(){
 		//list = new ArrayList<>();
 		listInt = new ArrayList<>();
-		idColumn = new TableColumn<Fikus, Integer>("ID");
-		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("idColumn"));
-		nameColumn = new TableColumn<Fikus, String>("Name");
-		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+		id = new TableColumn<Fikus, Integer>("ID");
+		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("idColumn"));
+		name = new TableColumn<Fikus, String>("Name");
+		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		table = new TableView<Fikus>();
 		//data = table.getItems();	// initialize 
 		
@@ -98,7 +98,6 @@ public class fikus_insert_controller implements Initializable{
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			ObservableList<Fikus> list = FXCollections.observableArrayList();
-			
 			
 			while(set.next()){
 
@@ -111,6 +110,7 @@ public class fikus_insert_controller implements Initializable{
 				//System.out.println("list: " +list);
 			}
 			data.addAll(list);
+				
 
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -129,10 +129,9 @@ public class fikus_insert_controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
-		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
+		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 		table.setItems(data);
-		
 	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 	  //  tableview.setItems(data);

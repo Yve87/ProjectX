@@ -17,15 +17,15 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Button layoutX="621.0" layoutY="563.0" mnemonicParsing="false" onAction="#updaten" prefHeight="70.0" prefWidth="181.0" text="Update" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Perkus - Bitte geben Sie die Daten ein:" />
-      <TextField fx:id="name" layoutX="130.0" layoutY="330.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="id" layoutX="130.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="namef" layoutX="130.0" layoutY="330.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="idf" layoutX="130.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Search" />
       <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <TableView fx:id="table" layoutX="897.0" prefHeight="281.0" prefWidth="297.0">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="135.0" text="ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="157.0" text="Fikus" />
+          <TableColumn fx:id="id" prefWidth="135.0" text="ID" />
+          <TableColumn fx:id="name" prefWidth="157.0" text="Fikus" />
         </columns>
       </TableView>
    </children>
