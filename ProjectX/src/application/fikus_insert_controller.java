@@ -26,7 +26,7 @@ public class fikus_insert_controller implements Initializable{
 	private String nametext;
 	private int ids;
 
-	@FXML TableView<ObservableList<Fikus>> table;
+	@FXML TableView<Fikus> table;
 	@FXML TableColumn<Fikus, Integer> idColumn;
 	@FXML TableColumn<Fikus, String> nameColumn;
 
@@ -37,9 +37,9 @@ public class fikus_insert_controller implements Initializable{
 	ArrayList<Integer> listInt;
 	Fikus fikus;
 	int i = 1;
-	int j = 1;
+	int j = 2;
 	
-	private ObservableList<ObservableList<Fikus>> data = FXCollections.observableArrayList();
+	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
 	
 	@FXML
@@ -89,7 +89,7 @@ public class fikus_insert_controller implements Initializable{
 		idColumn.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("idColumn"));
 		nameColumn = new TableColumn<Fikus, String>("Name");
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		table = new TableView<ObservableList<Fikus>>();
+		table = new TableView<Fikus>();
 		//data = table.getItems();	// initialize 
 		
 		try {
@@ -97,25 +97,21 @@ public class fikus_insert_controller implements Initializable{
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
-		
+			ObservableList<Fikus> list = FXCollections.observableArrayList();
+			
+			
 			while(set.next()){
 
-				ObservableList<Fikus> list = FXCollections.observableArrayList();
 				int idFikus = set.getInt(i);
 				String nameFikus = set.getString(j);
 				fikus = new Fikus(idFikus, nameFikus);
 				System.out.println(fikus.getName());
 				System.out.println(fikus.getid());
 				list.add(fikus);
-				System.out.println(list.contains(fikus));
-				System.out.println("list: " +list);
-				data.addAll(list);
+				//System.out.println("list: " +list);
 			}
+			data.addAll(list);
 
-
-			System.out.println("data: " +data.get(0));
-
-			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
