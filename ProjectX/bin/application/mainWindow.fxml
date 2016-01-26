@@ -16,28 +16,31 @@
             <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
          </items>
       </SplitPane>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="456.0" layoutY="45.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="427.0" layoutY="123.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company software" />
-      <Button layoutX="130.0" layoutY="250.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neue Rechnung">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
-      <Button layoutX="474.0" layoutY="250.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neues Angebot">
+      <Button layoutX="819.0" layoutY="250.0" mnemonicParsing="false" onAction="#leiferschein_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neuer Lieferschein">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font></Button>
-      <Button layoutX="819.0" layoutY="250.0" mnemonicParsing="false" onAction="#leiferschein_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neuer Lieferschein">
+      <Button layoutX="130.0" layoutY="413.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Bisherige Dokumente">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font></Button>
-      <Button layoutX="130.0" layoutY="413.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="278.0" text="Bisherige Dokumente">
+      <Button layoutX="474.0" layoutY="413.0" mnemonicParsing="false" onAction="#Datenbank_modifizieren" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Datenbank modifizieren">
          <font>
-            <Font size="20.0" />
+            <Font name="system Bold Italic" size="20.0" />
          </font></Button>
-      <Button layoutX="474.0" layoutY="413.0" mnemonicParsing="false" onAction="#Datenbank_modifizieren" prefHeight="109.0" prefWidth="278.0" text="Datenbank modifizieren">
+
+      <Button layoutX="130.0" layoutY="250.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neue Rechnung">
          <font>
-            <Font size="20.0" />
-         </font></Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="456.0" layoutY="45.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="474.0" layoutY="250.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Angebot erstellen">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
      
       
    </children>
