@@ -13,20 +13,20 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="621.0" layoutY="563.0" mnemonicParsing="false" onAction="#updaten" prefHeight="70.0" prefWidth="181.0" text="Update" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Perkus - Bitte geben Sie die Daten ein:" />
-      <TextField fx:id="namef" layoutX="130.0" layoutY="330.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="idf" layoutX="130.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Search" />
-      <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
-      <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="186.0" layoutY="248.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Neuer Firmenkunde - Bitte geben Sie die Daten ein:" />
+      <TextField fx:id="namef" layoutX="186.0" layoutY="330.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="idf" layoutX="186.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TableView fx:id="table" layoutX="897.0" prefHeight="281.0" prefWidth="297.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="135.0" text="ID" />
           <TableColumn fx:id="name" prefWidth="157.0" text="Fikus" />
         </columns>
       </TableView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="85.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Button layoutX="634.0" layoutY="565.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Button layoutX="186.0" layoutY="565.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="848.0" layoutY="565.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="409.0" layoutY="565.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
    </children>
 </AnchorPane>
