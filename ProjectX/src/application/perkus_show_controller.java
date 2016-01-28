@@ -90,6 +90,8 @@ public class perkus_show_controller implements Initializable{
 	}
 	
 	@SuppressWarnings("unchecked")
+	
+	// SELECT * FROM Perkus WHERE Vorname LIKE ? OR Name LIKE ? 
 	public void show(){
 		//list = new ArrayList<>();
 		listInt = new ArrayList<>();
@@ -128,7 +130,7 @@ public class perkus_show_controller implements Initializable{
 				int idPerkus = set.getInt(i);
 				String namePerkus = set.getString(j);
 				String vornamePerkus = set.getNString(k);
-				perkus = new Perkus(idPerkus, namePerkus, vornamePerkus);
+				//perkus = new Perkus(idPerkus, namePerkus, vornamePerkus);
 				System.out.println(fikus.getName());
 				System.out.println(fikus.getid());
 				list.add(fikus);

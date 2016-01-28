@@ -141,3 +141,6 @@ public class perkus_insert_controller implements Initializable{
 		
 	}
 }
+
+// alerts : meldung warning,
+// man kann keine fikus löschen
