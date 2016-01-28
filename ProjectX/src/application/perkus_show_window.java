@@ -22,7 +22,7 @@ public class perkus_show_window extends Application {
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Perkus");
+			primaryStage.setTitle("Personenkunden");
 			primaryStage.show();
 			
 		} catch(Exception e) {
