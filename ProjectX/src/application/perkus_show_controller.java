@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -82,8 +83,7 @@ public class perkus_show_controller implements Initializable{
 	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
 	
 	@FXML
-	public void back()  {
-		
+	public void back()  {	
 		Stage primarystage = new Stage();
 		Insert_perkus_window window = new Insert_perkus_window();
 		window.start(primarystage);
