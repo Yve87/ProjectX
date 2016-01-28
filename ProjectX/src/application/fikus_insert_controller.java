@@ -145,4 +145,18 @@ public class fikus_insert_controller implements Initializable{
 		fikus_show_window window = new fikus_show_window();
 		window.start(primarystage);
 	}
+	
+	public void search () throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+		idtext = idf.getText();
+		nametext = namef.getText();
+		ids = Integer.parseInt(idtext);
+		java.sql.Connection conn = Connection.connecten();
+		String query = "SELECT * from Fikus WHERE idFikus LIKE ? OR Name LIKE ?";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.setString(1, idtext);
+		stmt.setString(2, nametext);
+		ResultSet set = stmt.executeQuery(query);
+		stmt.executeUpdate();
+		System.out.println("New Delete at Table Fikus is completed.");
+	}
 }

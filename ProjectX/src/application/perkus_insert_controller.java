@@ -13,6 +13,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * @author Yve
+ *
+ */
 public class perkus_insert_controller implements Initializable{
 	
 	@FXML private TextField id;
@@ -144,3 +148,5 @@ public class perkus_insert_controller implements Initializable{
 
 // alerts : meldung warning,
 // man kann keine fikus löschen
+// ausführbare jar Datei. artefakte, dependencies
+// main. build artefacts

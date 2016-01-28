@@ -25,7 +25,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="85.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
       <Button layoutX="634.0" layoutY="565.0" mnemonicParsing="false" onAction="#updaten" prefHeight="70.0" prefWidth="181.0" text="Update" />
-      <Button layoutX="186.0" layoutY="565.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="186.0" layoutY="565.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" onAction="#search" text="Search" />
       <Button layoutX="848.0" layoutY="565.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="409.0" layoutY="565.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <Button layoutX="848.0" layoutY="451.0" mnemonicParsing="false" onAction="#show1" prefHeight="70.0" prefWidth="181.0" text="show1" />
