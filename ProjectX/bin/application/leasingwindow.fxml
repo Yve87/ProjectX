@@ -13,20 +13,20 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="621.0" layoutY="563.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Leasing - Bitte geben Sie die Daten ein:" />
-      <TextField fx:id="RechnungsbetragFXML" layoutX="130.0" layoutY="310.0" promptText="Rechnungsbetrag" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Button layoutX="130.0" layoutY="563.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
-      <Button layoutX="880.0" layoutY="563.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
-      <Button layoutX="387.0" layoutY="563.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
-      <TextField fx:id="idLeasingFXML" layoutX="130.0" layoutY="462.0" promptText="Leasing ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="Anzahl_RechnungenFXML" layoutX="130.0" layoutY="360.0" promptText="Anzahl Rechnungen" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="NutzerzahlFXML" layoutX="130.0" layoutY="412.0" promptText="Nutzerzahl" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <DatePicker fx:id="VertragsdatumFXML" layoutX="451.0" layoutY="310.0" promptText="Vertragsdatum" />
-      <DatePicker fx:id="RechnungsdatumFXML" layoutX="451.0" layoutY="412.0" promptText="Rechnungsdatum" />
-      <DatePicker fx:id="Datum_letzter_RechnungsbetragFXML" layoutX="778.0" layoutY="310.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum letzter Rechnungsbetrag" />
-      <DatePicker fx:id="Datum_naechster_RechnungsbetragFXML" layoutX="778.0" layoutY="412.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum nächster Rechnungsbetrag" />
+      <TextField fx:id="RechnungsbetragFXML" layoutX="131.0" layoutY="319.0" promptText="Rechnungsbetrag" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="idLeasingFXML" layoutX="131.0" layoutY="474.0" promptText="Leasing ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="Anzahl_RechnungenFXML" layoutX="131.0" layoutY="370.0" promptText="Anzahl Rechnungen" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="NutzerzahlFXML" layoutX="131.0" layoutY="422.0" promptText="Nutzerzahl" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <DatePicker fx:id="VertragsdatumFXML" layoutX="428.0" layoutY="319.0" promptText="Vertragsdatum" />
+      <DatePicker fx:id="RechnungsdatumFXML" layoutX="428.0" layoutY="422.0" promptText="Rechnungsdatum" />
+      <DatePicker fx:id="Datum_letzter_RechnungsbetragFXML" layoutX="755.0" layoutY="319.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum letzter Rechnungsbetrag" />
+      <DatePicker fx:id="Datum_naechster_RechnungsbetragFXML" layoutX="755.0" layoutY="422.0" prefHeight="41.0" prefWidth="314.0" promptText="Datum nächster Rechnungsbetrag" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Button layoutX="635.0" layoutY="570.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Button layoutX="186.0" layoutY="570.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="853.0" layoutY="570.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="409.0" layoutY="570.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="257.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Leasing - Bitte geben Sie die Daten ein:" />
    </children>
 </AnchorPane>

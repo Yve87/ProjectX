@@ -15,10 +15,8 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" stylesheets="@DarkTheme.css" text="Firmensoftware" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="57.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="815.0" layoutY="529.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="70.0" prefWidth="239.0" text="Rechnung erstellen" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Rechnung - Bitte geben Sie die Daten ein:" />
+      <Button layoutX="793.0" layoutY="529.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="70.0" prefWidth="239.0" text="Rechnung erstellen" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Neue Rechnung - Bitte geben Sie die Daten ein:" />
       <TextField fx:id="fikusname" layoutX="130.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="perkusname" layoutX="130.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="preis" layoutX="455.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
@@ -43,6 +41,8 @@
         </DatePicker>
     </children>-->
      <DatePicker layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" styleClass="date-picker" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="466.0" layoutY="55.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="131.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
    </children>
  
 </AnchorPane>

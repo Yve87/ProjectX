@@ -5,14 +5,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.maintenance_controler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.maintenance_controler">
    <children>
-      <TextField fx:id="maintenanceid" layoutX="192.0" layoutY="397.0" promptText="Maintenanceid" />
-      <TextField fx:id="betrag" layoutX="192.0" layoutY="449.0" promptText="Betrag" />
-      <Button layoutX="192.0" layoutY="512.0" mnemonicParsing="false" onAction="#insert" text="Insert" />
-      <Button layoutX="285.0" layoutY="512.0" mnemonicParsing="false" onAction="#update" text="Update" />
-      <Button layoutX="380.0" layoutY="512.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
-      <Button layoutX="476.0" layoutY="512.0" mnemonicParsing="false" onAction="#search" text="Search" />
-      <DatePicker fx:id="gueltigkeit" layoutX="192.0" layoutY="423.0" prefHeight="26.0" prefWidth="163.0" promptText="gueltigkeit" />
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="186.0" layoutY="248.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Maintenance - Bitte geben Sie die Daten ein:" />
+      <TextField fx:id="maintenanceid" layoutX="186.0" layoutY="330.0" promptText="MaintenanceID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="betrag" layoutX="186.0" layoutY="410.0" promptText="Betrag" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="85.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Button layoutX="634.0" layoutY="569.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Button layoutX="186.0" layoutY="569.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="853.0" layoutY="569.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="409.0" layoutY="569.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <DatePicker fx:id="gueltigkeit" layoutX="522.0" layoutY="330.0" promptText="Gültigkeit" />
    </children>
-</Pane>
+</AnchorPane>
