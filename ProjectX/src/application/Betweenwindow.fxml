@@ -46,7 +46,7 @@
          </font>
       </Button>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="213.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Welche Tabelle möchte Sie modifizieren?" />
-      <Button layoutX="770.0" layoutY="408.0" mnemonicParsing="false" onAction="#leasing_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Maintenance">
+      <Button layoutX="770.0" layoutY="408.0" mnemonicParsing="false" onAction="#maintenance_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Maintenance">
          <font>
             <Font size="20.0" />
          </font>
