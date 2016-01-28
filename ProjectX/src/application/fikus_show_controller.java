@@ -18,7 +18,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class fikus_insert_controller implements Initializable{
+public class fikus_show_controller implements Initializable{
 	
 	@FXML private TextField namef; 
 	@FXML private TextField idf;
@@ -44,45 +44,12 @@ public class fikus_insert_controller implements Initializable{
 	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
 	
 	@FXML
-	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
-
-		idtext = idf.getText();
-		nametext = namef.getText();
-		ids = Integer.parseInt(idtext);
-		java.sql.Connection conn = Connection.connecten();
-		String query = "INSERT INTO Fikus(idFikus,Name)" + "values('"+ ids +"','"+ nametext +"')";
-		PreparedStatement stmt = conn.prepareStatement(query);
-		stmt.executeUpdate();
-		System.out.println("New Insert into Table Fikus is completed.");
-	}
-	
-	@FXML
-	public void updaten() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+	public void back()  {
 		
-		idtext = idf.getText();
-		nametext = namef.getText();
-		ids = Integer.parseInt(idtext);
-		java.sql.Connection conn = Connection.connecten();
-		String query = "UPDATE Fikus SET Name = '"+ nametext +"' WHERE idFikus IN ("+ids+")";
-		PreparedStatement stmt = conn.prepareStatement(query);
-		stmt.executeUpdate();
-		System.out.println("Update at Table Fikus is completed.");
+		Stage primarystage = new Stage();
+		Fikus_Window window = new Fikus_Window();
+		window.start(primarystage);
 	}
-	
-	@FXML
-	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
-		
-		idtext = idf.getText();
-		nametext = namef.getText();
-		ids = Integer.parseInt(idtext);
-		java.sql.Connection conn = Connection.connecten();
-		String query = "DELETE FROM Fikus WHERE idFikus = '"+ ids +"' AND Name = '"+ nametext +"'";
-		PreparedStatement stmt = conn.prepareStatement(query);
-		stmt.executeUpdate();
-		System.out.println("New Delete at Table Fikus is completed.");
-	}
-	
-
 	
 	@SuppressWarnings("unchecked")
 	public void show(){
@@ -114,6 +81,7 @@ public class fikus_insert_controller implements Initializable{
 			}
 			data.addAll(list);
 				
+
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,11 +105,5 @@ public class fikus_insert_controller implements Initializable{
 	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 	  //  tableview.setItems(data);
-	}
-	
-	public void show1 () {
-		Stage primarystage = new Stage();
-		fikus_show_window window = new fikus_show_window();
-		window.start(primarystage);
 	}
 }
