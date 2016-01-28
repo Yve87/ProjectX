@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class perkus_insert_controller implements Initializable{
 	
@@ -118,7 +119,10 @@ public class perkus_insert_controller implements Initializable{
 	}
 	
 	public void show(){
-		listview = new ListView<>();
+		//listview = new ListView<>();
+		Stage primarystage = new Stage();
+		perkus_show_window window = new perkus_show_window();
+		window.start(primarystage);
 	}
 
 	@Override
