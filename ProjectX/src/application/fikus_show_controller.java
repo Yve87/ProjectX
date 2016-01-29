@@ -28,8 +28,9 @@ public class fikus_show_controller implements Initializable{
 	private int ids;
 
 	@FXML TableView<Fikus> table;
-	@FXML TableColumn<Fikus, Integer> id;
+	//@FXML TableColumn<Fikus, String> id;
 	@FXML TableColumn<Fikus, String> name;
+	@FXML TableColumn<Fikus, Integer> test;
 
 	@FXML TableView<Fikus> tableview;
 	@FXML TableColumn<Fikus, String> first;
@@ -38,7 +39,7 @@ public class fikus_show_controller implements Initializable{
 	ArrayList<Integer> listInt;
 	Fikus fikus;
 	int i = 1;
-	int j = 2;
+	int j = 1;
 	
 	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
@@ -55,11 +56,12 @@ public class fikus_show_controller implements Initializable{
 	public void show(){
 		//list = new ArrayList<>();
 		listInt = new ArrayList<>();
-		id = new TableColumn<Fikus, Integer>("ID");
-		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("idColumn"));
+		//id = new TableColumn<Fikus, String>("ID");
+		//id.setCellValueFactory(new PropertyValueFactory<Fikus, String>("id"));
 		name = new TableColumn<Fikus, String>("Name");
-		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		table = new TableView<Fikus>();
+		test = new TableColumn<Fikus, Integer>("Test");
+		//name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+		test.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Test"));
 		//data = table.getItems();	// initialize 
 		
 		try {
@@ -73,15 +75,14 @@ public class fikus_show_controller implements Initializable{
 
 				int idFikus = set.getInt(i);
 				String nameFikus = set.getString(j);
-				fikus = new Fikus(idFikus, nameFikus);
+				fikus = new Fikus(set.getInt(i), set.getString(j));
 				System.out.println(fikus.getName());
 				System.out.println(fikus.getid());
-				list.add(fikus);
+				data.add(fikus);
 				//System.out.println("list: " +list);
 			}
-			data.addAll(list);
+			table.setItems(data);
 				
-
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,8 +100,9 @@ public class fikus_show_controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
+		//id.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+		test.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Test"));
 		table.setItems(data);
 	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));

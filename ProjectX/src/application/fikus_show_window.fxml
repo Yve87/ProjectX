@@ -15,8 +15,8 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <TableView fx:id="table" layoutX="110.0" layoutY="239.0" prefHeight="373.0" prefWidth="387.0" stylesheets="@DarkTheme.css">
         <columns>
-          <TableColumn fx:id="id" prefWidth="135.0" text="ID" />
           <TableColumn fx:id="name" prefWidth="144.0" text="Fikus" />
+            <TableColumn fx:id="test" prefWidth="98.0" text="Test" />
         </columns>
       </TableView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="85.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
@@ -25,5 +25,6 @@
       <Button layoutX="628.0" layoutY="542.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Suche anzeigen" />
       <TextField fx:id="idf" layoutX="625.0" layoutY="441.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="namef" layoutX="625.0" layoutY="379.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <ListView fx:id="listview" layoutX="913.0" layoutY="74.0" prefHeight="239.0" prefWidth="262.0" />
    </children>
 </AnchorPane>

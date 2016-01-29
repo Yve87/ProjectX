@@ -107,8 +107,8 @@ public class perkus_show_controller implements Initializable{
 		titel.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Titel"));
 		abteilung = new TableColumn<Fikus, String>("Abteilung");
 		abteilung.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Abteilung"));
-		gebaeudenummer = new TableColumn<Fikus, Integer>("Gebäudenummer");
-		gebaeudenummer.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Gebäudenummer"));
+		gebaeudenummer = new TableColumn<Fikus, Integer>("Gebï¿½udenummer");
+		gebaeudenummer.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Gebï¿½udenummer"));
 		zimmernummer = new TableColumn<Fikus, Integer>("Zimmernummer");
 		zimmernummer.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Zimmernummer"));
 		tel = new TableColumn<Fikus, Integer>("Tel");
