@@ -6,7 +6,8 @@ import java.sql.SQLException;
 
 public class Connection {
 	
-	public static java.sql.Connection connecten() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+	public static java.sql.Connection connecten() throws InstantiationException, IllegalAccessException, 
+	ClassNotFoundException, SQLException{
 
 	String urlPrefix = "jdbc:mysql://";
 	String dbName = "mydb";
@@ -18,7 +19,8 @@ public class Connection {
 	String host = "localhost";
 	
 	Class.forName(driver).newInstance();
-	java.sql.Connection conn = DriverManager.getConnection(urlPrefix + host + ":" + port + "/" + dbName, userName, password);
+	java.sql.Connection conn = DriverManager.getConnection(urlPrefix + host + ":" + port + "/" + 
+	dbName, userName, password);
 	
 	return conn;
 	}

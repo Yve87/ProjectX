@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.mysql.jdbc.Statement;
+
 import application.Connection;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -158,5 +160,13 @@ public class fikus_insert_controller implements Initializable{
 		ResultSet set = stmt.executeQuery(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Fikus is completed.");
+
+
+		   while(set.next()){
+			   set.getString("idtext");
+			   set.getString("nametext");
+			   System.out.println(set.getString(0));
+
+               }
 	}
 }
