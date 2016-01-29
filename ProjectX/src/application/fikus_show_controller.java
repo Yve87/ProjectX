@@ -28,9 +28,10 @@ public class fikus_show_controller implements Initializable{
 	private int ids;
 
 	@FXML TableView<Fikus> table;
-	//@FXML TableColumn<Fikus, String> id;
-	@FXML TableColumn<Fikus, String> name;
 	@FXML TableColumn<Fikus, Integer> test;
+	@FXML TableColumn<Fikus, String> name;
+	
+	@FXML ListView<Fikus> listview;
 
 	@FXML TableView<Fikus> tableview;
 	@FXML TableColumn<Fikus, String> first;
@@ -39,10 +40,9 @@ public class fikus_show_controller implements Initializable{
 	ArrayList<Integer> listInt;
 	Fikus fikus;
 	int i = 1;
-	int j = 1;
+	int j = 2;
 	
-	ObservableList<Fikus> data = FXCollections.observableArrayList();
-	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
+	
 	
 	@FXML
 	public void back()  {
@@ -54,34 +54,20 @@ public class fikus_show_controller implements Initializable{
 	
 	@SuppressWarnings("unchecked")
 	public void show(){
-		//list = new ArrayList<>();
-		listInt = new ArrayList<>();
-		//id = new TableColumn<Fikus, String>("ID");
-		//id.setCellValueFactory(new PropertyValueFactory<Fikus, String>("id"));
-		name = new TableColumn<Fikus, String>("Name");
-		test = new TableColumn<Fikus, Integer>("Test");
-		//name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		test.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Test"));
-		//data = table.getItems();	// initialize 
 		
 		try {
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
-			ObservableList<Fikus> list = FXCollections.observableArrayList();
 			
 			while(set.next()){
 
-				int idFikus = set.getInt(i);
-				String nameFikus = set.getString(j);
 				fikus = new Fikus(set.getInt(i), set.getString(j));
-				System.out.println(fikus.getName());
-				System.out.println(fikus.getid());
-				data.add(fikus);
-				//System.out.println("list: " +list);
+				//data.add(fikus);
+
 			}
-			table.setItems(data);
+			
 				
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -98,14 +84,45 @@ public class fikus_show_controller implements Initializable{
 		}
 	}
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-	
-		//id.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
-		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		test.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Test"));
+	public void initialize(URL url, ResourceBundle rb) {
+		ObservableList<Fikus> data = FXCollections.observableArrayList(
+				new Fikus(27,"Etst"));
+		ObservableList<String> data2 = FXCollections.observableArrayList();
+		
+		
+		try {
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Fikus";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+			
+			while(set.next()){
+
+				fikus = new Fikus(set.getInt(i), set.getString(j));
+				data.add(fikus);
+				//data2.add(fikus.toString());
+
+			}
+			
+				
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		test.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("test"));
+		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
 		table.setItems(data);
-	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
-	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-	  //  tableview.setItems(data);
+		listview.setItems(data);
+
 	}
 }
