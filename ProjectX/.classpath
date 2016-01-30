@@ -5,5 +5,14 @@
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/flatter-0.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itextpdf-5.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itext-pdfa-5.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itext-xtra-5.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itext-xtra-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itextpdf-5.5.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itextpdf-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itext-pdfa-5.5.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itext-pdfa-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yve/Downloads/itext-xtra-5.5.8-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

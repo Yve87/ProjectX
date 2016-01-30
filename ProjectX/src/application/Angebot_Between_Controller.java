@@ -1,5 +1,15 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+ 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfWriter;
+ 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -17,6 +27,10 @@ import javafx.stage.Stage;
 
 public class Angebot_Between_Controller implements Initializable{
 	
+	  /** Path to the resulting PDF file. */
+    public static final String RESULT
+        = "./Angebot.pdf";
+ 
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
 	@FXML private TextField perkusname;
@@ -32,8 +46,8 @@ public class Angebot_Between_Controller implements Initializable{
 	ListView<Object> listview;
 
 	
-	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
-		fikusnametext = fikusname.getText();
+	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
+		/*fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
@@ -59,6 +73,7 @@ public class Angebot_Between_Controller implements Initializable{
 		stmt4.executeUpdate();
 		stmt5.executeUpdate();
 		stmt6.executeUpdate();
+	
 		
 		AngebotSchreiben datei = new AngebotSchreiben();
 		datei.schreibeString("Neues Angebot\n");
@@ -67,6 +82,20 @@ public class Angebot_Between_Controller implements Initializable{
 				+rabatttext);
 		
 		System.out.println("New Advertisement is ready.");
+		*/
+		 // PDF create step 1
+    	// Using a custom page size
+        Rectangle pagesize = new Rectangle(216f, 720f);
+        Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+        // step 2
+        PdfWriter.getInstance(document, new FileOutputStream(RESULT));
+        // step 3
+        document.open();
+        // step 4
+        document.add(new Paragraph(
+            "Angebot"));
+        // step 5
+        document.close();
 	}
 	
 	public void show(){
