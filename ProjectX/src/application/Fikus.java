@@ -5,28 +5,20 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Fikus {
 	
-	public final SimpleIntegerProperty id;
-	public final SimpleStringProperty name;
+	public final int id;
+	public final String name;
 	
 	
 	public Fikus(int id,String name){
-		this.id = new SimpleIntegerProperty(id);
-		this.name = new SimpleStringProperty(name);
+		this.id = id;
+		this.name = name;
 	}
 
 	public Integer getid(){
-		return id.get();
+		return id;
 	}
 	
 	public String getName(){
-		return name.get();
-	}
-	@Override
-	public String toString(){
-		return name.get();
-	}
-	
-	public Integer toInteger(){
-		return id.get();
-	}
+		return name;
+	}	
 }

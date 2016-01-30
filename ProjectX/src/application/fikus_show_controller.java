@@ -17,8 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
-public class fikus_show_controller implements Initializable{
+public class fikus_show_controller{
 	
 	@FXML private TextField namef; 
 	@FXML private TextField idf;
@@ -26,6 +27,7 @@ public class fikus_show_controller implements Initializable{
 	private String idtext;
 	private String nametext;
 	private int ids;
+	Callback<ListView<Fikus>, ListCell<Fikus>> listcell;
 
 	@FXML TableView<Fikus> table;
 	@FXML TableColumn<Fikus, Integer> test;
@@ -41,8 +43,6 @@ public class fikus_show_controller implements Initializable{
 	Fikus fikus;
 	int i = 1;
 	int j = 2;
-	
-	
 	
 	@FXML
 	public void back()  {
@@ -60,14 +60,11 @@ public class fikus_show_controller implements Initializable{
 			String query = "SELECT * FROM Fikus";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
-			
+
 			while(set.next()){
 
 				fikus = new Fikus(set.getInt(i), set.getString(j));
-				//data.add(fikus);
-
 			}
-			
 				
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -82,13 +79,10 @@ public class fikus_show_controller implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
+		
 		ObservableList<Fikus> data = FXCollections.observableArrayList(
 				new Fikus(27,"Etst"));
 		ObservableList<String> data2 = FXCollections.observableArrayList();
-		
 		
 		try {
 			java.sql.Connection conn = Connection.connecten();
@@ -100,11 +94,8 @@ public class fikus_show_controller implements Initializable{
 
 				fikus = new Fikus(set.getInt(i), set.getString(j));
 				data.add(fikus);
-				//data2.add(fikus.toString());
-
 			}
 			
-				
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -123,6 +114,7 @@ public class fikus_show_controller implements Initializable{
 		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
 		table.setItems(data);
 		listview.setItems(data);
-
+		listcell.call(listview);
 	}
+
 }
