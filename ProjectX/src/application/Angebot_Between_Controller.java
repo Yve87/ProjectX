@@ -1,14 +1,23 @@
 package application;
 
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
- 
+
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
  
 import java.io.IOException;
@@ -16,6 +25,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -40,26 +50,36 @@ public class Angebot_Between_Controller implements Initializable{
 	@FXML private TextField standortname;
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
-	
+	@FXML private TextField menge;
 	String fikusString;
 	
+	int mengetext;
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
 	String standortnametext;
-	int preistext;
-	int rabatttext;
+	float preistext;
+	float rabatttext;
 	ListView<Object> listview;
 
+	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		fikusString = fikusText.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
-		preistext = Integer.parseInt(preis.getText());
+		preistext = Float.parseFloat(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
-	/*	
+		mengetext = Integer.parseInt(menge.getText());
+
+		float gesamtpreistext = preistext * mengetext;
+		float rabattsumme = ((float)rabatttext)/100;
+		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
+		float rabattEuro = (float) gesamtpreistext * rabattsumme;
+		
+		
+		/*	
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Fikus WHERE Name='"+ fikusnametext+"'";
 		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
@@ -91,26 +111,48 @@ public class Angebot_Between_Controller implements Initializable{
 		*/
 		 // PDF create step 1
     	// Using a custom page size
-        Rectangle pagesize = new Rectangle(216f, 720f);
-        Document document = new Document(pagesize, 36f, 72f, 108f, 180f);
+		float left = 30;
+        float right = 30;
+        float top = 60;
+        float bottom = 0;
+        Document document = new Document(PageSize.A4, left, right, top, bottom);
         // step 2
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
+;
         // step 3
         document.open();
-        // step 4
-        Paragraph paragraph = new Paragraph("Title 1",new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD));
-
         document.addTitle("Angebot");
+        document.addCreationDate();
+        // step 4
+        Paragraph paragraph = new Paragraph("Angebot",new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));     
+        Paragraph paragraph1 = new Paragraph("Details:", new Font(Font.FontFamily.HELVETICA, 16, Font.BOLDITALIC));
+        Paragraph paragraph2 = new Paragraph("", new Font(Font.FontFamily.HELVETICA, 13));         
+        paragraph.add(" ");
+        paragraph1.add(" ");
+        document.add(paragraph);
+        document.add(paragraph1);
+        document.add(paragraph2);
         document.add(new Paragraph(" "));
-        document.add(new Paragraph(
-            "Angebot", new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD)));
-        document.add(new Paragraph (
-        	"Firmenkunde: " + fikusString));
-        document.add(new Paragraph(
-        	"Personenkunde: " + perkusnametext));
+        document.add(new Paragraph("Firmenkunde: " + fikusString));
+        document.add(new Paragraph("Personenkunde: " + perkusnametext));
+        document.add(new Paragraph("Standort: " + standortnametext));
+        document.add(new Paragraph("Produkt: " + produktnametext));
+        document.add(new Paragraph("Menge: " + mengetext));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Einzelpreis ohne Rabatt: " + f.format(preistext) +"€"));
+        document.add(new Paragraph("Gesamtpreis ohne Rabatt: " + f.format(gesamtpreistext) + "€"));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Rabatt: " + rabatttext + "%"));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Einzelpreis inklusive Rabatt: " + f.format(preistextRabatt/mengetext) +"€"));
+        document.add(new Paragraph("Gesamtrabatt: " + rabattEuro + "€"));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Gesamtpreis inklusive Rabatt: " + f.format(preistextRabatt) +"€", new Font(Font.FontFamily.HELVETICA, 14, Font.UNDERLINE))); 
+       
         // step 5
         document.close();
 	}
+
 	
 	public void show(){
 		listview = new ListView<>();
