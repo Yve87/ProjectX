@@ -17,12 +17,12 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="70.0" prefWidth="239.0" stylesheets="@DarkTheme.css" text="Angebot erstellen" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="247.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Neues Angebot - Bitte geben Sie die Daten ein:" />
-      <TextField layoutX="152.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="152.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="477.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="477.0" layoutY="488.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="152.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField layoutX="477.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="fikusText" layoutX="152.0" layoutY="330.0" promptText="Firmenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="perkusname" layoutX="152.0" layoutY="412.0" promptText="Personenkunde" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="preis" layoutX="477.0" layoutY="412.0" promptText="Preis" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="rabatt" layoutX="477.0" layoutY="488.0" promptText="Rabatt" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="standortname" layoutX="152.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktname" layoutX="477.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="56.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="133.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
    </children>

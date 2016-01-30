@@ -6,6 +6,7 @@ import java.io.IOException;
  
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -31,12 +32,17 @@ public class Angebot_Between_Controller implements Initializable{
     public static final String RESULT
         = "./Angebot.pdf";
  
+    @FXML private TextField fikusText;
+    
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
 	@FXML private TextField perkusname;
 	@FXML private TextField standortname;
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
+	
+	String fikusString;
+	
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
@@ -47,13 +53,13 @@ public class Angebot_Between_Controller implements Initializable{
 
 	
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
-		/*fikusnametext = fikusname.getText();
+		fikusString = fikusText.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
 		preistext = Integer.parseInt(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
-		
+	/*	
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Fikus WHERE Name='"+ fikusnametext+"'";
 		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
@@ -92,8 +98,16 @@ public class Angebot_Between_Controller implements Initializable{
         // step 3
         document.open();
         // step 4
+        Paragraph paragraph = new Paragraph("Title 1",new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD));
+
+        document.addTitle("Angebot");
+        document.add(new Paragraph(" "));
         document.add(new Paragraph(
-            "Angebot"));
+            "Angebot", new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD)));
+        document.add(new Paragraph (
+        	"Firmenkunde: " + fikusString));
+        document.add(new Paragraph(
+        	"Personenkunde: " + perkusnametext));
         // step 5
         document.close();
 	}
