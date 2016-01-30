@@ -134,9 +134,9 @@ public class fikus_insert_controller implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
-		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
-		table.setItems(data);
+		//id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
+		//name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
+		//table.setItems(data);
 	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
 	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 	  //  tableview.setItems(data);
