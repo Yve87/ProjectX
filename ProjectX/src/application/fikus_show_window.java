@@ -14,7 +14,6 @@ public class fikus_show_window {
 	public void start(Stage primaryStage) {
 		try {
 
-			
 			Parent root = FXMLLoader.load(getClass().getResource("fikus_show_window.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

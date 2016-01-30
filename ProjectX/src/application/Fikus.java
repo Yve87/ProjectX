@@ -21,4 +21,12 @@ public class Fikus {
 	public String getName(){
 		return name.get();
 	}
+	@Override
+	public String toString(){
+		return name.get();
+	}
+	
+	public Integer toInteger(){
+		return id.get();
+	}
 }
