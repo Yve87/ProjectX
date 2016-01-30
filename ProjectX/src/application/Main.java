@@ -19,9 +19,9 @@ public class Main extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("mainwindow.fxml"));
 			Scene scene = new Scene(root, 1200,700);
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			System.setProperty( "javafx.userAgentStylesheetUrl", "CASPIAN" );
-			setUserAgentStylesheet(STYLESHEET_CASPIAN);
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
+			//System.setProperty( "javafx.userAgentStylesheetUrl", "CASPIAN" );
+			//setUserAgentStylesheet(STYLESHEET_CASPIAN);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Start");
 			primaryStage.show();

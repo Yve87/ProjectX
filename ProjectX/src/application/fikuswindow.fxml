@@ -18,8 +18,8 @@
       <TextField fx:id="idf" layoutX="186.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TableView fx:id="table" layoutX="897.0" prefHeight="281.0" prefWidth="297.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="135.0" text="ID" />
-          <TableColumn fx:id="name" prefWidth="157.0" text="Name" />
+          <TableColumn fx:id="idCol" prefWidth="135.0" text="ID" />
+          <TableColumn fx:id="nameCol" prefWidth="157.0" text="Name" />
         </columns>
       </TableView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="85.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />

@@ -11,11 +11,8 @@ public class Fikus_Window {
 
 	Scene scene;
 	
-	
 	public void start(Stage primaryStage) {
-		try {
-
-			
+		try {		
 			Parent root = FXMLLoader.load(getClass().getResource("fikuswindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -28,3 +25,4 @@ public class Fikus_Window {
 		}
 	}
 }
+
