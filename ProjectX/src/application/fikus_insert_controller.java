@@ -81,6 +81,67 @@ public class fikus_insert_controller{
 		System.out.println("New Delete at Table Fikus is completed.");
 	}
 	
+<<<<<<< HEAD
+=======
+
+	
+	@SuppressWarnings("unchecked")
+	public void show(){
+		//list = new ArrayList<>();
+		listInt = new ArrayList<>();
+		id = new TableColumn<Fikus, Integer>("id");
+		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
+		name = new TableColumn<Fikus, String>("name");
+		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
+		table = new TableView<Fikus>();
+		//data = table.getItems();	// initialize 
+		
+		try {
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Fikus";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+			ObservableList<Fikus> list = FXCollections.observableArrayList();
+			
+			while(set.next()){
+
+				int idFikus = set.getInt(i);
+				String nameFikus = set.getString(j);
+				fikus = new Fikus(idFikus, nameFikus);
+				//System.out.println(fikus.getName());
+				//System.out.println(fikus.getid());
+				list.add(fikus);
+				//System.out.println(fikus);
+				System.out.println("list: " +list);
+			}
+			data.addAll(list);
+				
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+	
+		//id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
+		//name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
+		//table.setItems(data);
+	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
+	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
+	  //  tableview.setItems(data);
+	}
+	
+>>>>>>> origin/master
 	public void show1 () {
 		Stage primarystage = new Stage();
 		fikus_show_window window = new fikus_show_window();
