@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import application.Connection;
 import javafx.application.Platform;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,22 +28,13 @@ public class fikus_show_controller{
 	private String idtext;
 	private String nametext;
 	private int ids;
-	Callback<ListView<Fikus>, ListCell<Fikus>> listcell;
-
-	@FXML TableView<Fikus> table;
-	@FXML TableColumn<Fikus, Integer> test;
-	@FXML TableColumn<Fikus, String> name;
-	
-	@FXML ListView<Fikus> listview;
-
-	@FXML TableView<Fikus> tableview;
-	@FXML TableColumn<Fikus, String> first;
-	@FXML TableColumn<Fikus, String> second;
-	Fikus[] list;
-	ArrayList<Integer> listInt;
 	Fikus fikus;
+	@FXML ListView<Fikus> listview;
+	int zähler = 0;
 	int i = 1;
 	int j = 2;
+	final ObservableList<Fikus> data = FXCollections.observableArrayList();
+
 	
 	@FXML
 	public void back()  {
@@ -54,36 +46,7 @@ public class fikus_show_controller{
 	
 	@SuppressWarnings("unchecked")
 	public void show(){
-		
-		try {
-			java.sql.Connection conn = Connection.connecten();
-			String query = "SELECT * FROM Fikus";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
-
-			while(set.next()){
-
-				fikus = new Fikus(set.getInt(i), set.getString(j));
-			}
-				
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		ObservableList<Fikus> data = FXCollections.observableArrayList(
-				new Fikus(27,"Etst"));
-		ObservableList<String> data2 = FXCollections.observableArrayList();
-		
+			
 		try {
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Fikus";
@@ -91,10 +54,11 @@ public class fikus_show_controller{
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
 			while(set.next()){
-
-				fikus = new Fikus(set.getInt(i), set.getString(j));
+				zähler++;
+				fikus = new Fikus(set.getInt(i), set.getString(j), zähler);
 				data.add(fikus);
 			}
+			listview.setItems(data);
 			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -109,12 +73,5 @@ public class fikus_show_controller{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		test.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("test"));
-		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("name"));
-		table.setItems(data);
-		listview.setItems(data);
-		listcell.call(listview);
 	}
-
 }

@@ -20,7 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class fikus_insert_controller implements Initializable{
+public class fikus_insert_controller{
 	
 	@FXML private TextField namef; 
 	@FXML private TextField idf;
@@ -41,9 +41,6 @@ public class fikus_insert_controller implements Initializable{
 	Fikus fikus;
 	int i = 1;
 	int j = 2;
-	
-	ObservableList<Fikus> data = FXCollections.observableArrayList();
-	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
 	
 	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -84,6 +81,8 @@ public class fikus_insert_controller implements Initializable{
 		System.out.println("New Delete at Table Fikus is completed.");
 	}
 	
+<<<<<<< HEAD
+=======
 
 	
 	@SuppressWarnings("unchecked")
@@ -142,6 +141,7 @@ public class fikus_insert_controller implements Initializable{
 	  //  tableview.setItems(data);
 	}
 	
+>>>>>>> origin/master
 	public void show1 () {
 		Stage primarystage = new Stage();
 		fikus_show_window window = new fikus_show_window();

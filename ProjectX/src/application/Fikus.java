@@ -1,24 +1,53 @@
 package application;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Fikus {
 	
-	public final int id;
-	public final String name;
+	public final IntegerProperty id;
+	public final StringProperty name; 
+	int fikusnummer;
+	
+	public Fikus(){
+		this(0,null,0);
+		
+	}
 	
 	
-	public Fikus(int id,String name){
-		this.id = id;
-		this.name = name;
+	public Fikus(int sid,String sname, int szähler){
+		this.id = new SimpleIntegerProperty(sid);
+		this.name = new SimpleStringProperty(sname);
+		this.fikusnummer = szähler;
 	}
 
 	public Integer getid(){
-		return id;
+		return id.get();
+	}
+	
+	public void setid(int fid){
+		id.set(fid);
 	}
 	
 	public String getName(){
-		return name;
+		return name.get();
 	}	
+	
+	public void setname(String fname){
+		name.set(fname);
+	}
+	
+	public IntegerProperty idproperty(){
+		return id;
+	}
+	
+	public StringProperty stringproperty(){
+		return name;
+	}
+	
+	public String toString(){
+		return (fikusnummer+".Fikus:\nID : "+ id.get() +"\nName : "+ name.get());
+	}
 }
