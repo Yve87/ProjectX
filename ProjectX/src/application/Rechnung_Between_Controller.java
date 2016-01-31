@@ -2,40 +2,38 @@ package application;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-
 import java.sql.Date;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
+
+ 
+/**
+ * Hello World: document constructor.
+ */
 public class Rechnung_Between_Controller implements Initializable{
 	
     /** Path to the resulting PDF file. */
     public static final String RESULT
         = "./Rechnung.pdf";
  
-    LocalDate today = LocalDate.now();
-    LocalDate todayplus90 = today.plusDays(90);
+   // LocalDate today = LocalDate.now();
+    //LocalDate todayplus90 = today.plusDays(90);
     
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
@@ -113,9 +111,10 @@ public class Rechnung_Between_Controller implements Initializable{
         document.open();
         document.addTitle("Rechnung");
         document.addCreationDate();
-        document.add(new Paragraph("Erstellt am: " + today.getDayOfMonth() + "." + today.getMonthValue() 
-        + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
+       // document.add(new Paragraph("Erstellt am: " + today.getDayOfMonth() + "." + today.getMonthValue() 
+        //+ "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));
+        document.close();
         }
         
         // step 4

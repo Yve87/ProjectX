@@ -80,9 +80,7 @@ public class fikus_insert_controller{
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Fikus is completed.");
 	}
-	
-<<<<<<< HEAD
-=======
+
 
 	
 	@SuppressWarnings("unchecked")
@@ -107,14 +105,14 @@ public class fikus_insert_controller{
 
 				int idFikus = set.getInt(i);
 				String nameFikus = set.getString(j);
-				fikus = new Fikus(idFikus, nameFikus);
+				//fikus = new Fikus(idFikus, nameFikus);
 				//System.out.println(fikus.getName());
 				//System.out.println(fikus.getid());
 				list.add(fikus);
 				//System.out.println(fikus);
 				System.out.println("list: " +list);
 			}
-			data.addAll(list);
+			//data.addAll(list);
 				
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -130,7 +128,6 @@ public class fikus_insert_controller{
 			e.printStackTrace();
 		}
 	}
-	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
 		//id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("id"));
@@ -140,8 +137,7 @@ public class fikus_insert_controller{
 	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
 	  //  tableview.setItems(data);
 	}
-	
->>>>>>> origin/master
+
 	public void show1 () {
 		Stage primarystage = new Stage();
 		fikus_show_window window = new fikus_show_window();
