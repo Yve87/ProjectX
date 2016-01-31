@@ -104,6 +104,9 @@ public class Perkus {
 	
 	public String toString(){
 		return (perkusnummer+".Perkus:\nID: "+ id.get() +"	Name: "+ name.get()
-		+"	Vorname: "+ vorname.get()+"	Anrede: "+anrede.get());
+		+"	Vorname: "+ vorname.get()+"	Anrede: "+anrede.get()+"	Titel: "+titel.get()
+		+"\nAbteilung: "+abteilung.get()+"	Gebaeudenummer: "+gebaeudenummer.get()
+		+"		Zimmernummer: "+zimmernummer.get()+"\nTel: "+tel.get()+"	EMail: "+email.get()
+		+"	Position: "+position.get()+"	Fax: "+fax.get()+"		Fikusid: "+fikusid.get());
 	}
 }
