@@ -21,35 +21,6 @@ import javafx.stage.Stage;
 
 public class perkus_show_controller{
 	
-	@FXML private TextField namep; 
-	@FXML private TextField idp;
-	@FXML private TextField vornamep;
-	@FXML private TextField anredep;
-	@FXML private TextField titelp;
-	@FXML private TextField abteilungp; 
-	@FXML private TextField gebaeudenummerp;
-	@FXML private TextField zimmernummerp;
-	@FXML private TextField telp;
-	@FXML private TextField faxp;
-	@FXML private TextField emailp; 
-	@FXML private TextField positionp;
-	@FXML private TextField fikusidp;
-	@FXML private Button button;
-	private String idtext;
-	private String nametext;
-	private String vornametext;
-	private String anredetext;
-	private String titeltext;
-	private String abteilungtext;
-	private String gebaeudenummertext;
-	private String zimmernummertext;
-	private String teltext;
-	private String faxtext;
-	private String emailtext;
-	private String positiontext;
-	private String fikusidtext;
-	private int ids;
-	
 	@FXML ListView<Perkus> listview;
 	Perkus perkus;
 	int zähler = 0;

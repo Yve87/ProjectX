@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  * @author Yve
  *
  */
-public class perkus_insert_controller implements Initializable{
+public class perkus_insert_controller{
 	
 	@FXML private TextField id;
 	@FXML private TextField name;
@@ -123,30 +123,13 @@ public class perkus_insert_controller implements Initializable{
 	}
 	
 	public void show(){
-		//listview = new ListView<>();
 		Stage primarystage = new Stage();
 		perkus_show_window window = new perkus_show_window();
 		window.start(primarystage);
 	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		java.sql.Connection conn;
-		try {
-			conn = Connection.connecten();
-			String query = "SELECT * FROM Perkus";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
 }
 
 // alerts : meldung warning,
-// man kann keine fikus löschen
-// ausführbare jar Datei. artefakte, dependencies
+// man kann keine fikus lï¿½schen
+// ausfï¿½hrbare jar Datei. artefakte, dependencies
 // main. build artefacts
