@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.standort_show_controller">
+   <children>
+      <ListView fx:id="listview" layoutX="12.0" layoutY="130.0" prefHeight="467.0" prefWidth="606.0" />
+      <Button layoutX="745.0" layoutY="571.0" mnemonicParsing="false" onAction="#show" text="Show" />
+   </children>
+</Pane>

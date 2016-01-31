@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.perkus_insert_controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.standort_insert_controler">
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
@@ -13,24 +13,21 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="name" layoutX="112.0" layoutY="314.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="id" layoutX="379.0" layoutY="313.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="titel" layoutX="112.0" layoutY="468.0" promptText="Titel" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="vorname" layoutX="112.0" layoutY="365.0" promptText="Vorname" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="anrede" layoutX="112.0" layoutY="415.0" promptText="Anrede" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="fikusid" layoutX="379.0" layoutY="365.0" promptText="FikusID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="email" layoutX="647.0" layoutY="313.0" promptText="Email" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="tel" layoutX="647.0" layoutY="365.0" promptText="Telefon" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="fax" layoutX="647.0" layoutY="415.0" promptText="Fax" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="abteilung" layoutX="914.0" layoutY="365.0" promptText="Abteilung" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="zimmernummer" layoutX="914.0" layoutY="468.0" promptText="Raumnummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="position" layoutX="914.0" layoutY="313.0" promptText="Position" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="gebaeudenummer" layoutX="914.0" layoutY="415.0" promptText="Gebäudenummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="standortid" layoutX="112.0" layoutY="314.0" promptText="Standortid" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="plz" layoutX="379.0" layoutY="313.0" promptText="Plz" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="hausnummer" layoutX="112.0" layoutY="468.0" promptText="Hausnummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="name" layoutX="112.0" layoutY="365.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="strasse" layoutX="112.0" layoutY="415.0" promptText="Strasse" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="pls" layoutX="379.0" layoutY="365.0" promptText="Pls" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="postfachnummer" layoutX="647.0" layoutY="313.0" promptText="Postfachnummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="telefon" layoutX="647.0" layoutY="365.0" promptText="Telefon" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="fikusid" layoutX="647.0" layoutY="415.0" promptText="Fikusid" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="perkusid" layoutX="914.0" layoutY="313.0" promptText="Perkusid" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="75.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="251.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Standort - Bitte geben Sie die Daten ein:" />
       <Button layoutX="619.0" layoutY="568.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
-      <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
       <Button layoutX="845.0" layoutY="568.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="400.0" layoutY="568.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
    </children>

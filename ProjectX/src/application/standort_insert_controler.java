@@ -10,8 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class standort_insert_controler implements Initializable{
+public class standort_insert_controler {
 	
 	@FXML private TextField standortid;
 	@FXML private TextField name;
@@ -103,23 +104,9 @@ public class standort_insert_controler implements Initializable{
 	}
 	
 	public void show(){
-		listview = new ListView<>();
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		java.sql.Connection conn;
-		try {
-			conn = Connection.connecten();
-			String query = "SELECT * FROM Standort";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
+		Stage primarystage = new Stage();
+		standort_show_window window = new standort_show_window();
+		window.start(primarystage);
 	}
-
 }
