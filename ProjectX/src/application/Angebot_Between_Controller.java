@@ -140,16 +140,23 @@ public class Angebot_Between_Controller implements Initializable{
         document.add(new Paragraph(" "));
         // step 4
         
-        Paragraph paragraph = new Paragraph("Kunde", new Font(Font.FontFamily.HELVETICA, 16, Font.BOLDITALIC));
+        document.add(new Paragraph("Musterfirma",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLDITALIC)));
+        document.add(new Paragraph("Musterstraﬂe Hausnummer",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph("D-60666 Musterort",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph("Telefon: 069-12345678m Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph("E-Mail: musterfirma@email.de",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph("http://www.musterfirma.de",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph(" "));
+       
+        Paragraph paragraph = new Paragraph("An Kunde:", new Font(Font.FontFamily.HELVETICA, 13, Font.BOLDITALIC));
         document.add(paragraph);
-        document.add(new Paragraph("Firmenkunde: " + fikusString,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Personenkunde: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Standort: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Firmenkunde: " + fikusString,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
+        document.add(new Paragraph("Personenkunde: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
+        document.add(new Paragraph("Standort: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
         Paragraph paragraph1 = new Paragraph("Angebot",new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));              
         document.add(paragraph1);
-        document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Sehr geehrte Damen und Herren, \n"
         		+ "beiliegend erhalten sie folgendes Angebot: \n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
