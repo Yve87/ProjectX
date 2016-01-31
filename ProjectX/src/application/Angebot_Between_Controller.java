@@ -51,9 +51,7 @@ public class Angebot_Between_Controller implements Initializable{
     LocalDate today = LocalDate.now();
     LocalDate todayplus90 = today.plusDays(90);
     
-
-    @FXML private TextField fikusText;
-    
+    @FXML private TextField fikusText;  
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
 	@FXML private TextField perkusname;
@@ -88,9 +86,7 @@ public class Angebot_Between_Controller implements Initializable{
 		float rabattsumme = ((float)rabatttext)/100;
 		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
 		float rabattEuro = (float) gesamtpreistext * rabattsumme;
-		
-		
-		
+			
 		java.sql.Connection conn = Connection.connecten();
 		String strasse = "SELECT Name FROM Fikus WHERE Name='"+ fikusString+"'";
 		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";

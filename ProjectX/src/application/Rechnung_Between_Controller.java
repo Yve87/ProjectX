@@ -1,11 +1,22 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import java.sql.Date;
 
 import javafx.fxml.FXML;
@@ -19,6 +30,13 @@ import javafx.stage.Stage;
 
 public class Rechnung_Between_Controller implements Initializable{
 	
+    /** Path to the resulting PDF file. */
+    public static final String RESULT
+        = "./Rechnung.pdf";
+ 
+    LocalDate today = LocalDate.now();
+    LocalDate todayplus90 = today.plusDays(90);
+    
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
 	@FXML private TextField perkusname;
@@ -40,9 +58,9 @@ public class Rechnung_Between_Controller implements Initializable{
 	int bezahlt;
 	ListView<Object> listview;
 	
-	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		
-		rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
+		/*rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
 		fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
@@ -81,8 +99,27 @@ public class Rechnung_Between_Controller implements Initializable{
 		stmt6.executeQuery();
 		stmt7.executeUpdate();
 		stmt8.executeQuery();
-		
-		Rechnungschreiben datei = new Rechnungschreiben();
+		*/
+		float left = 30;
+        float right = 30;
+        float top = 100;
+        float bottom = 0;
+        Document document = new Document(PageSize.A4, left, right, top, bottom);
+      //  document.setMargins(left, right, bottom, top);
+        // step 2
+        PdfWriter.getInstance(document, new FileOutputStream(RESULT));
+
+        // step 3
+        document.open();
+        document.addTitle("Rechnung");
+        document.addCreationDate();
+        document.add(new Paragraph("Erstellt am: " + today.getDayOfMonth() + "." + today.getMonthValue() 
+        + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
+        document.add(new Paragraph(" "));
+        }
+        
+        // step 4
+		/*Rechnungschreiben datei = new Rechnungschreiben();
 		datei.schreibeString("Neue Rechnung "+ rechnungsdatum +"\n");
 		datei.schreibeString(+rechnungsid+". Rechnung: \n Produktname: " + produktnametext + "\n Firmenkunde: " 
 		+fikusnametext+"\n Person:"+perkusnametext+"\n Price: "+preistext+ "\n Rabatt: "
@@ -90,7 +127,7 @@ public class Rechnung_Between_Controller implements Initializable{
 	
 		System.out.println("New Rechnung is ready.");
 	}
-	
+	*/
 	public void show(){
 		listview = new ListView<>();
 	}
