@@ -19,7 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class perkus_show_controller implements Initializable{
+public class perkus_show_controller{
 	
 	@FXML private TextField namep; 
 	@FXML private TextField idp;
@@ -50,37 +50,24 @@ public class perkus_show_controller implements Initializable{
 	private String fikusidtext;
 	private int ids;
 	
-	@FXML TableView<Fikus> table;
-	@FXML TableColumn<Fikus, Integer> id;
-	@FXML TableColumn<Fikus, String> name;
-	@FXML TableColumn<Fikus, String> vorname;
-	@FXML TableColumn<Fikus, String> anrede;
-	@FXML TableColumn<Fikus, String> titel;
-	@FXML TableColumn<Fikus, String> abteilung;
-	@FXML TableColumn<Fikus, Integer> gebaeudenummer;
-	@FXML TableColumn<Fikus, Integer> zimmernummer;
-	@FXML TableColumn<Fikus, Integer> tel;
-	@FXML TableColumn<Fikus, Integer> fax;
-	@FXML TableColumn<Fikus, String> email;
-	@FXML TableColumn<Fikus, String> position;
-	@FXML TableColumn<Fikus, Integer> fikusid;
-
-	@FXML TableView<Fikus> tableview;
-	@FXML TableColumn<Fikus, String> first;
-	@FXML TableColumn<Fikus, String> second;
-	@FXML TableColumn<Fikus, String> third;
-	Fikus[] list;
-	ArrayList<Integer> listInt;
-	Fikus fikus;
+	@FXML ListView<Perkus> listview;
+	Perkus perkus;
+	int zähler = 0;
 	int i = 1;
 	int j = 2;
 	int k = 3;
 	int l = 4;
 	int m = 5;
 	int n = 6;
-	
-	ObservableList<Fikus> data = FXCollections.observableArrayList();
-	private ObservableList<ObservableList> dataInt = FXCollections.observableArrayList();
+	int a = 7;
+	int b = 8;
+	int c = 9;
+	int d = 10;
+	int e = 11;
+	int f = 12;
+	int g = 13;
+	ObservableList<Perkus> data = FXCollections.observableArrayList();
+
 	
 	@FXML
 	public void back()  {	
@@ -93,51 +80,22 @@ public class perkus_show_controller implements Initializable{
 	
 	// SELECT * FROM Perkus WHERE Vorname LIKE ? OR Name LIKE ? 
 	public void show(){
-		//list = new ArrayList<>();
-		listInt = new ArrayList<>();
-		id = new TableColumn<Fikus, Integer>("ID");
-		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("idColumn"));
-		name = new TableColumn<Fikus, String>("Name");
-		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		vorname = new TableColumn<Fikus, String>("Vorname");
-		vorname.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Vorname"));
-		anrede = new TableColumn<Fikus, String>("Anrede");
-		anrede.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Anrede"));
-		titel = new TableColumn<Fikus, String>("Titel");
-		titel.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Titel"));
-		abteilung = new TableColumn<Fikus, String>("Abteilung");
-		abteilung.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Abteilung"));
-		gebaeudenummer = new TableColumn<Fikus, Integer>("Geb�udenummer");
-		gebaeudenummer.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Geb�udenummer"));
-		zimmernummer = new TableColumn<Fikus, Integer>("Zimmernummer");
-		zimmernummer.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Zimmernummer"));
-		tel = new TableColumn<Fikus, Integer>("Tel");
-		tel.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Tel"));
-		fax= new TableColumn<Fikus, Integer>("Fax");
-		fax.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("Fax"));
-		table = new TableView<Fikus>();
-		//data = table.getItems();	// initialize 
 		
 		try {
 			java.sql.Connection conn = Connection.connecten();
 			String query = "SELECT * FROM Perkus";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
-			ObservableList<Fikus> list = FXCollections.observableArrayList();
 			
 			while(set.next()){
-
-				int idPerkus = set.getInt(i);
-				String namePerkus = set.getString(j);
-				String vornamePerkus = set.getNString(k);
-				//perkus = new Perkus(idPerkus, namePerkus, vornamePerkus);
-				System.out.println(fikus.getName());
-				System.out.println(fikus.getid());
-				list.add(fikus);
-				//System.out.println("list: " +list);
+				zähler++;
+				perkus = new Perkus(set.getInt(i), set.getString(j),set.getString(k),
+						set.getString(l),set.getString(m),set.getString(n),set.getString(a),
+						set.getString(b),set.getString(c),set.getString(d),set.getString(e),
+						set.getString(f),set.getInt(g),zähler);
+				data.add(perkus);
 			}
-			data.addAll(list);
-				
+			listview.setItems(data);	
 
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
@@ -152,15 +110,5 @@ public class perkus_show_controller implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-	
-		id.setCellValueFactory(new PropertyValueFactory<Fikus, Integer>("ID"));
-		name.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-		table.setItems(data);
-	//	first.setCellValueFactory(new PropertyValueFactory<Fikus, String>("ID"));
-	 //   second.setCellValueFactory(new PropertyValueFactory<Fikus, String>("Name"));
-	  //  tableview.setItems(data);
 	}
 }
