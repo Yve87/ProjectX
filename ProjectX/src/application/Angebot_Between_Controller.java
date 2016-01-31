@@ -136,7 +136,7 @@ public class Angebot_Between_Controller implements Initializable{
         document.addTitle("Angebot");
         document.addCreationDate();
         document.add(new Paragraph("Erstellt am: " + today.getDayOfMonth() + "." + today.getMonthValue() 
-        + "." + today.getYear()));
+        + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));
         // step 4
         
@@ -148,14 +148,14 @@ public class Angebot_Between_Controller implements Initializable{
         document.add(new Paragraph("http://www.musterfirma.de",  new Font(Font.FontFamily.HELVETICA, 10)));
         document.add(new Paragraph(" "));
        
-        Paragraph paragraph = new Paragraph("An Kunde:", new Font(Font.FontFamily.HELVETICA, 13, Font.BOLDITALIC));
+        Paragraph paragraph = new Paragraph("An Kunde:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLDITALIC));
         document.add(paragraph);
         document.add(new Paragraph("Firmenkunde: " + fikusString,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
         document.add(new Paragraph("Personenkunde: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
         document.add(new Paragraph("Standort: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        Paragraph paragraph1 = new Paragraph("Angebot",new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE));              
+        Paragraph paragraph1 = new Paragraph("Angebot",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Sehr geehrte Damen und Herren, \n"
@@ -174,14 +174,15 @@ public class Angebot_Between_Controller implements Initializable{
         document.add(new Paragraph("Einzelpreis inklusive Rabatt: " + f.format(preistextRabatt/mengetext) +"€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph("Gesamtrabatt: " + f.format(rabattEuro) + "€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Gesamtpreis inklusive Rabatt: " + f.format(preistextRabatt) +"€", new Font(Font.FontFamily.HELVETICA, 14, Font.UNDERLINE))); 
+        document.add(new Paragraph("Gesamtpreis inklusive Rabatt: " + f.format(preistextRabatt) +"€", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Bedingungen:, \n"
         		+ "- Es gelten die Firma X-Lizenzbedingungen. \n"
         		+ "- Alle Preise verstehen sich zzgl. ges. Ust. \n"
         		+ "- Zahlung erfolgt 30 Tage netto. Dieses Angebot ist freibleibend und gilt bis zum " 
         		+ + todayplus90.getDayOfMonth() +"." + todayplus90.getMonthValue() + "." + today.getYear() + ".", 
-        		new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
+        		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         // step 5
         document.close();
 	}
