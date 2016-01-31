@@ -24,23 +24,6 @@
       <TextField fx:id="standortname" layoutX="130.0" layoutY="488.0" promptText="Standort" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="455.0" layoutY="330.0" promptText="Produkt" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <DatePicker fx:id="rechnungdatum" layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" />
-    
-    <!-- <children>
-        <Label layoutX="43.0" layoutY="37.0" styleClass="header" promptTest="Rechnungsdatum" text="Date Picker" styleClass="date-picker" stylesheets="@DarkTheme.css" >
-        </Label>
-        <Label layoutX="43.0" layoutY="165.0" styleClass="item-title" text="normal" textFill="WHITE">
-        </Label>
-        <Label layoutX="300" layoutY="165.0" styleClass="item-title" text="disabled">
-
-        </Label>
-        <DatePicker layoutX="43.0" layoutY="187.0">
-
-        </DatePicker>
-        <DatePicker disable="true" layoutX="300.0" layoutY="188.0">
-
-        </DatePicker>
-    </children>-->
-     <DatePicker layoutX="793.0" layoutY="330.0" promptText="Rechnungsdatum" styleClass="date-picker" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="466.0" layoutY="55.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="131.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
    </children>

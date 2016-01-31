@@ -18,10 +18,6 @@ public class AngebotPDF {
     public static final String RESULT
         = "./Angebot.pdf";
  
-    /**
-     * Creates a PDF file: hello_narrow.pdf
-     * @param    args    no arguments needed
-     */
     public void angebot_erstellen() throws DocumentException, IOException {
         // step 1
     	// Using a custom page size
