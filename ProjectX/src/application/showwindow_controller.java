@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -48,7 +49,6 @@ public class showwindow_controller implements Initializable{
 	ObservableList<maintenance> data5 = FXCollections.observableArrayList();
 	ObservableList<lizenz> data6 = FXCollections.observableArrayList();
 	
-
 
 	@SuppressWarnings("unchecked")
 	@FXML

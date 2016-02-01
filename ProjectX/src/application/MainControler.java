@@ -12,7 +12,7 @@ public class MainControler {
 	Lieferschein_Between_Window window1;
 	Rechnung_Between_Window window2;
 	Angebot_Between_Window window3;
-	showwindow window4;
+	bisherige_dokumente_window window4;
 	Stage primaryStage = new Stage();
 	
 	
@@ -37,7 +37,7 @@ public class MainControler {
 	}
 	
 	public void show(){
-		window4 = new showwindow();
+		window4 = new bisherige_dokumente_window();
 		window4.start(primaryStage);	
 	}
 	
