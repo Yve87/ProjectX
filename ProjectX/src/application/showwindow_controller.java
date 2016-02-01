@@ -38,9 +38,15 @@ public class showwindow_controller implements Initializable{
 	Fikus fikus;
 	Perkus perkus;
 	Standort standort;
+	Produkt produkt;
+	maintenance maintenance;
+	lizenz lizenz;
 	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	ObservableList<Perkus> data2 = FXCollections.observableArrayList();
 	ObservableList<Standort> data3 = FXCollections.observableArrayList();
+	ObservableList<Produkt> data4 = FXCollections.observableArrayList();
+	ObservableList<maintenance> data5 = FXCollections.observableArrayList();
+	ObservableList<lizenz> data6 = FXCollections.observableArrayList();
 	
 
 
@@ -66,6 +72,10 @@ public class showwindow_controller implements Initializable{
 				conn.close();
 				data2.removeAll(data2);
 				data3.removeAll(data3);
+				data5.removeAll(data5);
+				data4.removeAll(data4);
+				data6.removeAll(data6);
+				
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -101,6 +111,9 @@ public class showwindow_controller implements Initializable{
 				conn.close();
 				data.removeAll(data);
 				data3.removeAll(data3);
+				data4.removeAll(data4);
+				data5.removeAll(data5);
+				data6.removeAll(data6);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -136,6 +149,120 @@ public class showwindow_controller implements Initializable{
 				conn.close();
 				data.removeAll(data);
 				data2.removeAll(data2);
+				data4.removeAll(data4);
+				data5.removeAll(data5);
+				data6.removeAll(data6);
+
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(option == "Produkt"){
+			try {
+				java.sql.Connection conn = Connection.connecten();
+				String query = "SELECT * FROM Produkt";
+				PreparedStatement stmt = conn.prepareStatement(query);
+				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+				
+				while(set.next()){
+					zähler++;
+					produkt = new Produkt(set.getInt(i), set.getString(j),set.getInt(k),
+							set.getInt(l),set.getString(m),set.getString(n),zähler);
+					data4.add(produkt);
+				}
+				listview.setItems(data4);
+				zähler = 0;
+				set.close();
+				conn.close();
+				data.removeAll(data);
+				data2.removeAll(data2);
+				data3.removeAll(data3);
+				data5.removeAll(data5);
+				data6.removeAll(data6);
+
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(option == "Maintenance"){
+			try {
+				java.sql.Connection conn = Connection.connecten();
+				String query = "SELECT * FROM Maintenance";
+				PreparedStatement stmt = conn.prepareStatement(query);
+				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+				
+				while(set.next()){
+					zähler++;
+					maintenance = new maintenance(set.getInt(i),set.getDate(j),set.getFloat(k),zähler);
+					data5.add(maintenance);
+				}
+				listview.setItems(data5);
+				zähler = 0;
+				set.close();
+				conn.close();
+				data.removeAll(data);
+				data2.removeAll(data2);
+				data3.removeAll(data3);
+				data4.removeAll(data4);
+				data6.removeAll(data6);
+
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(option == "Lizenz"){
+			try {
+				java.sql.Connection conn = Connection.connecten();
+				String query = "SELECT * FROM Lizenz";
+				PreparedStatement stmt = conn.prepareStatement(query);
+				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+				
+				while(set.next()){
+					zähler++;
+					lizenz = new lizenz(set.getInt(i),set.getString(j),set.getString(k),set.getInt(l),
+							set.getInt(m),set.getInt(n),set.getDate(a),set.getDate(b),
+							set.getString(c),set.getInt(d),set.getInt(e),set.getInt(f),zähler);
+					data6.add(lizenz);
+				}
+				listview.setItems(data6);
+				zähler = 0;
+				set.close();
+				conn.close();
+				data.removeAll(data);
+				data2.removeAll(data2);
+				data3.removeAll(data3);
+				data4.removeAll(data4);
+				data5.removeAll(data5);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -155,8 +282,7 @@ public class showwindow_controller implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		choicebox.getItems().addAll("Fikus","Perkus","Standort");
-		//load.setOnAction(e -> getChoice(choicebox));
+		choicebox.getItems().addAll("Fikus","Perkus","Standort","Lizenz","Maintenance","Leasing","Produkt");
 	}
 	
 

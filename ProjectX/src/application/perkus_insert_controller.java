@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  * @author Yve
  *
  */
-public class perkus_insert_controller{
+public class perkus_insert_controller {
 	
 	@FXML private TextField id;
 	@FXML private TextField name;
@@ -32,7 +32,6 @@ public class perkus_insert_controller{
 	@FXML private TextField email;
 	@FXML private TextField position;
 	@FXML private TextField fikusid;
-	@FXML private Button button;
 	private String idtext;
 	private String idtextf;
 	private String nametext;
@@ -49,6 +48,7 @@ public class perkus_insert_controller{
 	private int ids;
 	private int idfikus;
 	
+	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		idtext = id.getText();
@@ -79,6 +79,7 @@ public class perkus_insert_controller{
 		System.out.println("New Insert into Table Perkus is completed.");
 	}
 	
+	@FXML
 	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		idtext = fikusid.getText();
@@ -91,6 +92,7 @@ public class perkus_insert_controller{
 		System.out.println("Update at Table Perkus is completed.");
 	}
 	
+	@FXML
 	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		idtext = id.getText();
@@ -121,6 +123,7 @@ public class perkus_insert_controller{
 		System.out.println("New Delete at Table Perkus is completed.");
 	}
 	
+	@FXML
 	public void show(){
 		Stage primarystage = new Stage();
 		showwindow window = new showwindow();

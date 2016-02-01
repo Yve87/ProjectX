@@ -12,8 +12,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class Lizenz_controller implements Initializable{
+public class Lizenz_controller {
 
 	@FXML private TextField idlizenz;
 	@FXML private TextField typ;
@@ -39,8 +40,8 @@ public class Lizenz_controller implements Initializable{
 	int maintenanceidtext;
 	int produktidtext;
 	int perkusidtext;
-	ListView<Object> listview;
-	
+
+	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		verkaufsdatumtext = Date.valueOf(verkaufsdatum.getValue());
@@ -69,6 +70,7 @@ public class Lizenz_controller implements Initializable{
 		System.out.println("New Insert into Table Lizenz is completed.");
 	}
 	
+	@FXML
 	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		idlizenztext = Integer.parseInt(idlizenz.getText());
@@ -89,6 +91,7 @@ public class Lizenz_controller implements Initializable{
 		System.out.println("New Update at Table Lizenz is completed.");
 	}
 	
+	@FXML
 	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		idlizenztext = Integer.parseInt(idlizenz.getText());
@@ -115,23 +118,10 @@ public class Lizenz_controller implements Initializable{
 		System.out.println("New Update at Table Lizenz is completed.");
 	}
 	
+	@FXML
 	public void show(){
-		listview = new ListView<>();
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		java.sql.Connection conn;
-		try {
-			conn = Connection.connecten();
-			String query = "SELECT * FROM Lizenz";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		Stage primarystage = new Stage();
+		showwindow window = new showwindow();
+		window.start(primarystage);
 	}
 }

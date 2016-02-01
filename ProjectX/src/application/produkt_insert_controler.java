@@ -10,8 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class produkt_insert_controler implements Initializable{
+public class produkt_insert_controler {
 	
 	@FXML private TextField produktid;
 	@FXML private TextField name;
@@ -25,8 +26,8 @@ public class produkt_insert_controler implements Initializable{
 	private int listenpreistext;
 	private String systemvoraussetzungtext;
 	private String produktcoltext;
-	ListView<Object> listview;
 	
+	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		ids = Integer.parseInt(produktid.getText());
@@ -46,6 +47,7 @@ public class produkt_insert_controler implements Initializable{
 		System.out.println("New Insert into Table Produkt is completed.");
 	}
 	
+	@FXML
 	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		ids = Integer.parseInt(produktid.getText());
@@ -62,6 +64,7 @@ public class produkt_insert_controler implements Initializable{
 		System.out.println("New Update at Table Produkt is completed.");
 	}
 	
+	@FXML
 	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		ids = Integer.parseInt(produktid.getText());
@@ -81,24 +84,11 @@ public class produkt_insert_controler implements Initializable{
 		System.out.println("New Delete at Table Produkt is completed.");
 	}
 	
+	@FXML
 	public void show(){
-		listview = new ListView<>();
+		Stage primarystage = new Stage();
+		showwindow window = new showwindow();
+		window.start(primarystage);
 	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		java.sql.Connection conn;
-		try {
-			conn = Connection.connecten();
-			String query = "SELECT * FROM Produkt";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
+	
 }

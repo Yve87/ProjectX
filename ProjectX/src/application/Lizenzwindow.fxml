@@ -23,7 +23,7 @@
       <DatePicker fx:id="verkaufsdatum" layoutX="499.0" layoutY="330.0" prefHeight="41.0" prefWidth="232.0" promptText="Verkaufsdatum" />
       <DatePicker fx:id="ablaufdatum" layoutX="499.0" layoutY="383.0" prefHeight="41.0" prefWidth="232.0" promptText="Ablaufdatum" />
       <Button layoutX="634.0" layoutY="578.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
-      <Button layoutX="186.0" layoutY="578.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="186.0" layoutY="578.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
       <Button layoutX="853.0" layoutY="578.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="409.0" layoutY="578.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <SplitPane layoutY="666.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
@@ -31,5 +31,6 @@
             <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
          </items>
       </SplitPane>
+      <TextField fx:id="perkusid" layoutX="811.0" layoutY="486.0" promptText="Perkusid" />
    </children>
 </AnchorPane>

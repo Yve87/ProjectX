@@ -8,9 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
-public class leasing_controler{
+public class leasing_controler {
 	
 	// FXML fields
 	@FXML private DatePicker VertragsdatumFXML;
@@ -21,6 +22,9 @@ public class leasing_controler{
 	@FXML private DatePicker Datum_naechster_RechnungsbetragFXML;
 	@FXML private TextField NutzerzahlFXML;
 	@FXML private TextField idLeasingFXML;
+	@FXML private TextField idProdukt;
+	@FXML private TextField idPerkus;
+	@FXML private TextField idFikus;
 	
 	// attributes of class leasing_controller
 	Date Vertragsdatum;
@@ -31,10 +35,12 @@ public class leasing_controler{
 	Date Datum_naechster_Rechnungsbetrag;
 	int Nutzerzahl;
 	int idLeasing;
-	
-	ListView<Object> listview;
+	int idp;
+	int idpe;
+	int idf;
 	
 	// insert
+	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {	
 		// get values entered in the FXML window in the attributes 
 		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
@@ -45,13 +51,18 @@ public class leasing_controler{
 	    Datum_naechster_Rechnungsbetrag = Date.valueOf(Datum_naechster_RechnungsbetragFXML.getValue());
 	    Nutzerzahl = Integer.parseInt(NutzerzahlFXML.getText());
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
+	    idp = Integer.parseInt(idProdukt.getText());
+	    idpe = Integer.parseInt(idPerkus.getText());
+	    idf = Integer.parseInt(idFikus.getText());
 	   
 	    java.sql.Connection conn = Connection.connecten();	// connect database
-	    String query = "INSERT INTO Leasing(Vertragsdatum, Rechnungsdatum, Rechungsbetrag, Anzahl_Rechnungen,"
-	    		+ "Datum_letzter_Rechnungsbetrag, Datum_naechster_Rechnungsbetrag, Nutzerzahl, idLeasing)"
-	    		+ "values('"+Vertragsdatum+"', '"+Rechnungsdatum+"', '"+Rechnungsbetrag+"'," // get values
-	    		+ "'"+Anzahl_Rechnungen+"', '"+Datum_letzter_Rechnungsbetrag+"', "
-	    		+ "'"+Datum_naechster_Rechnungsbetrag+"', '"+Nutzerzahl+"', '"+idLeasing+"' ";
+	    String query = "INSERT INTO Leasing(Vertragsbeginn,Rechnungsdatum,Rechnungsbetrag,Anzahl_Rechnungen,"
+	    		+ "Datum_letzter_Rechnungsbetrag,Datum_naechster_Rechnungsbetrag,Nutzerzahl,idLeasing,"
+	    		+ "Produkt_idProdukt,Perkus_idPerkus,Fikus_idFikus)"
+	    		+ "values('"+Vertragsdatum+"','"+Rechnungsdatum+"','"+Rechnungsbetrag+"'," // get values
+	    		+ "'"+Anzahl_Rechnungen+"','"+Datum_letzter_Rechnungsbetrag+"',"
+	    		+ "'"+Datum_naechster_Rechnungsbetrag+"','"+Nutzerzahl+"','"+idLeasing+"','"+idp+"','"
+	    		+idpe+"','"+idf+"')";
 	    // PreparedStatement for Connection and query
 	    PreparedStatement stmt = conn.prepareStatement(query);
 	    stmt.executeUpdate();			// execute preparedStatement
@@ -59,6 +70,7 @@ public class leasing_controler{
 	}
 	
 	// update
+	@FXML
 	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
 	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
@@ -81,6 +93,7 @@ public class leasing_controler{
 	    System.out.println("New UPDATE of Table Leasing is completed");
 	}
 	
+	@FXML
 	public void delete () throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		Vertragsdatum = Date.valueOf(VertragsdatumFXML.getValue());	// get value of FXML in attribute
 	    Rechnungsdatum = Date.valueOf(RechnungsdatumFXML.getValue());
@@ -96,9 +109,12 @@ public class leasing_controler{
 	}
 	
 
-	
+	@FXML
 	public void show(){
-		listview = new ListView<>();
+	
+		Stage primarystage = new Stage();
+		showwindow window = new showwindow();
+		window.start(primarystage);
 	}
 
 }

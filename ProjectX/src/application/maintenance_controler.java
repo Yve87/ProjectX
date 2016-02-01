@@ -13,8 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class maintenance_controler implements Initializable{
+public class maintenance_controler {
 	
 	@FXML TextField maintenanceid;
 	@FXML DatePicker gueltigkeit;
@@ -52,22 +53,8 @@ public class maintenance_controler implements Initializable{
 	}
 	
 	public void show(){
-		listview = new ListView<>();
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		java.sql.Connection conn;
-		try {
-			conn = Connection.connecten();
-			String query = "SELECT * FROM Maintenance";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		Stage primarystage = new Stage();
+		showwindow window = new showwindow();
+		window.start(primarystage);
 	}
 }
