@@ -22,7 +22,7 @@
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font></Button>
-      <Button layoutX="130.0" layoutY="414.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Bisherige Dokumente">
+      <Button layoutX="130.0" layoutY="414.0" mnemonicParsing="false" onAction="#show" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Bisherige Dokumente">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font></Button>

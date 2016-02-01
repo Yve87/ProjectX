@@ -34,7 +34,6 @@ public class standort_insert_controler {
 	private int tel;
 	private int fid;
 	private int perid;
-	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -106,7 +105,7 @@ public class standort_insert_controler {
 	public void show(){
 		
 		Stage primarystage = new Stage();
-		standort_show_window window = new standort_show_window();
+		showwindow window = new showwindow();
 		window.start(primarystage);
 	}
 }

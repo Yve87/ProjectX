@@ -12,6 +12,7 @@ public class MainControler {
 	Lieferschein_Between_Window window1;
 	Rechnung_Between_Window window2;
 	Angebot_Between_Window window3;
+	showwindow window4;
 	Stage primaryStage = new Stage();
 	
 	
@@ -33,6 +34,11 @@ public class MainControler {
 	public void leiferschein_erstellen(){
 		window1 = new Lieferschein_Between_Window();
 		window1.start(primaryStage);
+	}
+	
+	public void show(){
+		window4 = new showwindow();
+		window4.start(primaryStage);	
 	}
 	
 }

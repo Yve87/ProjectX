@@ -79,7 +79,7 @@ public class Standort {
 	}
 	
 	public String toString(){
-		return (standortnummer+".Perkus:\nID: "+ standortid.get() +"	Name: "+ name.get()
+		return (standortnummer+".Standort:\nID: "+ standortid.get() +"	Name: "+ name.get()
 		+"	Strasse: "+ strasse.get()+"	   Hausnummer: "+hausnummer.get()+"	 Plz: "+plz.get()
 		+"\nPls: "+pls.get()+"	  Postfachnummer: "+postfachnummer.get()
 		+"	  Telefon: "+telefon.get()+"\nFikusid: "+fikusid.get()+"		Perkusid: "+perkusid.get());

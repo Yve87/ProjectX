@@ -48,7 +48,6 @@ public class perkus_insert_controller{
 	private String positiontext;
 	private int ids;
 	private int idfikus;
-	ListView<Object> listview;
 	
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -124,7 +123,7 @@ public class perkus_insert_controller{
 	
 	public void show(){
 		Stage primarystage = new Stage();
-		perkus_show_window window = new perkus_show_window();
+		showwindow window = new showwindow();
 		window.start(primarystage);
 	}
 }
