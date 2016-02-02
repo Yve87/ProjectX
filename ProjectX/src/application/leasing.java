@@ -30,7 +30,7 @@ public class Leasing {
 	 int leasingnummer;
 	 
 	 
-	 public leasing(Date vertragsdatum,Date rechnungsdatum, Float rechnungsbetrag, int anzahl_rechnungen,
+	 public Leasing(Date vertragsdatum,Date rechnungsdatum, Float rechnungsbetrag, int anzahl_rechnungen,
 			 Date datum_letzter_rechnungsbetrag, Date datum_naechster_rechnungsbetrag, int nutzerzahl,
 			 int idLeasing,int idProdukt,int idPerkus,int idFikus, int leasingnummer){
 		 
