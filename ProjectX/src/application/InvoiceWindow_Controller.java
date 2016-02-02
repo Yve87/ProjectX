@@ -56,6 +56,7 @@ public class InvoiceWindow_Controller implements Initializable{
 	int lieferscheinid;
 	int vorgaengerrechnung;
 	int bezahlt;
+	
 	ListView<Object> listview;
 	
 	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
@@ -67,7 +68,6 @@ public class InvoiceWindow_Controller implements Initializable{
 		standortnametext = standortname.getText();
 		preistext = Integer.parseInt(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
-		rechnungsid = 1;
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Name FROM Fikus WHERE Name='"+fikusnametext+"'";
 		String query2 = "SELECT * FROM Produkt WHERE Name='"+produktnametext+"'";
@@ -75,6 +75,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		String query4 = "SELECT * FROM Standort WHERE Name='"+standortnametext+"'";
 		String query5 = "SELECT * FROM Produkt WHERE Listenpreis='"+preistext+"'";
 		String query6 = "SELECT * FROM Lizenz WHERE Rabatt='"+rabatttext+"'";
+		String idquery = "SELECT idRechnung FROM Rechnung WHERE Name='"+fikusnametext+"'";
 		// query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorgängerrechnung,"
 	//			+ "Bezahlt,Betrag,Lieferantennummer,Bestellnummer,Lieferschein_idLieferschein)"
 		//		+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+vorgaengerrechnung+"',"
@@ -90,7 +91,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		PreparedStatement stmt6 = conn.prepareStatement(query6);
 		//PreparedStatement stmt7 = conn.prepareStatement(query7);
 		PreparedStatement stmt8 = conn.prepareStatement(query8);
-		
+		PreparedStatement stmt9 = conn.prepareStatement(idquery);
 		stmt1.executeQuery();
 		stmt2.executeQuery();
 		stmt3.executeQuery();
@@ -99,9 +100,14 @@ public class InvoiceWindow_Controller implements Initializable{
 		stmt6.executeQuery();
 		//stmt7.executeQuery();
 		stmt8.executeQuery();
+		stmt9.executeQuery();
+		
 		ResultSet set = stmt1.executeQuery();
 		String strasse1 = set.toString();
 		System.out.println(set);
+		
+		ResultSet set1 = stmt9.executeQuery();
+		rechnungsid = set.getInt(0);
 		
 		float left = 30;
         float right = 30;
@@ -114,7 +120,7 @@ public class InvoiceWindow_Controller implements Initializable{
 
         // step 3
         document.open();
-        document.addTitle("Rechnung");
+        document.addTitle("Invoice");
         document.addCreationDate();
         document.add(new Paragraph("Created: " + today.getDayOfMonth() + "." + today.getMonthValue() 
         + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
@@ -123,7 +129,7 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("Sample Company",  new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD)));
         document.add(new Paragraph("Street House No.",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("D-12345 City",  new Font(Font.FontFamily.HELVETICA, 9)));
-        document.add(new Paragraph("Telephne: 069-12345678, Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Telephone: 069-12345678, Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("E-Mail: sampleCompany@email.de",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("http://www.sampleCompany.de",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));

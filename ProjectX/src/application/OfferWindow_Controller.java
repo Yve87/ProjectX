@@ -138,7 +138,7 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph("Sample Company",  new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD)));
         document.add(new Paragraph("Street House No.",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("D-12345 City",  new Font(Font.FontFamily.HELVETICA, 9)));
-        document.add(new Paragraph("Telephne: 069-12345678, Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Telephone: 069-12345678, Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("E-Mail: sampleCompany@email.de",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("http://www.sampleCompany.de",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
