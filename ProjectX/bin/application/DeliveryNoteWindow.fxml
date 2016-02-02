@@ -23,9 +23,9 @@
       <TextField fx:id="rabatt" layoutX="463.0" layoutY="488.0" promptText="Discount" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="standortname" layoutX="138.0" layoutY="488.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="463.0" layoutY="330.0" promptText="Product" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <DatePicker fx:id="rechnungdatum" layoutX="793.0" layoutY="330.0" promptText="Invoice Date" />
-      <DatePicker fx:id="lieferdatum" layoutX="801.0" layoutY="330.0" promptText="Delivery Date" styleClass="date-picker" stylesheets="@DarkTheme.css" />
+      <DatePicker fx:id="lieferdatum" layoutX="801.0" layoutY="412.0" promptText="Delivery Date" styleClass="date-picker" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="59.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="133.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <TextField fx:id="menge" layoutX="801.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
    </children>
 </AnchorPane>
