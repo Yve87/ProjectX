@@ -1,24 +1,19 @@
 package application;
-	
-import javafx.application.Application;
-import javafx.event.EventHandler;
+
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.*;
+import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
+public class PeopleCustomersWindow {
 
-public class Insert_fikus_window extends Application {
-	
 	Scene scene;
-
+	
 	public void start(Stage primaryStage) {
-		try {
-
-			Parent root = FXMLLoader.load(getClass().getResource("fikuswindowinsert.fxml"));
+		try {		
+			Parent root = FXMLLoader.load(getClass().getResource("PeopleCustomersWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -27,6 +22,7 @@ public class Insert_fikus_window extends Application {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 }
+

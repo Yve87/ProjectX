@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProductWindow_Controller">
+   <children>
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="name" layoutX="161.0" layoutY="340.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="systemvoraussetzung" layoutX="524.0" layoutY="405.0" promptText="Systemvoraussetzungen" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="versionsnummer" layoutX="161.0" layoutY="405.0" promptText="Versionsnummer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="listenpreis" layoutX="524.0" layoutY="340.0" promptText="Listenpreis" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktid" layoutX="161.0" layoutY="467.0" promptText="ProduktID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktcol" layoutX="524.0" layoutY="467.0" promptText="Produktcol" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="75.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="266.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Produkt - Bitte geben Sie die Daten ein:" />
+      <Button layoutX="634.0" layoutY="578.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Button layoutX="186.0" layoutY="578.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
+      <Button layoutX="853.0" layoutY="578.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="409.0" layoutY="578.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+   </children>
+</AnchorPane>

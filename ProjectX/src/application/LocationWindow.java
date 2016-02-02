@@ -11,18 +11,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.*;
 
 
-public class Insert_fikus_window extends Application {
+public class LocationWindow extends Application {
 	
 	Scene scene;
 
 	public void start(Stage primaryStage) {
 		try {
 
-			Parent root = FXMLLoader.load(getClass().getResource("fikuswindowinsert.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("LocationWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("People Customers");
+			primaryStage.setTitle("Location");
 			primaryStage.show();
 			
 		} catch(Exception e) {

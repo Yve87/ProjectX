@@ -36,18 +36,18 @@ public class showwindow_controller implements Initializable{
 	int e = 11;
 	int f = 12;
 	int g = 13;
-	Fikus fikus;
-	Perkus perkus;
-	Standort standort;
-	Produkt produkt;
-	maintenance maintenance;
-	lizenz lizenz;
-	ObservableList<Fikus> data = FXCollections.observableArrayList();
-	ObservableList<Perkus> data2 = FXCollections.observableArrayList();
-	ObservableList<Standort> data3 = FXCollections.observableArrayList();
-	ObservableList<Produkt> data4 = FXCollections.observableArrayList();
-	ObservableList<maintenance> data5 = FXCollections.observableArrayList();
-	ObservableList<lizenz> data6 = FXCollections.observableArrayList();
+	PeopleCustomers fikus;
+	CorporateCustomers perkus;
+	Location standort;
+	Product produkt;
+	Maintenance maintenance;
+	License lizenz;
+	ObservableList<PeopleCustomers> data = FXCollections.observableArrayList();
+	ObservableList<CorporateCustomers> data2 = FXCollections.observableArrayList();
+	ObservableList<Location> data3 = FXCollections.observableArrayList();
+	ObservableList<Product> data4 = FXCollections.observableArrayList();
+	ObservableList<Maintenance> data5 = FXCollections.observableArrayList();
+	ObservableList<License> data6 = FXCollections.observableArrayList();
 	
 
 	@SuppressWarnings("unchecked")
@@ -63,7 +63,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					fikus = new Fikus(set.getInt(i), set.getString(j), zähler);
+					fikus = new PeopleCustomers(set.getInt(i), set.getString(j), zähler);
 					data.add(fikus);
 				}
 				listview.setItems(data);
@@ -99,7 +99,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					perkus = new Perkus(set.getInt(i), set.getString(j),set.getString(k),
+					perkus = new CorporateCustomers(set.getInt(i), set.getString(j),set.getString(k),
 							set.getString(l),set.getString(m),set.getString(n),set.getString(a),
 							set.getString(b),set.getString(c),set.getString(d),set.getString(e),
 							set.getString(f),set.getInt(g),zähler);
@@ -138,7 +138,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					standort = new Standort(set.getInt(i), set.getString(j),set.getString(k),
+					standort = new Location(set.getInt(i), set.getString(j),set.getString(k),
 							set.getInt(l),set.getInt(m),set.getInt(n),set.getInt(a),
 							set.getInt(b),set.getInt(c),set.getInt(d),zähler);
 					data3.add(standort);
@@ -176,7 +176,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					produkt = new Produkt(set.getInt(i), set.getString(j),set.getInt(k),
+					produkt = new Product(set.getInt(i), set.getString(j),set.getInt(k),
 							set.getInt(l),set.getString(m),set.getString(n),zähler);
 					data4.add(produkt);
 				}
@@ -213,7 +213,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					maintenance = new maintenance(set.getInt(i),set.getDate(j),set.getFloat(k),zähler);
+					maintenance = new Maintenance(set.getInt(i),set.getDate(j),set.getFloat(k),zähler);
 					data5.add(maintenance);
 				}
 				listview.setItems(data5);
@@ -249,7 +249,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					lizenz = new lizenz(set.getInt(i),set.getString(j),set.getString(k),set.getInt(l),
+					lizenz = new License(set.getInt(i),set.getString(j),set.getString(k),set.getInt(l),
 							set.getInt(m),set.getInt(n),set.getDate(a),set.getDate(b),
 							set.getString(c),set.getInt(d),set.getInt(e),set.getInt(f),zähler);
 					data6.add(lizenz);

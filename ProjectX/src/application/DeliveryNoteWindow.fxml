@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#lieferschein_erstellen" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DeliveryNoteWindow_Controller">
+   <children>
+      <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
+         <items>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+         </items>
+      </SplitPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
+      <Button layoutX="823.0" layoutY="529.0" mnemonicParsing="false" onAction="#lieferschein_erstellen" prefHeight="70.0" prefWidth="239.0" stylesheets="@DarkTheme.css" text="Create Delivery Note" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Delivery Note - Please enter the data:" />
+      <TextField fx:id="fikusname" layoutX="138.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="perkusname" layoutX="138.0" layoutY="412.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="preis" layoutX="463.0" layoutY="412.0" promptText="Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="rabatt" layoutX="463.0" layoutY="488.0" promptText="Discount" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="standortname" layoutX="138.0" layoutY="488.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktname" layoutX="463.0" layoutY="330.0" promptText="Product" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <DatePicker fx:id="rechnungdatum" layoutX="793.0" layoutY="330.0" promptText="Invoice Date" />
+      <DatePicker fx:id="lieferdatum" layoutX="801.0" layoutY="330.0" promptText="Delivery Date" styleClass="date-picker" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="59.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="133.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+   </children>
+</AnchorPane>
