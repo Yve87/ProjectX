@@ -4,6 +4,9 @@ import java.sql.Date;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -19,4 +22,62 @@ public class leasing {
 	 private ObjectProperty<Date> datum_naechster_rechnungsbetrag;
 	 private IntegerProperty nutzerzahl;
 	 private IntegerProperty idLeasing;
+	 int leasingnummer;
+	 
+	 
+	 public leasing(Date vertragsdatum,Date rechnungsdatum, String rechnungsbetrag, String anzahl_rechnungen,
+			 Date datum_letzter_rechnungsbetrag, Date datum_naechster_rechnungsbetrag, int nutzerzahl,
+			 int idLeasing, int leasingnummer){
+		 
+		 this.vertragsdatum = new SimpleObjectProperty<Date>(vertragsdatum);
+		 this.rechnungsdatum = new SimpleObjectProperty<Date>(rechnungsdatum);
+		 this.rechnungsbetrag = new SimpleStringProperty(rechnungsbetrag);
+		 this.anzahl_rechnungen = new SimpleStringProperty(anzahl_rechnungen);
+		 this.datum_letzter_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_letzter_rechnungsbetrag);
+		 this.datum_letzter_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_letzter_rechnungsbetrag);
+		 this.nutzerzahl = new SimpleIntegerProperty(nutzerzahl);
+		 this.idLeasing = new SimpleIntegerProperty(idLeasing);
+		 this.leasingnummer = leasingnummer;
+	 }
+	 
+	 public Date getvertragsdatum(){
+		 return vertragsdatum.get();
+	 }
+	 
+	 public Date getrechnungsdatum(){
+		 return rechnungsdatum.get();
+	 }
+	 
+	 public String  getrechnungsbetrag(){
+		 return rechnungsbetrag.get();
+	 }
+	 
+	 public String  getanzahl_rechnungen(){
+		 return anzahl_rechnungen.get();
+	 }
+	 
+	 public Date getdatum_letzter_rechnungsbetrag(){
+		 return datum_letzter_rechnungsbetrag.get();
+	 }
+	 
+	 public Date getdatum_naechster_rechnungsbetrag(){
+		 return datum_naechster_rechnungsbetrag.get();
+	 }
+	 
+	 public Integer getnutzerzahl(){
+		 return nutzerzahl.get();
+	 }
+	 
+	 public Integer getidLeasing(){
+		 return idLeasing.get();
+	 }
+	 
+	 public String toString(){
+			return (leasingnummer+".Leasing:\nVertragsdatum: "+ vertragsdatum.get() 
+			+"	Rechnungsdatum: "+ rechnungsdatum.get()
+			+"	Rechnungsbetrag: "+rechnungsbetrag.get()+"  Anzahl Rechnungen: "+ anzahl_rechnungen.get()
+			+"	Datum letzter Rechnungsbetrag: "+datum_letzter_rechnungsbetrag.get()
+			+"	Datum naechster Rechnungsbetrag: "+datum_naechster_rechnungsbetrag.get()
+			+"\nNutzerzahl: "+nutzerzahl.get()+"	LeasingId: "+idLeasing.get());
+		}
 }

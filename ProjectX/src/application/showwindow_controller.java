@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -42,17 +43,28 @@ public class showwindow_controller implements Initializable{
 	Produkt produkt;
 	maintenance maintenance;
 	lizenz lizenz;
+	leasing leasing;
 	ObservableList<Fikus> data = FXCollections.observableArrayList();
 	ObservableList<Perkus> data2 = FXCollections.observableArrayList();
 	ObservableList<Standort> data3 = FXCollections.observableArrayList();
 	ObservableList<Produkt> data4 = FXCollections.observableArrayList();
 	ObservableList<maintenance> data5 = FXCollections.observableArrayList();
 	ObservableList<lizenz> data6 = FXCollections.observableArrayList();
+	ObservableList<leasing> data7 = FXCollections.observableArrayList();
 	
 
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void getChoice(){
+		
+		data.removeAll(data);
+		data2.removeAll(data2);
+		data3.removeAll(data3);
+		data5.removeAll(data5);
+		data4.removeAll(data4);
+		data6.removeAll(data6);
+		data7.removeAll(data7);
+		
 		String option = choicebox.getValue();
 		if(option == "Fikus"){
 			try {
@@ -66,7 +78,7 @@ public class showwindow_controller implements Initializable{
 					fikus = new Fikus(set.getInt(i), set.getString(j), zähler);
 					data.add(fikus);
 				}
-				listview.setItems(data);
+				listview.setItems(data.filtered(Fikus -> Fikus.getName().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -75,6 +87,7 @@ public class showwindow_controller implements Initializable{
 				data5.removeAll(data5);
 				data4.removeAll(data4);
 				data6.removeAll(data6);
+				data7.removeAll(data7);
 				
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -105,7 +118,7 @@ public class showwindow_controller implements Initializable{
 							set.getString(f),set.getInt(g),zähler);
 					data2.add(perkus);
 				}
-				listview.setItems(data2);
+				listview.setItems(data2.filtered(Perkus -> Perkus.getname().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -114,6 +127,7 @@ public class showwindow_controller implements Initializable{
 				data4.removeAll(data4);
 				data5.removeAll(data5);
 				data6.removeAll(data6);
+				data7.removeAll(data7);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -143,7 +157,7 @@ public class showwindow_controller implements Initializable{
 							set.getInt(b),set.getInt(c),set.getInt(d),zähler);
 					data3.add(standort);
 				}
-				listview.setItems(data3);
+				listview.setItems(data3.filtered(Standort -> Standort.getname().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -152,6 +166,7 @@ public class showwindow_controller implements Initializable{
 				data4.removeAll(data4);
 				data5.removeAll(data5);
 				data6.removeAll(data6);
+				data7.removeAll(data7);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -180,7 +195,7 @@ public class showwindow_controller implements Initializable{
 							set.getInt(l),set.getString(m),set.getString(n),zähler);
 					data4.add(produkt);
 				}
-				listview.setItems(data4);
+				listview.setItems(data4.filtered(Produkt -> Produkt.getname().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -189,6 +204,7 @@ public class showwindow_controller implements Initializable{
 				data3.removeAll(data3);
 				data5.removeAll(data5);
 				data6.removeAll(data6);
+				data7.removeAll(data7);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -225,6 +241,7 @@ public class showwindow_controller implements Initializable{
 				data3.removeAll(data3);
 				data4.removeAll(data4);
 				data6.removeAll(data6);
+				data7.removeAll(data7);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -254,7 +271,7 @@ public class showwindow_controller implements Initializable{
 							set.getString(c),set.getInt(d),set.getInt(e),set.getInt(f),zähler);
 					data6.add(lizenz);
 				}
-				listview.setItems(data6);
+				listview.setItems(data6.filtered(Lizenz -> Lizenz.gettyp().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -263,6 +280,45 @@ public class showwindow_controller implements Initializable{
 				data3.removeAll(data3);
 				data4.removeAll(data4);
 				data5.removeAll(data5);
+				data7.removeAll(data7);
+
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(option == "Leasing"){
+			try {
+				java.sql.Connection conn = Connection.connecten();
+				String query = "SELECT * FROM Leasing";
+				PreparedStatement stmt = conn.prepareStatement(query);
+				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+				
+				while(set.next()){
+					zähler++;
+					leasing = new leasing(set.getDate(i),set.getDate(j),set.getString(k),set.getString(l),
+							set.getDate(m),set.getDate(n),set.getInt(a),set.getInt(b),zähler);
+					data7.add(leasing);
+				}
+				listview.setItems(data7);
+				zähler = 0;
+				set.close();
+				conn.close();
+				data.removeAll(data);
+				data2.removeAll(data2);
+				data3.removeAll(data3);
+				data4.removeAll(data4);
+				data5.removeAll(data5);
+				data6.removeAll(data6);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block

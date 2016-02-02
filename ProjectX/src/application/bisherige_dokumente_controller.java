@@ -21,6 +21,7 @@ public class bisherige_dokumente_controller implements Initializable{
 	@FXML
 	public void getChoice(){
 		
+		
 		String option = choicebox.getValue();
 		
 		if(option == "Angebote"){
