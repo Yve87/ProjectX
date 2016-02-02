@@ -15,7 +15,7 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Button layoutX="793.0" layoutY="529.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="70.0" prefWidth="239.0" text="Create Invoice" />
+      <Button layoutX="815.0" layoutY="529.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="70.0" prefWidth="239.0" text="Create Invoice" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Invoice - Please enter the data:" />
       <TextField fx:id="fikusname" layoutX="130.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="perkusname" layoutX="130.0" layoutY="412.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
@@ -23,9 +23,10 @@
       <TextField fx:id="rabatt" layoutX="455.0" layoutY="488.0" promptText="Discount" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="standortname" layoutX="130.0" layoutY="488.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="455.0" layoutY="330.0" promptText="Product" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <DatePicker fx:id="rechnungdatum" layoutX="793.0" layoutY="330.0" promptText="Invoice Date" />
+      <DatePicker fx:id="rechnungdatum" layoutX="793.0" layoutY="412.0" promptText="Invoice Date" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="466.0" layoutY="55.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="133.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <TextField fx:id="menge" layoutX="793.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
    </children>
  
 </AnchorPane>

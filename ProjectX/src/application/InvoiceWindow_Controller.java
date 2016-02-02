@@ -6,6 +6,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -35,7 +36,7 @@ public class InvoiceWindow_Controller implements Initializable{
         = "./Rechnung.pdf";
  
     LocalDate today = LocalDate.now();
-    LocalDate todayplus90 = today.plusDays(90);
+    LocalDate todayplus30 = today.plusDays(30);
     
 	@FXML private TextField fikusname;
 	@FXML private TextField produktname;
@@ -44,6 +45,7 @@ public class InvoiceWindow_Controller implements Initializable{
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
 	@FXML private DatePicker rechnungdatum;
+	@FXML private TextField menge;
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
@@ -56,6 +58,10 @@ public class InvoiceWindow_Controller implements Initializable{
 	int lieferscheinid;
 	int vorgaengerrechnung;
 	int bezahlt;
+	int mengetext;
+	
+
+	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
 	ListView<Object> listview;
 	
@@ -68,6 +74,13 @@ public class InvoiceWindow_Controller implements Initializable{
 		standortnametext = standortname.getText();
 		preistext = Integer.parseInt(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
+		mengetext = Integer.parseInt(menge.getText());
+		
+		float gesamtpreistext = preistext * mengetext;
+		float rabattsumme = ((float)rabatttext)/100;
+		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
+		float rabattEuro = (float) gesamtpreistext * rabattsumme;
+		
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Name FROM Fikus WHERE Name='"+fikusnametext+"'";
 		String query2 = "SELECT * FROM Produkt WHERE Name='"+produktnametext+"'";
@@ -100,14 +113,14 @@ public class InvoiceWindow_Controller implements Initializable{
 		stmt6.executeQuery();
 		//stmt7.executeQuery();
 		stmt8.executeQuery();
-		stmt9.executeQuery();
+		//stmt9.executeQuery();
 		
 		ResultSet set = stmt1.executeQuery();
 		String strasse1 = set.toString();
 		System.out.println(set);
 		
-		ResultSet set1 = stmt9.executeQuery();
-		rechnungsid = set.getInt(0);
+		//ResultSet set1 = stmt9.executeQuery();
+		//rechnungsid = set.getInt(0);
 		
 		float left = 30;
         float right = 30;
@@ -148,6 +161,30 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("Dear Sir or Madam, \n"
         		+ "attached you receive the following invoice: Invoice ID " +rechnungsid +"\n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
         
+        document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"€", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph("We please you to transfer the total amount of € "+f.format(preistextRabatt)+"\n"
+        		+ "on the Sample Company on the bank account 123456789, OurBank OurCity, \n"
+        		+ "Bank Rounting Number 12300000. Term of payment: 30 days net", 
+        		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
+        document.add(new Paragraph(" "));        
+        document.add(new Paragraph("With kind regards,", new Font(Font.FontFamily.HELVETICA, 13)));
+        document.add(new Paragraph("Sample Company", new Font(Font.FontFamily.HELVETICA, 13)));
+        document.add(new Paragraph("Sample Company employee", new Font(Font.FontFamily.HELVETICA, 13)));       
+     
+        // step 5
         document.close();
         }
         

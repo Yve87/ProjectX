@@ -158,7 +158,7 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph(" "));
 
         document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Amout: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
@@ -179,6 +179,7 @@ public class OfferWindow_Controller implements Initializable{
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));        
         document.add(new Paragraph("With kind regards,", new Font(Font.FontFamily.HELVETICA, 13)));
+        document.add(new Paragraph("Sample Company", new Font(Font.FontFamily.HELVETICA, 13)));
         document.add(new Paragraph("Sample Company employee", new Font(Font.FontFamily.HELVETICA, 13)));       
      
         // step 5
