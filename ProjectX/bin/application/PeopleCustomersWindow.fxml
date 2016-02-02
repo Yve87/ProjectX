@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.fikus_insert_controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PeopleCustomers_Controller">
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
@@ -13,14 +13,26 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="186.0" layoutY="254.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="People Customer - Please enter the data:" />
-      <TextField fx:id="namef" layoutX="186.0" layoutY="330.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="idf" layoutX="186.0" layoutY="410.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="64.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Button layoutX="634.0" layoutY="565.0" mnemonicParsing="false" onAction="#updaten" prefHeight="70.0" prefWidth="181.0" text="Update" />
-      <Button layoutX="186.0" layoutY="565.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
-      <Button layoutX="848.0" layoutY="565.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
-      <Button layoutX="409.0" layoutY="565.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Button layoutX="624.0" layoutY="568.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <TextField fx:id="id" layoutX="176.0" layoutY="289.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="zimmernummer" layoutX="490.0" layoutY="442.0" promptText="Room Number" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
+      <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
+      <Button layoutX="843.0" layoutY="568.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
+      <Button layoutX="399.0" layoutY="568.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <TextField fx:id="anrede" layoutX="176.0" layoutY="444.0" promptText="Saluation" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="name" layoutX="176.0" layoutY="341.0" promptText="Surname" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="vorname" layoutX="176.0" layoutY="391.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="tel" layoutX="805.0" layoutY="392.0" promptText="Telephone" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="titel" layoutX="492.0" layoutY="289.0" promptText="Title" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="gebaeudenummer" layoutX="492.0" layoutY="391.0" promptText="Buildung Number" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="fax" layoutX="805.0" layoutY="442.0" promptText="Fax" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="abteilung" layoutX="492.0" layoutY="341.0" promptText="Department" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="476.0" layoutY="65.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="176.0" layoutY="233.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="People Customers - Please enter the data:" />
+      <TextField fx:id="email" layoutX="805.0" layoutY="341.0" promptText="E-Mail" />
+      <TextField fx:id="position" layoutX="805.0" layoutY="495.0" promptText="Position" />
+      <TextField fx:id="fikusid" layoutX="805.0" layoutY="289.0" promptText="People Customers ID" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="140.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
    </children>
 </AnchorPane>

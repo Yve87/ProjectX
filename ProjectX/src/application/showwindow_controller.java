@@ -36,15 +36,15 @@ public class showwindow_controller implements Initializable{
 	int e = 11;
 	int f = 12;
 	int g = 13;
-	PeopleCustomers fikus;
-	CorporateCustomers perkus;
+	CorporateCustomers fikus;
+	PeopleCustomers perkus;
 	Location standort;
 	Product produkt;
 	Maintenance maintenance;
 	License lizenz;
 	leasing leasing;
-	ObservableList<PeopleCustomers> data = FXCollections.observableArrayList();
-	ObservableList<CorporateCustomers> data2 = FXCollections.observableArrayList();
+	ObservableList<CorporateCustomers> data = FXCollections.observableArrayList();
+	ObservableList<PeopleCustomers> data2 = FXCollections.observableArrayList();
 	ObservableList<Location> data3 = FXCollections.observableArrayList();
 	ObservableList<Product> data4 = FXCollections.observableArrayList();
 	ObservableList<Maintenance> data5 = FXCollections.observableArrayList();
@@ -73,7 +73,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					fikus = new PeopleCustomers(set.getInt(i), set.getString(j), zähler);
+					fikus = new CorporateCustomers(set.getInt(i), set.getString(j), zähler);
 					data.add(fikus);
 				}
 				listview.setItems(data);
@@ -109,7 +109,7 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					perkus = new CorporateCustomers(set.getInt(i), set.getString(j),set.getString(k),
+					perkus = new PeopleCustomers(set.getInt(i), set.getString(j),set.getString(k),
 							set.getString(l),set.getString(m),set.getString(n),set.getString(a),
 							set.getString(b),set.getString(c),set.getString(d),set.getString(e),
 							set.getString(f),set.getInt(g),zähler);

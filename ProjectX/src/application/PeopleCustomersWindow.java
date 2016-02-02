@@ -1,28 +1,32 @@
 package application;
-
-import javafx.fxml.FXML;
+	
+import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.*;
 
-public class PeopleCustomersWindow {
 
-	Scene scene;
+public class PeopleCustomersWindow extends Application {
 	
+	Scene scene;
+
 	public void start(Stage primaryStage) {
-		try {		
+		try {
+
 			Parent root = FXMLLoader.load(getClass().getResource("PeopleCustomersWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("People Customers");
+			primaryStage.setTitle("Corporate Customers");
 			primaryStage.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
+		}	
 	}
 }
-

@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  * @author Yve
  *
  */
-public class CorporateCustomers_controller {
+public class PeopleCustomers_Controller {
 	
 	@FXML private TextField id;
 	@FXML private TextField name;

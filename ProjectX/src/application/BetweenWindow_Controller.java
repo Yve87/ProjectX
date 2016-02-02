@@ -11,14 +11,14 @@ public class BetweenWindow_Controller {
 	public void fikus_button(){
 
 			Stage primarystage = new Stage();
-			PeopleCustomersWindow window = new PeopleCustomersWindow();
+			CorporateCustomersWindow window = new CorporateCustomersWindow();
 			window.start(primarystage);
 	}
 		
 	public void perkus_button(){
 
 			Stage primarystage = new Stage();
-			CorporateCustomers_window window = new CorporateCustomers_window();
+			PeopleCustomersWindow window = new PeopleCustomersWindow();
 			window.start(primarystage);
 	}
 	

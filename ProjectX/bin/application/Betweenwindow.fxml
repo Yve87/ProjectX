@@ -28,12 +28,12 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="194.0" layoutY="281.0" mnemonicParsing="false" onAction="#fikus_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="People Customers">
+      <Button layoutX="194.0" layoutY="281.0" mnemonicParsing="false" onAction="#fikus_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Corporate Customers">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="488.0" layoutY="281.0" mnemonicParsing="false" onAction="#perkus_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Corporate Customers">
+      <Button layoutX="488.0" layoutY="281.0" mnemonicParsing="false" onAction="#perkus_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="People Customers">
          <font>
             <Font size="20.0" />
          </font>

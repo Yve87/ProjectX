@@ -20,7 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class fikus_insert_controller{
+public class PeopleCustomersWindow_Controller{
 	
 	@FXML private TextField namef; 
 	@FXML private TextField idf;
