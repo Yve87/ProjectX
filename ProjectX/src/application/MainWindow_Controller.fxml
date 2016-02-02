@@ -17,26 +17,26 @@
          </items>
       </SplitPane>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="48.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="121.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Firmensoftware" />
-      <Button layoutX="819.0" layoutY="251.0" mnemonicParsing="false" onAction="#leiferschein_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neuer Lieferschein">
+       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="121.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Button layoutX="819.0" layoutY="251.0" mnemonicParsing="false" onAction="#leiferschein_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="New Delivery Note">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font></Button>
-      <Button layoutX="130.0" layoutY="414.0" mnemonicParsing="false" onAction="#show" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Bisherige Dokumente">
+      <Button layoutX="130.0" layoutY="414.0" mnemonicParsing="false" onAction="#show" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Previous Documents">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font></Button>
-      <Button layoutX="474.0" layoutY="414.0" mnemonicParsing="false" onAction="#Datenbank_modifizieren" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Datenbank modifizieren">
+      <Button layoutX="474.0" layoutY="414.0" mnemonicParsing="false" onAction="#Datenbank_modifizieren" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Modify Database">
          <font>
             <Font name="system Bold Italic" size="20.0" />
          </font></Button>
 
-      <Button layoutX="130.0" layoutY="251.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Neue Rechnung">
+      <Button layoutX="130.0" layoutY="251.0" mnemonicParsing="false" onAction="#rechnung_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="New Invoice">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="474.0" layoutY="251.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="Angebot erstellen">
+      <Button layoutX="474.0" layoutY="251.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="New Offer">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

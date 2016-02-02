@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class maintenance {
+public class Maintenance {
 
 	public IntegerProperty maintenanceid;
 	public ObjectProperty<Date> gueltigkeit;
@@ -20,7 +20,7 @@ public class maintenance {
 	int mnummer;
 	
 	
-	public maintenance(int maintenanceid,Date gueltigkeit,float betrag,int mnummer){
+	public Maintenance(int maintenanceid,Date gueltigkeit,float betrag,int mnummer){
 		
 		this.maintenanceid = new SimpleIntegerProperty(maintenanceid);
 		this.gueltigkeit = new SimpleObjectProperty<Date>(gueltigkeit);
