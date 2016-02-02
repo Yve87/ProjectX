@@ -13,10 +13,11 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X 2015" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
          </items>
       </SplitPane>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="62.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="48.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="121.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
       <Button layoutX="819.0" layoutY="251.0" mnemonicParsing="false" onAction="#leiferschein_erstellen" prefHeight="109.0" prefWidth="278.0" stylesheets="@DarkTheme.css" text="New Delivery Note">
          <font>
             <Font name="System Bold Italic" size="20.0" />
@@ -40,7 +41,6 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
      
       
    </children>

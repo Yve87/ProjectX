@@ -10,47 +10,47 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X 2015" />
          </items>
       </SplitPane>
-      <Button layoutX="776.0" layoutY="281.0" mnemonicParsing="false" onAction="#standort_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Location">
+      <Button layoutX="776.0" layoutY="281.0" mnemonicParsing="false" onAction="#standort_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Location">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="201.0" layoutY="408.0" mnemonicParsing="false" onAction="#produkt_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Product">
+      <Button layoutX="194.0" layoutY="408.0" mnemonicParsing="false" onAction="#produkt_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Product">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="488.0" layoutY="408.0" mnemonicParsing="false" onAction="#lizenz_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="License">
+      <Button layoutX="488.0" layoutY="408.0" mnemonicParsing="false" onAction="#lizenz_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="License">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="201.0" layoutY="281.0" mnemonicParsing="false" onAction="#fikus_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="People Customers">
+      <Button layoutX="194.0" layoutY="281.0" mnemonicParsing="false" onAction="#fikus_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="People Customers">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="488.0" layoutY="281.0" mnemonicParsing="false" onAction="#perkus_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Corporate Customers">
+      <Button layoutX="488.0" layoutY="281.0" mnemonicParsing="false" onAction="#perkus_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Corporate Customers">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="201.0" layoutY="531.0" mnemonicParsing="false" onAction="#leasing_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Leasing">
+      <Button layoutX="194.0" layoutY="531.0" mnemonicParsing="false" onAction="#leasing_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Leasing">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
       <Button layoutX="770.0" layoutY="408.0" mnemonicParsing="false" onAction="#maintenance_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Maintenance" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="201.0" layoutY="220.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Which table do you want to modify?" />
-      <Button layoutX="776.0" layoutY="408.0" mnemonicParsing="false" onAction="#maintenance_button" prefHeight="99.0" prefWidth="224.0" stylesheets="@DarkTheme.css" text="Maintenance">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="220.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Which table do you want to modify?" />
+      <Button layoutX="776.0" layoutY="408.0" mnemonicParsing="false" onAction="#maintenance_button" prefHeight="99.0" prefWidth="231.0" stylesheets="@DarkTheme.css" text="Maintenance">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="131.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="134.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="60.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
    </children>
 </AnchorPane>
