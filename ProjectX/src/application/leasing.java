@@ -2,8 +2,10 @@ package application;
 
 import java.sql.Date;
 
+import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,28 +18,34 @@ public class leasing {
 
 	 private ObjectProperty<Date> vertragsdatum;
 	 private ObjectProperty<Date> rechnungsdatum;
-	 private StringProperty rechnungsbetrag;
-	 private StringProperty anzahl_rechnungen;
+	 private FloatProperty rechnungsbetrag;
+	 private IntegerProperty anzahl_rechnungen;
 	 private ObjectProperty<Date> datum_letzter_rechnungsbetrag;
 	 private ObjectProperty<Date> datum_naechster_rechnungsbetrag;
 	 private IntegerProperty nutzerzahl;
 	 private IntegerProperty idLeasing;
+	 private IntegerProperty idProdukt;
+	 private IntegerProperty idPerkus;
+	 private IntegerProperty idFikus;
 	 int leasingnummer;
 	 
 	 
-	 public leasing(Date vertragsdatum,Date rechnungsdatum, String rechnungsbetrag, String anzahl_rechnungen,
+	 public leasing(Date vertragsdatum,Date rechnungsdatum, Float rechnungsbetrag, int anzahl_rechnungen,
 			 Date datum_letzter_rechnungsbetrag, Date datum_naechster_rechnungsbetrag, int nutzerzahl,
-			 int idLeasing, int leasingnummer){
+			 int idLeasing,int idProdukt,int idPerkus,int idFikus, int leasingnummer){
 		 
 		 this.vertragsdatum = new SimpleObjectProperty<Date>(vertragsdatum);
 		 this.rechnungsdatum = new SimpleObjectProperty<Date>(rechnungsdatum);
-		 this.rechnungsbetrag = new SimpleStringProperty(rechnungsbetrag);
-		 this.anzahl_rechnungen = new SimpleStringProperty(anzahl_rechnungen);
+		 this.rechnungsbetrag = new SimpleFloatProperty(rechnungsbetrag);
+		 this.anzahl_rechnungen = new SimpleIntegerProperty(anzahl_rechnungen);
 		 this.datum_letzter_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_letzter_rechnungsbetrag);
 		 this.datum_letzter_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_letzter_rechnungsbetrag);
 		 this.nutzerzahl = new SimpleIntegerProperty(nutzerzahl);
 		 this.idLeasing = new SimpleIntegerProperty(idLeasing);
 		 this.leasingnummer = leasingnummer;
+		 this.idProdukt = new SimpleIntegerProperty(idProdukt);
+		 this.idPerkus = new SimpleIntegerProperty(idPerkus);
+		 this.idFikus = new SimpleIntegerProperty(idFikus);
 	 }
 	 
 	 public Date getvertragsdatum(){
@@ -48,11 +56,11 @@ public class leasing {
 		 return rechnungsdatum.get();
 	 }
 	 
-	 public String  getrechnungsbetrag(){
+	 public Float  getrechnungsbetrag(){
 		 return rechnungsbetrag.get();
 	 }
 	 
-	 public String  getanzahl_rechnungen(){
+	 public Integer  getanzahl_rechnungen(){
 		 return anzahl_rechnungen.get();
 	 }
 	 
@@ -68,6 +76,18 @@ public class leasing {
 		 return nutzerzahl.get();
 	 }
 	 
+	 public Integer getidProdukt(){
+		 return idProdukt.get();
+	 }
+	 
+	 public Integer getidPerkus(){
+		 return idPerkus.get();
+	 }
+	 
+	 public Integer getidFikus(){
+		 return idFikus.get();
+	 }
+	 
 	 public Integer getidLeasing(){
 		 return idLeasing.get();
 	 }
@@ -78,6 +98,7 @@ public class leasing {
 			+"	Rechnungsbetrag: "+rechnungsbetrag.get()+"  Anzahl Rechnungen: "+ anzahl_rechnungen.get()
 			+"	Datum letzter Rechnungsbetrag: "+datum_letzter_rechnungsbetrag.get()
 			+"	Datum naechster Rechnungsbetrag: "+datum_naechster_rechnungsbetrag.get()
-			+"\nNutzerzahl: "+nutzerzahl.get()+"	LeasingId: "+idLeasing.get());
+			+"\nNutzerzahl: "+nutzerzahl.get()+"	LeasingId: "+idLeasing.get() +"	ProduktId: "+idProdukt.get()
+			+"	PerkusId: "+idPerkus.get()+"	FikusId: "+idFikus.get());
 		}
 }

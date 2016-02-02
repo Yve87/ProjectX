@@ -305,8 +305,9 @@ public class showwindow_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					leasing = new leasing(set.getDate(i),set.getDate(j),set.getString(k),set.getString(l),
-							set.getDate(m),set.getDate(n),set.getInt(a),set.getInt(b),zähler);
+					leasing = new leasing(set.getDate(i),set.getDate(j),set.getFloat(k),set.getInt(l),
+							set.getDate(m),set.getDate(n),set.getInt(a),set.getInt(b),set.getInt(c),
+							set.getInt(d),set.getInt(e),zähler);
 					data7.add(leasing);
 				}
 				listview.setItems(data7);
