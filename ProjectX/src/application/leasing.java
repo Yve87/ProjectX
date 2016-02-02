@@ -14,7 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class Leasing {
+public class leasing {
 
 	 private ObjectProperty<Date> vertragsdatum;
 	 private ObjectProperty<Date> rechnungsdatum;
@@ -30,7 +30,7 @@ public class Leasing {
 	 int leasingnummer;
 	 
 	 
-	 public Leasing(Date vertragsdatum,Date rechnungsdatum, Float rechnungsbetrag, int anzahl_rechnungen,
+	 public leasing(Date vertragsdatum,Date rechnungsdatum, Float rechnungsbetrag, int anzahl_rechnungen,
 			 Date datum_letzter_rechnungsbetrag, Date datum_naechster_rechnungsbetrag, int nutzerzahl,
 			 int idLeasing,int idProdukt,int idPerkus,int idFikus, int leasingnummer){
 		 
@@ -39,7 +39,7 @@ public class Leasing {
 		 this.rechnungsbetrag = new SimpleFloatProperty(rechnungsbetrag);
 		 this.anzahl_rechnungen = new SimpleIntegerProperty(anzahl_rechnungen);
 		 this.datum_letzter_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_letzter_rechnungsbetrag);
-		 this.datum_letzter_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_letzter_rechnungsbetrag);
+		 this.datum_naechster_rechnungsbetrag = new SimpleObjectProperty<Date>(datum_naechster_rechnungsbetrag);
 		 this.nutzerzahl = new SimpleIntegerProperty(nutzerzahl);
 		 this.idLeasing = new SimpleIntegerProperty(idLeasing);
 		 this.leasingnummer = leasingnummer;
