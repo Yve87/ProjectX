@@ -11,19 +11,19 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X 2015" />
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="70.0" prefWidth="239.0" stylesheets="@DarkTheme.css" text="Create Offer" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="247.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Offer - Please enter the data:" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="262.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Offer - Please enter the data:" />
       <TextField fx:id="fikusText" layoutX="152.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="perkusname" layoutX="152.0" layoutY="381.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="rabatt" layoutX="477.0" layoutY="488.0" promptText="Discount" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="standortname" layoutX="152.0" layoutY="435.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="perkusname" layoutX="152.0" layoutY="394.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="rabatt" layoutX="477.0" layoutY="456.0" promptText="Discount" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="standortname" layoutX="152.0" layoutY="456.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="produktname" layoutX="477.0" layoutY="330.0" promptText="Product" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="56.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="133.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
-      <TextField fx:id="preis" layoutX="477.0" layoutY="435.0" promptText="Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="63.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <TextField fx:id="preis" layoutX="477.0" layoutY="394.0" promptText="Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
    </children>
 </AnchorPane>

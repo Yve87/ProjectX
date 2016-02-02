@@ -9,19 +9,19 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X 2015" />
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="186.0" layoutY="248.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Maintenance - Please enter the data:" />
       <TextField fx:id="maintenanceid" layoutX="186.0" layoutY="330.0" promptText="Maintenance ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="betrag" layoutX="186.0" layoutY="410.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="85.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Button layoutX="634.0" layoutY="569.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
       <Button layoutX="186.0" layoutY="569.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
       <Button layoutX="853.0" layoutY="569.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="409.0" layoutY="569.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <DatePicker fx:id="gueltigkeit" layoutX="522.0" layoutY="330.0" promptText="Validity" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
    </children>
 </AnchorPane>
