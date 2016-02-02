@@ -76,7 +76,7 @@ public class showwindow_controller implements Initializable{
 					fikus = new CorporateCustomers(set.getInt(i), set.getString(j), zähler);
 					data.add(fikus);
 				}
-				listview.setItems(data);
+				listview.setItems(data.filtered(fikus -> fikus.getName().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -115,7 +115,7 @@ public class showwindow_controller implements Initializable{
 							set.getString(f),set.getInt(g),zähler);
 					data2.add(perkus);
 				}
-				listview.setItems(data2);
+				listview.setItems(data2.filtered(perkus -> perkus.getname().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -153,7 +153,7 @@ public class showwindow_controller implements Initializable{
 							set.getInt(b),set.getInt(c),set.getInt(d),zähler);
 					data3.add(standort);
 				}
-				listview.setItems(data3);
+				listview.setItems(data3.filtered(standort -> standort.getname().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -190,7 +190,7 @@ public class showwindow_controller implements Initializable{
 							set.getInt(l),set.getString(m),set.getString(n),zähler);
 					data4.add(produkt);
 				}
-				listview.setItems(data4);
+				listview.setItems(data4.filtered(produkt -> produkt.getname().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
@@ -264,7 +264,7 @@ public class showwindow_controller implements Initializable{
 							set.getString(c),set.getInt(d),set.getInt(e),set.getInt(f),zähler);
 					data6.add(lizenz);
 				}
-				listview.setItems(data6);
+				listview.setItems(data6.filtered(lizenz -> lizenz.gettyp().startsWith(text.getText())));
 				zähler = 0;
 				set.close();
 				conn.close();
