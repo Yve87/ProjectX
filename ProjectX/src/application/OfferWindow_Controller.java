@@ -49,7 +49,7 @@ public class OfferWindow_Controller implements Initializable{
         = "./Angebot.pdf";
  
     LocalDate today = LocalDate.now();
-    LocalDate todayplus90 = today.plusDays(90);
+    LocalDate todayplus30 = today.plusDays(30);
     
     @FXML private TextField fikusText;  
 	@FXML private TextField fikusname;
@@ -88,7 +88,7 @@ public class OfferWindow_Controller implements Initializable{
 		float rabattEuro = (float) gesamtpreistext * rabattsumme;
 			
 		java.sql.Connection conn = Connection.connecten();
-		String strasse = "SELECT Name FROM Fikus WHERE Name='"+ fikusString+"'";
+		String strasse = "SELECT Fikus WHERE Name='"+ fikusString+"'";
 		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
 		String query3 = "SELECT Perkus WHERE Name='"+ perkusnametext+"'";
 		String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
@@ -100,12 +100,12 @@ public class OfferWindow_Controller implements Initializable{
 		PreparedStatement stmt4 = conn.prepareStatement(query4);
 		PreparedStatement stmt5 = conn.prepareStatement(query5);
 		PreparedStatement stmt6 = conn.prepareStatement(query6);
-		stmt1.executeQuery();
-		//stmt2.executeUpdate();
-		//stmt3.executeUpdate();
-		//stmt4.executeUpdate();
-		//stmt5.executeUpdate();
-		//stmt6.executeUpdate();
+
+		stmt2.executeQuery();
+		stmt3.executeQuery();
+		stmt4.executeQuery();
+		stmt5.executeQuery();
+		stmt6.executeQuery();
 	
 	/*	
 		AngebotSchreiben datei = new AngebotSchreiben();
@@ -120,65 +120,67 @@ public class OfferWindow_Controller implements Initializable{
     	// Using a custom page size
 		float left = 30;
         float right = 30;
-        float top = 100;
+        float top = 60;
         float bottom = 0;
         Document document = new Document(PageSize.A4, left, right, top, bottom);
-      //  document.setMargins(left, right, bottom, top);
         // step 2
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 ;
         // step 3
         document.open();
-        document.addTitle("Angebot");
+        document.addTitle("Offer");
         document.addCreationDate();
-        document.add(new Paragraph("Erstellt am: " + today.getDayOfMonth() + "." + today.getMonthValue() 
-        + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
+        document.add(new Paragraph("Created: " + today.getDayOfMonth() + "." + today.getMonthValue() 
+        + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 9, Font.ITALIC)));
         document.add(new Paragraph(" "));
         // step 4
         
-        document.add(new Paragraph("Musterfirma",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLDITALIC)));
-        document.add(new Paragraph("Musterstraﬂe Hausnummer",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("D-60666 Musterort",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("Telefon: 069-12345678m Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("E-Mail: musterfirma@email.de",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("http://www.musterfirma.de",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph("Sample Company",  new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD)));
+        document.add(new Paragraph("Street House No.",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("D-12345 City",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Telephne: 069-12345678, Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("E-Mail: sampleCompany@email.de",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("http://www.sampleCompany.de",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
        
-        Paragraph paragraph = new Paragraph("An Kunde:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLDITALIC));
+        Paragraph paragraph = new Paragraph("To Customer:", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD));
         document.add(paragraph);
-        document.add(new Paragraph("Firmenkunde: " + fikusString,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
-        document.add(new Paragraph("Personenkunde: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
-        document.add(new Paragraph("Standort: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
+        document.add(new Paragraph("People Customer: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Corporate Customer: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Street: " +strasse, new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph(" "));
-        Paragraph paragraph1 = new Paragraph("Angebot",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
+        Paragraph paragraph1 = new Paragraph("Offer",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Sehr geehrte Damen und Herren, \n"
-        		+ "beiliegend erhalten sie folgendes Angebot: \n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
+        document.add(new Paragraph("Dear Sir or Madam, \n"
+        		+ "attached you receive the following offer:  \n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
         document.add(new Paragraph(" "));
 
-        //document.add(new Paragraph("Straﬂe: " + strasse));
-        document.add(new Paragraph("Produkt: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Menge: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Amout: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Einzelpreis ohne Rabatt: " + f.format(preistext) +"Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Gesamtpreis ohne Rabatt: " + f.format(gesamtpreistext) + "Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Rabatt: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Einzelpreis inklusive Rabatt: " + f.format(preistextRabatt/mengetext) +"Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Gesamtrabatt: " + f.format(rabattEuro) + "Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "Ä",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Gesamtpreis inklusive Rabatt: " + f.format(preistextRabatt) +"Ä", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"Ä", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Bedingungen:, \n"
-        		+ "- Es gelten die Firma X-Lizenzbedingungen. \n"
-        		+ "- Alle Preise verstehen sich zzgl. ges. Ust. \n"
-        		+ "- Zahlung erfolgt 30 Tage netto. Dieses Angebot ist freibleibend und gilt bis zum " 
-        		+ + todayplus90.getDayOfMonth() +"." + todayplus90.getMonthValue() + "." + today.getYear() + ".", 
+        document.add(new Paragraph("Terms and Conditions:, \n"
+        		+ "- The Sample Company license terms are valid. \n"
+        		+ "- All prices are quoted in addition of sales tax.\n"
+        		+ "- Payment follows 30 days net. This offer is non-bindung and is valid until " 
+        		+ + todayplus30.getDayOfMonth() +"." + todayplus30.getMonthValue() + "." + today.getYear(), 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
+        document.add(new Paragraph(" "));        
+        document.add(new Paragraph("With kind regards,", new Font(Font.FontFamily.HELVETICA, 13)));
+        document.add(new Paragraph("Sample Company employee", new Font(Font.FontFamily.HELVETICA, 13)));       
+     
         // step 5
         document.close();
 	}

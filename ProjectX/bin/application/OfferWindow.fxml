@@ -25,5 +25,6 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="63.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <TextField fx:id="preis" layoutX="477.0" layoutY="394.0" promptText="Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <TextField fx:id="menge" layoutX="815.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
    </children>
 </AnchorPane>

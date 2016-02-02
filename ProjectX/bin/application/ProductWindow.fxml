@@ -9,22 +9,22 @@
    <children>
       <SplitPane layoutY="659.0" orientation="VERTICAL" prefHeight="40.0" prefWidth="1200.0" stylesheets="@DarkTheme.css">
          <items>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-footer" stylesheets="@DarkTheme.css" text="© Project X 2015" />
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="name" layoutX="161.0" layoutY="340.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="systemvoraussetzung" layoutX="524.0" layoutY="405.0" promptText="System Requirements" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="versionsnummer" layoutX="161.0" layoutY="405.0" promptText="Version Number" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="listenpreis" layoutX="524.0" layoutY="340.0" promptText="List Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="produktid" layoutX="161.0" layoutY="467.0" promptText="Product ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="produktcol" layoutX="524.0" layoutY="467.0" promptText="Product Col" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="151.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="75.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="266.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Product - Please enter the data:" />
+      <TextField fx:id="name" layoutX="193.0" layoutY="344.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="systemvoraussetzung" layoutX="556.0" layoutY="409.0" promptText="System Requirements" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="versionsnummer" layoutX="193.0" layoutY="409.0" promptText="Version Number" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="listenpreis" layoutX="556.0" layoutY="344.0" promptText="List Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktid" layoutX="193.0" layoutY="471.0" promptText="Product ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="produktcol" layoutX="556.0" layoutY="471.0" promptText="Product Col" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="66.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="268.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="Product - Please enter the data:" />
       <Button layoutX="634.0" layoutY="578.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
       <Button layoutX="186.0" layoutY="578.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
       <Button layoutX="853.0" layoutY="578.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="409.0" layoutY="578.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
    </children>
 </AnchorPane>

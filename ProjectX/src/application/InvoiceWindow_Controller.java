@@ -60,7 +60,7 @@ public class InvoiceWindow_Controller implements Initializable{
 	
 	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		
-		/*rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
+		rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
 		fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
@@ -75,11 +75,11 @@ public class InvoiceWindow_Controller implements Initializable{
 		String query4 = "SELECT * FROM Standort WHERE Name='"+standortnametext+"'";
 		String query5 = "SELECT * FROM Produkt WHERE Listenpreis='"+preistext+"'";
 		String query6 = "SELECT * FROM Lizenz WHERE Rabatt='"+rabatttext+"'";
-		String query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorg√§ngerrechnung,"
-				+ "Bezahlt,Betrag,Lieferantennummer,Bestellnummer,Lieferschein_idLieferschein)"
-				+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+vorgaengerrechnung+"',"
-				+ "'"+bezahlt+"','"+preistext+"','"
-				+ ""+bestellnummer+"','"+lieferscheinid+"')";
+		// query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorg‰ngerrechnung,"
+	//			+ "Bezahlt,Betrag,Lieferantennummer,Bestellnummer,Lieferschein_idLieferschein)"
+		//		+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+vorgaengerrechnung+"',"
+			//	+ "'"+bezahlt+"','"+preistext+"','"
+			//	+ ""+bestellnummer+"','"+lieferscheinid+"')";
 		String query8 = "SELECT * FROM Rechnung WHERE idRechnung";
 
 		PreparedStatement stmt1 = conn.prepareStatement(query1);
@@ -88,7 +88,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		PreparedStatement stmt4 = conn.prepareStatement(query4);
 		PreparedStatement stmt5 = conn.prepareStatement(query5);
 		PreparedStatement stmt6 = conn.prepareStatement(query6);
-		PreparedStatement stmt7 = conn.prepareStatement(query7);
+		//PreparedStatement stmt7 = conn.prepareStatement(query7);
 		PreparedStatement stmt8 = conn.prepareStatement(query8);
 		
 		stmt1.executeQuery();
@@ -97,9 +97,12 @@ public class InvoiceWindow_Controller implements Initializable{
 		stmt4.executeQuery();
 		stmt5.executeQuery();
 		stmt6.executeQuery();
-		stmt7.executeUpdate();
+		//stmt7.executeQuery();
 		stmt8.executeQuery();
-		*/
+		ResultSet set = stmt1.executeQuery();
+		String strasse1 = set.toString();
+		System.out.println(set);
+		
 		float left = 30;
         float right = 30;
         float top = 100;
@@ -113,31 +116,31 @@ public class InvoiceWindow_Controller implements Initializable{
         document.open();
         document.addTitle("Rechnung");
         document.addCreationDate();
-        document.add(new Paragraph("Erstellt am: " + today.getDayOfMonth() + "." + today.getMonthValue() 
+        document.add(new Paragraph("Created: " + today.getDayOfMonth() + "." + today.getMonthValue() 
         + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));
         
-        document.add(new Paragraph("Musterfirma",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLDITALIC)));
-        document.add(new Paragraph("Musterstraﬂe Hausnummer",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("D-60666 Musterort",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("Telefon: 069-12345678m Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("E-Mail: musterfirma@email.de",  new Font(Font.FontFamily.HELVETICA, 10)));
-        document.add(new Paragraph("http://www.musterfirma.de",  new Font(Font.FontFamily.HELVETICA, 10)));
+        document.add(new Paragraph("Sample Company",  new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD)));
+        document.add(new Paragraph("Street House No.",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("D-12345 City",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Telephne: 069-12345678, Fax: 069-23456789",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("E-Mail: sampleCompany@email.de",  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("http://www.sampleCompany.de",  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
        
-        Paragraph paragraph = new Paragraph("An Kunde:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLDITALIC));
+        Paragraph paragraph = new Paragraph("To Customer:", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD));
         document.add(paragraph);
-        document.add(new Paragraph("Firmenkunde: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
-        document.add(new Paragraph("Personenkunde: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
-        document.add(new Paragraph("Standort: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD)));
+        document.add(new Paragraph("People Customer: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Corporate Customer: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Street: ", new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        Paragraph paragraph1 = new Paragraph("Rechnung",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
+        Paragraph paragraph1 = new Paragraph("Invoice",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Sehr geehrte Damen und Herren, \n"
-        		+ "beiliegend erhalten sie folgende Rechnung: \n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
-        document.add(new Paragraph(" "));
+        document.add(new Paragraph("Dear Sir or Madam, \n"
+        		+ "attached you receive the following invoice: Invoice ID " +rechnungsid +"\n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
         
         document.close();
         }
