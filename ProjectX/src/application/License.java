@@ -28,7 +28,7 @@ public class License {
 	
 	public License(int idlizenz,String typ,String installationsschluessel,int status,
 			int maintenanceinfo,int rabatt,Date verkaufsdatum,Date ablaufdatum,String lizenzcol,
-			int mainenanceid,int produktid,int perkusid,int lizenznummer){
+			int maintenanceid,int produktid,int perkusid,int lizenznummer){
 		
 		this.idlizenz = new SimpleIntegerProperty(idlizenz);
 		this.typ = new SimpleStringProperty(typ);
@@ -41,6 +41,7 @@ public class License {
 		this.produktid = new SimpleIntegerProperty(produktid);
 		this.perkusid = new SimpleIntegerProperty(perkusid);
 		this.installationsschluessel = new SimpleStringProperty(installationsschluessel);
+		this.maintenanceid = new SimpleIntegerProperty(maintenanceid);
 		this.lizenznummer = lizenznummer;
 		
 	}

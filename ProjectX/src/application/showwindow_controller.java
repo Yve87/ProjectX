@@ -42,17 +42,27 @@ public class showwindow_controller implements Initializable{
 	Product produkt;
 	Maintenance maintenance;
 	License lizenz;
+	leasing leasing;
 	ObservableList<PeopleCustomers> data = FXCollections.observableArrayList();
 	ObservableList<CorporateCustomers> data2 = FXCollections.observableArrayList();
 	ObservableList<Location> data3 = FXCollections.observableArrayList();
 	ObservableList<Product> data4 = FXCollections.observableArrayList();
 	ObservableList<Maintenance> data5 = FXCollections.observableArrayList();
 	ObservableList<License> data6 = FXCollections.observableArrayList();
+	ObservableList<leasing> data7 = FXCollections.observableArrayList();
 	
 
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void getChoice(){
+		
+		data.removeAll(data);
+		data2.removeAll(data2);
+		data3.removeAll(data3);
+		data5.removeAll(data5);
+		data4.removeAll(data4);
+		data6.removeAll(data6);
+		data7.removeAll(data7);
 		String option = choicebox.getValue();
 		if(option == "Fikus"){
 			try {
@@ -255,6 +265,44 @@ public class showwindow_controller implements Initializable{
 					data6.add(lizenz);
 				}
 				listview.setItems(data6);
+				zähler = 0;
+				set.close();
+				conn.close();
+				data.removeAll(data);
+				data2.removeAll(data2);
+				data3.removeAll(data3);
+				data4.removeAll(data4);
+				data5.removeAll(data5);
+
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(option == "Leasing"){
+			try {
+				java.sql.Connection conn = Connection.connecten();
+				String query = "SELECT * FROM Leasing";
+				PreparedStatement stmt = conn.prepareStatement(query);
+				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+				
+				while(set.next()){
+					zähler++;
+					leasing = new leasing(set.getDate(i),set.getDate(j),set.getFloat(k),set.getInt(l),
+							set.getDate(m),set.getDate(n),set.getInt(a),set.getInt(b),
+							set.getInt(c),set.getInt(d),set.getInt(e),zähler);
+					data7.add(leasing);
+				}
+				listview.setItems(data7);
 				zähler = 0;
 				set.close();
 				conn.close();
