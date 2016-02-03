@@ -199,15 +199,7 @@ public class InvoiceWindow_Controller implements Initializable{
         }
         
         // step 4
-		/*Rechnungschreiben datei = new Rechnungschreiben();
-		datei.schreibeString("Neue Rechnung "+ rechnungsdatum +"\n");
-		datei.schreibeString(+rechnungsid+". Rechnung: \n Produktname: " + produktnametext + "\n Firmenkunde: " 
-		+fikusnametext+"\n Person:"+perkusnametext+"\n Price: "+preistext+ "\n Rabatt: "
-				+rabatttext);
-	
-		System.out.println("New Rechnung is ready.");
-	}
-	*/
+		
 	public void show(){
 		Stage primarystage = new Stage();
 		bisherige_dokumente_window window = new bisherige_dokumente_window();

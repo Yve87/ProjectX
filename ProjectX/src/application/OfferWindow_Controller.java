@@ -48,9 +48,7 @@ import javafx.stage.Stage;
 
 public class OfferWindow_Controller implements Initializable{
 	
-	  /** Path to the resulting PDF file. */
-    public static final String RESULT
-        = "./Angebot.pdf";
+	  
  
     LocalDate today = LocalDate.now();
     LocalDate todayplus30 = today.plusDays(30);
@@ -123,6 +121,9 @@ public class OfferWindow_Controller implements Initializable{
         float top = 60;
         float bottom = 0;
         Document document = new Document(PageSize.A4, left, right, top, bottom);
+        /** Path to the resulting PDF file. */
+        final String RESULT
+            = "./Angebot_"+perkusnametext+".pdf";
         // step 2
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 ;
@@ -192,7 +193,7 @@ public class OfferWindow_Controller implements Initializable{
         alert.showAndWait();
         
         String query7 = "INSERT INTO Angebot(idAngebot,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
-				+ "values('"+idangebot+"','"+gesamtpreistext+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
+				+ "values('"+idangebot+"','"+preistextRabatt+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
         PreparedStatement stmt7 = conn.prepareStatement(query7);
         stmt7.executeUpdate();
 	}
