@@ -1,6 +1,9 @@
 package application;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -35,10 +38,11 @@ public class bisherige_dokumente_controller implements Initializable{
 	DeliveryNote deliverynote;
 	Invoice invoice;
 	Offer offer;
-	ObservableList<DeliveryNote> data = FXCollections.observableArrayList();
-	ObservableList<Invoice> data2 = FXCollections.observableArrayList();
-	ObservableList<Offer> data3 = FXCollections.observableArrayList();
+	ObservableList<Offer> data = FXCollections.observableArrayList();
+	ObservableList<Invoice> data3 = FXCollections.observableArrayList();
+	ObservableList<DeliveryNote> data2 = FXCollections.observableArrayList();
 	
+	@SuppressWarnings("unchecked")
 	@FXML
 	public void getChoice(){
 		
@@ -48,15 +52,108 @@ public class bisherige_dokumente_controller implements Initializable{
 		String option = choicebox.getValue();
 		
 		if(option == "Offer"){
-			
+			try {
+				java.sql.Connection conn = Connection.connecten();
+				String query = "SELECT * FROM Angebot";
+				PreparedStatement stmt = conn.prepareStatement(query);
+				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
+				
+				while(set.next()){
+					zähler++;
+					offer = new Offer(set.getInt(i), set.getString(j),set.getDouble(j),
+							set.getDouble(k),set.getFloat(l),zähler);
+					data.add(offer);
+				}
+				listview.setItems(data);
+				zähler = 0;
+				set.close();
+				conn.close();
+				data2.removeAll(data2);
+				data3.removeAll(data3);
+				
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		else if(option == "DeliveryNotes"){
+			try{
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Lieferschein";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
+			while(set.next()){
+				zähler++;
+				deliverynote = new DeliveryNote(set.getInt(i), set.getString(j),set.getDouble(j),
+						set.getDouble(k),set.getFloat(l),zähler);
+				data2.add(deliverynote);
+			}
+			listview.setItems(data2);
+			zähler = 0;
+			set.close();
+			conn.close();
+			data.removeAll(data);
+			data3.removeAll(data3);
+			
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 		
 		else if(option == "Invoices"){
+			try{
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Rechnung";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
+			while(set.next()){
+				zähler++;
+				invoice = new Invoice(set.getInt(i), set.getString(j),set.getDouble(j),
+						set.getDouble(k),set.getFloat(l),zähler);
+				data3.add(invoice);
+			}
+			listview.setItems(data3);
+			zähler = 0;
+			set.close();
+			conn.close();
+			data2.removeAll(data2);
+			data.removeAll(data);
+			
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 	}
 	

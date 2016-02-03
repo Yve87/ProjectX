@@ -17,15 +17,13 @@ public class PeopleCustomersWindow extends Application {
 
 	public void start(Stage primaryStage) {
 		try {
-
 			Parent root = FXMLLoader.load(getClass().getResource("PeopleCustomersWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage15 = primaryStage;
 			stage15.setScene(scene);
-			stage15.setTitle("Corporate Customers");
-			stage15.show();
-			
+			stage15.setTitle("People Customers");
+			stage15.show();		
 		} catch(Exception e) {
 			e.printStackTrace();
 		}	
