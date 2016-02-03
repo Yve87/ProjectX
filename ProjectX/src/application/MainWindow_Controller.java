@@ -13,6 +13,7 @@ public class MainWindow_Controller {
 	InvoiceWindow window2;
 	OfferWindow window3;
 	bisherige_dokumente_window window4;
+	MainWindow window5;
 	Stage primaryStage = new Stage();
 	
 	
