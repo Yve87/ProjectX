@@ -14,7 +14,7 @@ public class showwindow {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("showindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage2 = primaryStage;
 			stage2.setScene(scene);
 			stage2.setTitle("Show the Entries");
