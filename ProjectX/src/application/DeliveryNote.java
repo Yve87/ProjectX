@@ -36,9 +36,6 @@ public class DeliveryNote {
 		this.deliverynotezaehler = deliverynotezaehler;
 	}
 	
-	public Integer getlieferscheinid(){
-		return lieferscheinid.get();
-	}
 	
 	public String getfikusname(){
 		return fikusname.get();
@@ -72,7 +69,7 @@ public class DeliveryNote {
 		return ("");
 	}
 	
-	public Integer getlieferscheinid(){
+	public IntegerProperty getlieferscheinid(){
 		return lieferscheinid;
 	}
 }

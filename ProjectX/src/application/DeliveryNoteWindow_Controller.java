@@ -21,6 +21,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -183,10 +184,10 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 			ResultSet set = stmt7.executeQuery();
 			while(set.isLast()){
 				lieferschein = new DeliveryNote(set.getInt(1),set.getString(2),set.getString(3),
-						set.getInt(4),set.getString(5),set.getDouble(6),set.getDouble(7),set.getFloat(8));
+				set.getInt(4),set.getString(5),set.getDouble(6),set.getDouble(7),set.getFloat(8), set.getInt(9));
 			}
-			int iwas = lieferschein.getlieferscheinid();
-			idlieferschein = iwas;
+			IntegerProperty iwas = lieferschein.getlieferscheinid();
+			//idlieferschein = iwas;
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

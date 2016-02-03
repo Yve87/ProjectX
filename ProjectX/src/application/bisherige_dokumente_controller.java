@@ -96,7 +96,7 @@ public class bisherige_dokumente_controller implements Initializable{
 			while(set.next()){
 				zähler++;
 				deliverynote = new DeliveryNote(set.getInt(i), set.getString(j),set.getDouble(j),
-						set.getDouble(k),set.getFloat(l),zähler);
+						set.getDouble(k),set.getFloat(l),zähler));
 				data2.add(deliverynote);
 			}
 			listview.setItems(data2);
