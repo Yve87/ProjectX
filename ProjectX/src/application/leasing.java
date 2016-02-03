@@ -95,9 +95,9 @@ public class leasing {
 	 public String toString(){
 			return (leasingnummer+".Leasing:\nVertragsdatum: "+ vertragsdatum.get() 
 			+"	Rechnungsdatum: "+ rechnungsdatum.get()
-			+"	Rechnungsbetrag: "+rechnungsbetrag.get()+"  Anzahl Rechnungen: "+ anzahl_rechnungen.get()
-			+"	Datum letzter Rechnungsbetrag: "+datum_letzter_rechnungsbetrag.get()
-			+"	Datum naechster Rechnungsbetrag: "+datum_naechster_rechnungsbetrag.get()
+			+"	Rechnungsbetrag: "+rechnungsbetrag.get()+"    Anzahl Rechnungen: "+ anzahl_rechnungen.get()
+			+"\nDatum letzter Rechnungsbetrag: "+datum_letzter_rechnungsbetrag.get()
+			+"	   Datum naechster Rechnungsbetrag: "+datum_naechster_rechnungsbetrag.get()
 			+"\nNutzerzahl: "+nutzerzahl.get()+"	LeasingId: "+idLeasing.get() +"	ProduktId: "+idProdukt.get()
 			+"	PerkusId: "+idPerkus.get()+"	FikusId: "+idFikus.get());
 		}
