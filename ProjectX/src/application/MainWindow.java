@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import java.sql.*;
@@ -17,6 +19,7 @@ import java.sql.*;
 public class MainWindow extends Application {
 	
 	static Stage stage;
+	static Alert alert = new Alert(AlertType.ERROR);
 	
 	public void start(Stage primaryStage) {
 		
@@ -37,8 +40,10 @@ public class MainWindow extends Application {
 	}
 	
 	public static void main(String[] args) {
+		
 		try {
 			java.sql.Connection conn = Connection.connecten();
+			System.out.println("Database connected!");
 		} catch (InstantiationException e) {
 			// TODO Auto-generat3ed catch block
 			e.printStackTrace();
@@ -50,9 +55,12 @@ public class MainWindow extends Application {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			/*alert.setTitle("Error");
+			alert.setHeaderText("Database Connection Fail");
+			alert.setContentText("Oops en Error occured");
+			alert.showAndWait();
+			System.out.println("Database Connection failed!");*/
 		}
-		System.out.println("Database connected!");
 		launch(args);	
 	}
 }
