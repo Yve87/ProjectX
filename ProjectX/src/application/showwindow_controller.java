@@ -64,7 +64,7 @@ public class showwindow_controller implements Initializable{
 		data6.removeAll(data6);
 		data7.removeAll(data7);
 		String option = choicebox.getValue();
-		if(option == "Fikus"){
+		if(option == "CorporateCustomer"){
 			try {
 				java.sql.Connection conn = Connection.connecten();
 				String query = "SELECT * FROM Fikus";
@@ -100,7 +100,7 @@ public class showwindow_controller implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		else if(option == "Perkus"){
+		else if(option == "PeopleCustomer"){
 			try {
 				java.sql.Connection conn = Connection.connecten();
 				String query = "SELECT * FROM Perkus";
@@ -139,7 +139,7 @@ public class showwindow_controller implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		else if(option == "Standort"){
+		else if(option == "Location"){
 			try {
 				java.sql.Connection conn = Connection.connecten();
 				String query = "SELECT * FROM Standort";
@@ -177,7 +177,7 @@ public class showwindow_controller implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		else if(option == "Produkt"){
+		else if(option == "Product"){
 			try {
 				java.sql.Connection conn = Connection.connecten();
 				String query = "SELECT * FROM Produkt";
@@ -250,7 +250,7 @@ public class showwindow_controller implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		else if(option == "Lizenz"){
+		else if(option == "License"){
 			try {
 				java.sql.Connection conn = Connection.connecten();
 				String query = "SELECT * FROM Lizenz";
@@ -311,6 +311,7 @@ public class showwindow_controller implements Initializable{
 				data3.removeAll(data3);
 				data4.removeAll(data4);
 				data5.removeAll(data5);
+				data6.removeAll(data6);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
@@ -330,7 +331,8 @@ public class showwindow_controller implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		choicebox.getItems().addAll("Fikus","Perkus","Standort","Lizenz","Maintenance","Leasing","Produkt");
+		choicebox.getItems().addAll("CorporateCustomer","PeopleCustomer","Location","License",
+				"Maintenance","Leasing","Product");
 	}
 	
 

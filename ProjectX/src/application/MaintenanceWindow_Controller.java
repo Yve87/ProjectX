@@ -26,6 +26,7 @@ public class MaintenanceWindow_Controller {
 	LocalDate localdate;
 	ListView<Object> listview;
 	
+	@FXML
 	public void insert() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		gueltigkeittext = Date.valueOf(gueltigkeit.getValue());
@@ -39,19 +40,33 @@ public class MaintenanceWindow_Controller {
 		System.out.println("New Insert into Table Lizenz is completed.");
 	}
 	
-	public void update(){
+	@FXML
+	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
-		
+		gueltigkeittext = Date.valueOf(gueltigkeit.getValue());
+		betragtext = Float.parseFloat(betrag.getText());
+		idtext = Integer.parseInt(maintenanceid.getText());
+		java.sql.Connection conn = Connection.connecten();
+		String query = "UPDATE Maintenance SET Betrage = '"+ betragtext +"' WHERE idMaintenance IN ("+idtext+")";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("New Update at Table Maintenance is completed.");
 	}
 	
-	public void delete(){
+	@FXML
+	public void delete() throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException{
 		
+		gueltigkeittext = Date.valueOf(gueltigkeit.getValue());
+		betragtext = Float.parseFloat(betrag.getText());
+		idtext = Integer.parseInt(maintenanceid.getText());
+		java.sql.Connection conn = Connection.connecten();
+		String query = "DELETE FROM Maintenance WHERE idMaintenance = '"+ idtext +"'";
+		PreparedStatement stmt = conn.prepareStatement(query);
+		stmt.executeUpdate();
+		System.out.println("Delete at Table Maintenance is completed.");
 	}
 	
-	public void search(){
-		
-	}
-	
+	@FXML
 	public void show(){
 		Stage primarystage = new Stage();
 		showwindow window = new showwindow();

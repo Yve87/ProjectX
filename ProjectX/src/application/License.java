@@ -95,7 +95,7 @@ public class License {
 	}
 	
 	public String toString(){
-		return (lizenznummer+".Lizenz:\nID: "+ idlizenz.get() +"	Typ: "+ typ.get()
+		return (lizenznummer+".License:\nID: "+ idlizenz.get() +"	Typ: "+ typ.get()
 		+"	Installationsschluessel: "+installationsschluessel.get()+"  Status: "+ status.get()+"	Maintenanceinfo: "+maintenanceinfo.get()+"	Rabatt: "+rabatt.get()
 		+"\nVerkaufsdatum: "+verkaufsdatum.get()+"	Ablaufdatum: "+ablaufdatum.get()
 		+"		Lizenzcol: "+lizenzcol.get()+"\nMaintenanceid: "+maintenanceid.get()+"	Produktid: "+produktid.get()

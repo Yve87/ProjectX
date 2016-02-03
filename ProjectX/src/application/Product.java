@@ -55,7 +55,7 @@ public class Product {
 	}
 	
 	public String toString(){
-		return (produktnummer+".Produkt:\nID: "+ produktid.get() +"	Name: "+ name.get()
+		return (produktnummer+".Product:\nID: "+ produktid.get() +"	Name: "+ name.get()
 		+"	Versionsnummer: "+ versionsnummer.get()+"	  Listenpreis: "+listenpreis.get()
 		+"	  Systemvoraussetzung: "+systemvoraussetzung.get()
 		+"\nProduktcol: "+produktcol.get());

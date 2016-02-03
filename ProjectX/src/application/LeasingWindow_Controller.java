@@ -105,9 +105,11 @@ public class LeasingWindow_Controller {
 	    idLeasing = Integer.parseInt(idLeasingFXML.getText());
 	    
 	    java.sql.Connection conn = Connection.connecten();
-	    String query = "DELETE from Leasing ";
+	    String query = "DELETE FROM Leasing WHERE idLeasing ='"+ idLeasing +"'";
+	    PreparedStatement stmt = conn.prepareStatement(query);
+	    stmt.executeUpdate();			// execute preparedStatement
+	    System.out.println("Delete of Table Leasing is completed");
 	}
-	
 
 	@FXML
 	public void show(){

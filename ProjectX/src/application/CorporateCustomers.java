@@ -46,6 +46,6 @@ public class CorporateCustomers {
 	}
 	
 	public String toString(){
-		return (fikusnummer+".Fikus:\nID : "+ id.get() +"\nName : "+ name.get());
+		return (fikusnummer+".CorporateCustomer:\nID : "+ id.get() +"\nName : "+ name.get());
 	}
 }

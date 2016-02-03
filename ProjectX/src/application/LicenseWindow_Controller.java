@@ -115,7 +115,7 @@ public class LicenseWindow_Controller {
 				+ " AND Produkt_idProdukt ='"+produktidtext+"' AND Perus_idPerkus ='"+perkusidtext+"')";
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
-		System.out.println("New Update at Table Lizenz is completed.");
+		System.out.println("Delete at Table Lizenz is completed.");
 	}
 	
 	@FXML

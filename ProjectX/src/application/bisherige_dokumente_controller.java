@@ -47,22 +47,22 @@ public class bisherige_dokumente_controller implements Initializable{
 		data3.removeAll(data3);
 		String option = choicebox.getValue();
 		
-		if(option == "Angebote"){
+		if(option == "Offer"){
 			
 		}
 		
-		else if(option == "Lieferscheine"){
+		else if(option == "DeliveryNotes"){
 			
 		}
 		
-		else if(option == "Rechnungen"){
+		else if(option == "Invoices"){
 			
 		}
 	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		choicebox.getItems().addAll("Angebote","Lieferscheine","Rechnungen");
+		choicebox.getItems().addAll("Offer","DeliveryNotes","Invoices");
 		
 	}
 }
