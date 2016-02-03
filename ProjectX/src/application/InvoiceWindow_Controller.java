@@ -21,9 +21,11 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.sql.Date;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 
@@ -166,18 +168,18 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"�", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("We please you to transfer the total amount of � "+f.format(preistextRabatt)+"\n"
+        document.add(new Paragraph("We please you to transfer the total amount of EUR "+f.format(preistextRabatt)+"\n"
         		+ "on the Sample Company on the bank account 123456789, OurBank OurCity, \n"
         		+ "Bank Rounting Number 12300000. Term of payment: 30 days net", 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
@@ -188,6 +190,12 @@ public class InvoiceWindow_Controller implements Initializable{
      
         // step 5
         document.close();
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("The Invoice PDF has been created!");
+        alert.showAndWait();
         }
         
         // step 4

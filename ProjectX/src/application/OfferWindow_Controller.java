@@ -39,6 +39,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -157,15 +160,15 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"�", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) + "EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Terms and Conditions:, \n"
@@ -182,13 +185,18 @@ public class OfferWindow_Controller implements Initializable{
         // step 5
         document.close();
         
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("The Offer PDF has been created!");
+        alert.showAndWait();
+        
         String query7 = "INSERT INTO Angebot(idAngebot,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
 				+ "values('"+idangebot+"','"+gesamtpreistext+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
         PreparedStatement stmt7 = conn.prepareStatement(query7);
         stmt7.executeUpdate();
 	}
 
-	
 	public void show(){
 		Stage primarystage = new Stage();
 		bisherige_dokumente_window window = new bisherige_dokumente_window();
@@ -215,8 +223,6 @@ public class OfferWindow_Controller implements Initializable{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-
-		
+		}		
 	}
 }

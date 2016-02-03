@@ -26,9 +26,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class DeliveryNoteWindow_Controller implements Initializable{
@@ -161,9 +163,15 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         document.add(new Paragraph("With kind regards,", new Font(Font.FontFamily.HELVETICA, 13)));
         document.add(new Paragraph("Sample Company", new Font(Font.FontFamily.HELVETICA, 13)));
         document.add(new Paragraph("Sample Company employee", new Font(Font.FontFamily.HELVETICA, 13)));       
-     
+        
         // step 5
         document.close();
+        
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("The Delivery Note PDF has been created!");
+        alert.showAndWait();
 	}
 	
 	public void show(){
