@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 
 
 public class PeopleCustomersWindow extends Application {
-	
+	public Stage stage15;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -21,9 +21,10 @@ public class PeopleCustomersWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("PeopleCustomersWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Corporate Customers");
-			primaryStage.show();
+			stage15 = primaryStage;
+			stage15.setScene(scene);
+			stage15.setTitle("Corporate Customers");
+			stage15.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

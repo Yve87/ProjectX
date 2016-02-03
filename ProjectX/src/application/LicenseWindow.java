@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 public class LicenseWindow {
 
+	static Stage stage7;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -15,9 +16,10 @@ public class LicenseWindow {
 			Parent root = FXMLLoader.load(getClass().getResource("LicenseWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("License");
-			primaryStage.show();
+			stage7 = primaryStage;
+			stage7.setScene(scene);
+			stage7.setTitle("License");
+			stage7.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

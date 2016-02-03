@@ -13,6 +13,7 @@ import javafx.scene.layout.*;
 
 public class OfferWindow extends Application {
 	
+	static Stage stage4;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -20,9 +21,10 @@ public class OfferWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("OfferWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("New Offer");
-			primaryStage.show();
+			stage4 = primaryStage;
+			stage4.setScene(scene);
+			stage4.setTitle("New Offer");
+			stage4.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 
 
 public class InvoiceWindow extends Application {
-	
+	static Stage stage9;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -20,9 +20,10 @@ public class InvoiceWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("InvoiceWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("New Invoice");
-			primaryStage.show();
+			stage9 = primaryStage;
+			stage9.setScene(scene);
+			stage9.setTitle("New Invoice");
+			stage9.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

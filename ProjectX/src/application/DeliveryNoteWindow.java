@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 
 
 public class DeliveryNoteWindow extends Application {
-	
+	static Stage stage11;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -20,9 +20,10 @@ public class DeliveryNoteWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("DeliveryNoteWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("New Delivery Note");
-			primaryStage.show();
+			stage11 = primaryStage;
+			stage11.setScene(scene);
+			stage11.setTitle("New Delivery Note");
+			stage11.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

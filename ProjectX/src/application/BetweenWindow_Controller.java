@@ -13,6 +13,7 @@ public class BetweenWindow_Controller {
 			Stage primarystage = new Stage();
 			CorporateCustomersWindow window = new CorporateCustomersWindow();
 			window.start(primarystage);
+			BetweenWindow.stage14.close();
 	}
 		
 	public void perkus_button(){
@@ -20,6 +21,7 @@ public class BetweenWindow_Controller {
 			Stage primarystage = new Stage();
 			PeopleCustomersWindow window = new PeopleCustomersWindow();
 			window.start(primarystage);
+			BetweenWindow.stage14.close();
 	}
 	
 	public void standort_button(){
@@ -27,6 +29,7 @@ public class BetweenWindow_Controller {
 			Stage primarystage = new Stage();
 			LocationWindow window = new LocationWindow();
 			window.start(primarystage);
+			BetweenWindow.stage14.close();
 	}
 	
 	public void produkt_button(){
@@ -34,6 +37,7 @@ public class BetweenWindow_Controller {
 			Stage primarystage = new Stage();
 			ProductWindow window = new ProductWindow();
 			window.start(primarystage);
+			BetweenWindow.stage14.close();
 	}
 	
 	public void lizenz_button(){
@@ -41,6 +45,7 @@ public class BetweenWindow_Controller {
 			Stage primaryStage = new Stage();
 			LicenseWindow window = new LicenseWindow();
 			window.start(primaryStage);
+			BetweenWindow.stage14.close();
 	}
 	
 	public void maintenance_button(){
@@ -48,11 +53,14 @@ public class BetweenWindow_Controller {
 			Stage primaryStage = new Stage();
 			MaintenanceWindow window = new MaintenanceWindow();
 			window.start(primaryStage);
+			BetweenWindow.stage14.close();
 	}
 	
 	public void leasing_button() {
-		Stage primaryStage = new Stage();
-		LeasingWindow window = new LeasingWindow();
-		window.start(primaryStage);
+		
+			Stage primaryStage = new Stage();
+			LeasingWindow window = new LeasingWindow();
+			window.start(primaryStage);
+			BetweenWindow.stage14.close();
 	}
 }

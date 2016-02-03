@@ -13,6 +13,7 @@ import javafx.scene.layout.*;
 
 public class ProductWindow extends Application {
 	
+	static Stage stage3;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -21,9 +22,10 @@ public class ProductWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("ProductWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Product");
-			primaryStage.show();
+			stage3 = primaryStage;
+			stage3.setScene(scene);
+			stage3.setTitle("Product");
+			stage3.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 
 
 public class BetweenWindow extends Application {
-	
+	static Stage stage14;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -20,9 +20,10 @@ public class BetweenWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("BetweenWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Choose the Table to modify");
-			primaryStage.show();
+			stage14 = primaryStage;
+			stage14.setScene(scene);
+			stage14.setTitle("Choose the Table to modify");
+			stage14.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

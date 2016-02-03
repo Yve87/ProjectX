@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 public class LeasingWindow {
 
+	static Stage stage8;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -15,9 +16,10 @@ public class LeasingWindow {
 			Parent root = FXMLLoader.load(getClass().getResource("LeasingWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Leasing");
-			primaryStage.show();
+			stage8 = primaryStage;
+			stage8.setScene(scene);
+			stage8.setTitle("Leasing");
+			stage8.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

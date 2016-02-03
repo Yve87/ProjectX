@@ -13,6 +13,7 @@ import javafx.scene.layout.*;
 
 public class LocationWindow extends Application {
 	
+	static Stage stage6;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -21,9 +22,10 @@ public class LocationWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("LocationWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Location");
-			primaryStage.show();
+			stage6 = primaryStage;
+			stage6.setScene(scene);
+			stage6.setTitle("Location");
+			stage6.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

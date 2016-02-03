@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 public class MaintenanceWindow {
 
+	static Stage stage5;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -14,9 +15,10 @@ public class MaintenanceWindow {
 			Parent root = FXMLLoader.load(getClass().getResource("MaintenanceWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Maintenance");
-			primaryStage.show();
+			stage5 = primaryStage;
+			stage5.setScene(scene);
+			stage5.setTitle("Maintenance");
+			stage5.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

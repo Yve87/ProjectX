@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 
 
 public class Insert_fikus_window extends Application {
-	
+	static Stage stage10;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
@@ -21,9 +21,10 @@ public class Insert_fikus_window extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("fikuswindowinsert.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("People Customers");
-			primaryStage.show();
+			stage10 = primaryStage;
+			stage10.setScene(scene);
+			stage10.setTitle("People Customers");
+			stage10.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();

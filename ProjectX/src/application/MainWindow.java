@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import application.Connection;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -15,16 +16,20 @@ import java.sql.*;
 
 public class MainWindow extends Application {
 	
+	static Stage stage;
+	
 	public void start(Stage primaryStage) {
+		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("MainWindow_Controller.fxml"));
 			Scene scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			//System.setProperty( "javafx.userAgentStylesheetUrl", "CASPIAN" );
 			//setUserAgentStylesheet(STYLESHEET_CASPIAN);
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Start");
-			primaryStage.show();
+			stage = primaryStage;
+			stage.setScene(scene);
+			stage.setTitle("Start");
+			stage.show();
 					
 		} catch(Exception e) {
 			e.printStackTrace();

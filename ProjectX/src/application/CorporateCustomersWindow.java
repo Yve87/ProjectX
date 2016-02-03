@@ -8,7 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class CorporateCustomersWindow {
-
+	static Stage stage12;
 	Scene scene;
 	
 	public void start(Stage primaryStage) {
@@ -16,9 +16,10 @@ public class CorporateCustomersWindow {
 			Parent root = FXMLLoader.load(getClass().getResource("CorporateCustomersWindow.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("People Customers");
-			primaryStage.show();
+			stage12 = primaryStage;
+			stage12.setScene(scene);
+			stage12.setTitle("People Customers");
+			stage12.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
