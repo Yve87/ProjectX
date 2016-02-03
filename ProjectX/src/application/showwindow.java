@@ -13,11 +13,11 @@ public class showwindow {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("showindow.fxml"));
-			scene = new Scene(root, 700,700);
+			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage2 = primaryStage;
 			stage2.setScene(scene);
-			stage2.setTitle("Choose the Table");
+			stage2.setTitle("Show the Entries");
 			stage2.show();
 			
 		} catch(Exception e) {
