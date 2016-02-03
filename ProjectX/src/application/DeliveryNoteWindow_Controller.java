@@ -156,14 +156,6 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         // step 5
         document.close();
 	}
-		/*Lieferscheinschreiben datei = new Lieferscheinschreiben();
-		datei.schreibeString("Neuer Leiferschein\n");
-		datei.schreibeString("1. Angebot: \n Produktname: " + produktnametext + "\n Firmenkunde: " 
-		+fikusnametext+"\n Person:"+perkusnametext+"\n Price: "+preistext+ "\n Rabatt: "
-				+rabatttext);
-		
-		System.out.println("New Lieferschein is ready.");
-	}*/
 	
 	public void show(){
 		Stage primarystage = new Stage();

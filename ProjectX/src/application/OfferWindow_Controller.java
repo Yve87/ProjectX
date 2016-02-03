@@ -68,7 +68,8 @@ public class OfferWindow_Controller implements Initializable{
 	String standortnametext;
 	float preistext;
 	float rabatttext;
-	ListView<Object> listview;
+	int idangebot;
+	Date gueltigkeit;
 
 	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
@@ -81,6 +82,7 @@ public class OfferWindow_Controller implements Initializable{
 		preistext = Float.parseFloat(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
+		gueltigkeit = Date.valueOf(todayplus30);
 
 		float gesamtpreistext = preistext * mengetext;
 		float rabattsumme = ((float)rabatttext)/100;
@@ -89,33 +91,27 @@ public class OfferWindow_Controller implements Initializable{
 			
 		java.sql.Connection conn = Connection.connecten();
 		String strasse = "SELECT Fikus WHERE Name='"+ fikusString+"'";
-		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
-		String query3 = "SELECT Perkus WHERE Name='"+ perkusnametext+"'";
-		String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
-		String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
-		String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
-		PreparedStatement stmt1 = conn.prepareStatement(strasse);
-		PreparedStatement stmt2 = conn.prepareStatement(query2);
-		PreparedStatement stmt3 = conn.prepareStatement(query3);
-		PreparedStatement stmt4 = conn.prepareStatement(query4);
-		PreparedStatement stmt5 = conn.prepareStatement(query5);
-		PreparedStatement stmt6 = conn.prepareStatement(query6);
-
-		stmt2.executeQuery();
-		stmt3.executeQuery();
-		stmt4.executeQuery();
-		stmt5.executeQuery();
-		stmt6.executeQuery();
-	
-	/*	
-		AngebotSchreiben datei = new AngebotSchreiben();
-		datei.schreibeString("Neues Angebot\n");
-		datei.schreibeString("1. Angebot: \n Produktname: " + produktnametext + "\n Firmenkunde: " 
-		+fikusnametext+"\n Person:"+perkusnametext+"\n Price: "+preistext+ "\n Rabatt: "
-				+rabatttext);
+		//String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
+		String query3 = "SELECT idPerkus FROM Perkus WHERE Name='"+ perkusnametext+"'";
+		//String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
+		//String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
+		//String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
 		
-		System.out.println("New Advertisement is ready.");
-		*/
+		//PreparedStatement stmt1 = conn.prepareStatement(strasse);
+		//PreparedStatement stmt2 = conn.prepareStatement(query2);
+		PreparedStatement stmt3 = conn.prepareStatement(query3);
+		//PreparedStatement stmt4 = conn.prepareStatement(query4);
+		//PreparedStatement stmt5 = conn.prepareStatement(query5);
+		//PreparedStatement stmt6 = conn.prepareStatement(query6);
+		
+		
+		//stmt2.executeQuery();
+		ResultSet set = stmt3.executeQuery();
+		//stmt4.executeQuery();
+		//stmt5.executeQuery();
+		//stmt6.executeQuery();
+		int idPerkus = 8;
+	
 		 // PDF create step 1
     	// Using a custom page size
 		float left = 30;
@@ -184,6 +180,11 @@ public class OfferWindow_Controller implements Initializable{
      
         // step 5
         document.close();
+        
+        String query7 = "INSERT INTO Angebot(idAngebot,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
+				+ "values('"+idangebot+"','"+gesamtpreistext+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
+        PreparedStatement stmt7 = conn.prepareStatement(query7);
+        stmt7.executeUpdate();
 	}
 
 	

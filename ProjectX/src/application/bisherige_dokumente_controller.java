@@ -39,8 +39,8 @@ public class bisherige_dokumente_controller implements Initializable{
 	Invoice invoice;
 	Offer offer;
 	ObservableList<Offer> data = FXCollections.observableArrayList();
-	ObservableList<Invoice> data2 = FXCollections.observableArrayList();
-	ObservableList<DeliveryNote> data3 = FXCollections.observableArrayList();
+	ObservableList<Invoice> data3 = FXCollections.observableArrayList();
+	ObservableList<DeliveryNote> data2 = FXCollections.observableArrayList();
 	
 	@SuppressWarnings("unchecked")
 	@FXML
@@ -87,11 +87,73 @@ public class bisherige_dokumente_controller implements Initializable{
 		}
 		
 		else if(option == "DeliveryNotes"){
+			try{
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Lieferschein";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
+			while(set.next()){
+				zähler++;
+				deliverynote = new DeliveryNote(set.getInt(i), set.getString(j),set.getDouble(j),
+						set.getDouble(k),set.getFloat(l),zähler);
+				data2.add(deliverynote);
+			}
+			listview.setItems(data2);
+			zähler = 0;
+			set.close();
+			conn.close();
+			data.removeAll(data);
+			data3.removeAll(data3);
+			
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 		
 		else if(option == "Invoices"){
+			try{
+			java.sql.Connection conn = Connection.connecten();
+			String query = "SELECT * FROM Rechnung";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
+			while(set.next()){
+				zähler++;
+				invoice = new Invoice(set.getInt(i), set.getString(j),set.getDouble(j),
+						set.getDouble(k),set.getFloat(l),zähler);
+				data3.add(invoice);
+			}
+			listview.setItems(data3);
+			zähler = 0;
+			set.close();
+			conn.close();
+			data2.removeAll(data2);
+			data.removeAll(data);
+			
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}
 	}
 	
