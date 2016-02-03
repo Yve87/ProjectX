@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;

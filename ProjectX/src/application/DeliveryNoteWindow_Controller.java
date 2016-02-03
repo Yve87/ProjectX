@@ -11,7 +11,8 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -31,9 +32,7 @@ import javafx.stage.Stage;
 
 public class DeliveryNoteWindow_Controller implements Initializable{
 	
-    /** Path to the resulting PDF file. */
-    public static final String RESULT
-       = "./DeliveryNote.pdf";
+
     
     LocalDate today = LocalDate.now();
     LocalDate todayplus30 = today.plusDays(30);
@@ -53,12 +52,14 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	int preistext;
 	int rabatttext;
 	int mengetext;
+	int idlieferschein;
 	Date lieferungsdatum;
 	ListView<Object> listview;
-	
+	    
 	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
 	public void lieferschein_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
+		idlieferschein++;
 		fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
@@ -75,12 +76,14 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
 		String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
 		String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
+
 		PreparedStatement stmt1 = conn.prepareStatement(query1);
 		PreparedStatement stmt2 = conn.prepareStatement(query2);
 		PreparedStatement stmt3 = conn.prepareStatement(query3);
 		PreparedStatement stmt4 = conn.prepareStatement(query4);
 		PreparedStatement stmt5 = conn.prepareStatement(query5);
 		PreparedStatement stmt6 = conn.prepareStatement(query6);
+		PreparedStatement stmt7 = conn.prepareStatement(query6);
 /*		stmt1.executeQuery();
 		stmt2.executeQuery();
 		stmt3.executeQuery();
@@ -88,6 +91,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		stmt5.executeQuery();
 		stmt6.executeQuery();
 		*/
+
 		float gesamtpreistext = preistext * mengetext;
 		float rabattsumme = ((float)rabatttext)/100;
 		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
@@ -100,6 +104,10 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         Document document = new Document(PageSize.A4, left, right, top, bottom);
       //  document.setMargins(left, right, bottom, top);
         // step 2
+        
+        /** Path to the resulting PDF file. */
+        final String RESULT = "./DeliveryNote"+idlieferschein+".pdf";
+        
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 
         // step 3
@@ -175,10 +183,16 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		java.sql.Connection conn;
 		try {
 			conn = Connection.connecten();
-			String query = "SELECT * FROM Lieferschein";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			ResultSet set = stmt.executeQuery();
-			
+			String query7 = "SELECT * FROM Lieferschein";
+			PreparedStatement stmt7 = conn.prepareStatement(query7);			
+			DeliveryNote lieferschein = null;
+			ResultSet set = stmt7.executeQuery();
+			while(set.isLast()){
+				lieferschein = new DeliveryNote(set.getInt(1),set.getString(2),set.getString(3),
+						set.getInt(4),set.getString(5),set.getDouble(6),set.getDouble(7),set.getFloat(8));
+			}
+			int iwas = lieferschein.getlieferscheinid();
+			idlieferschein = iwas;
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

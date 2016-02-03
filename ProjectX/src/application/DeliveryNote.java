@@ -24,4 +24,8 @@ public class DeliveryNote {
 		this.newprice = newprice;
 		this.rabatt = rabatt;
 	}
+	
+	public Integer getlieferscheinid(){
+		return lieferscheinid;
+	}
 }

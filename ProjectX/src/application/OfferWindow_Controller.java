@@ -4,7 +4,8 @@ import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
