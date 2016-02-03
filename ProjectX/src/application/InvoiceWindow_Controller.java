@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
  
@@ -89,7 +90,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		String query5 = "SELECT * FROM Produkt WHERE Listenpreis='"+preistext+"'";
 		String query6 = "SELECT * FROM Lizenz WHERE Rabatt='"+rabatttext+"'";
 		String idquery = "SELECT idRechnung FROM Rechnung WHERE Name='"+fikusnametext+"'";
-		// query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorgängerrechnung,"
+		// query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorgï¿½ngerrechnung,"
 	//			+ "Bezahlt,Betrag,Lieferantennummer,Bestellnummer,Lieferschein_idLieferschein)"
 		//		+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+vorgaengerrechnung+"',"
 			//	+ "'"+bezahlt+"','"+preistext+"','"
@@ -164,18 +165,18 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"ï¿½",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "ï¿½",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "€",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"ï¿½",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "ï¿½",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"€", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"ï¿½", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        document.add(new Paragraph("We please you to transfer the total amount of € "+f.format(preistextRabatt)+"\n"
+        document.add(new Paragraph("We please you to transfer the total amount of ï¿½ "+f.format(preistextRabatt)+"\n"
         		+ "on the Sample Company on the bank account 123456789, OurBank OurCity, \n"
         		+ "Bank Rounting Number 12300000. Term of payment: 30 days net", 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
@@ -199,7 +200,9 @@ public class InvoiceWindow_Controller implements Initializable{
 	}
 	*/
 	public void show(){
-		listview = new ListView<>();
+		Stage primarystage = new Stage();
+		bisherige_dokumente_window window = new bisherige_dokumente_window();
+		window.start(primarystage);
 	}
 
 	@Override

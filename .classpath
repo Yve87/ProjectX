@@ -3,5 +3,17 @@
 	<classpathentry kind="src" path="ProjectX/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Datenbankprojekt/Mysql connector/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itext-pdfa-5.5.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itext-pdfa-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itext-pdfa-5.5.8.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itext-xtra-5.5.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itext-xtra-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itext-xtra-5.5.8.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itextpdf-5.5.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itextpdf-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/itextpdf-5.5.8.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/xmlworker-5.5.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/xmlworker-5.5.8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/melanie/Downloads/itext-5.5.8/xmlworker-5.5.8.jar"/>
 	<classpathentry kind="output" path="ProjectX/bin"/>
 </classpath>
