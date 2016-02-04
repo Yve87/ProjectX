@@ -32,6 +32,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -41,14 +42,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class OfferWindow_Controller implements Initializable{
-	
-	  
  
     LocalDate today = LocalDate.now();
     LocalDate todayplus30 = today.plusDays(30);
@@ -61,6 +61,7 @@ public class OfferWindow_Controller implements Initializable{
 	@FXML private TextField preis;
 	@FXML private TextField rabatt;
 	@FXML private TextField menge;
+	@FXML private ChoiceBox<String> choicebox;
 	String fikusString;
 	
 	int mengetext;
@@ -86,7 +87,7 @@ public class OfferWindow_Controller implements Initializable{
 		rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
 		gueltigkeit = Date.valueOf(todayplus30);
-
+		
 		float gesamtpreistext = preistext * mengetext;
 		float rabattsumme = ((float)rabatttext)/100;
 		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
@@ -213,7 +214,6 @@ public class OfferWindow_Controller implements Initializable{
 			String query = "SELECT * FROM Angebot";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();
-			
 			Offer angebot = null;
 			
 			while(set.next()){
@@ -222,7 +222,18 @@ public class OfferWindow_Controller implements Initializable{
 						,set.getInt(6));
 			}
 			
-			idangebot = angebot.getangebotsid();
+			//idangebot = angebot.getangebotsid();
+			
+			String query1 = "SELECT Name FROM Produkt";
+			PreparedStatement stmt1 = conn.prepareStatement(query1);
+			ResultSet set1 = stmt1.executeQuery();
+			int counter = 1;
+			ArrayList<String> list = new ArrayList<String>();
+			while(set1.next()) {
+				list.add(set1.getString(counter));
+			}
+			
+			choicebox.getItems().addAll(list);
 			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
