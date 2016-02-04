@@ -26,6 +26,9 @@
       <TextField fx:id="preis" layoutX="477.0" layoutY="394.0" promptText="Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
       <TextField fx:id="menge" layoutX="815.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <ChoiceBox fx:id="choicebox" layoutX="816.0" layoutY="404.0" prefHeight="49.0" prefWidth="223.0" />
+      <ChoiceBox fx:id="choicebox" layoutX="807.0" layoutY="432.0" prefHeight="49.0" prefWidth="223.0" />
+      <Button layoutX="890.0" layoutY="381.0" mnemonicParsing="false" onAction="#postion_hinzufuegen" text="Add Product" />
+      <Button layoutX="1060.0" layoutY="381.0" mnemonicParsing="false" onAction="#getchoice" text="Get Choice" />
+      <Button layoutX="524.0" layoutY="558.0" mnemonicParsing="false" onAction="#show" text="Show" />
    </children>
 </AnchorPane>

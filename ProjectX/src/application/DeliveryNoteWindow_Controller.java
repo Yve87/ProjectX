@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -22,11 +23,14 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -48,6 +52,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	@FXML private TextField rabatt;
 	@FXML private DatePicker lieferdatum;
 	@FXML private TextField menge;
+	@FXML private ChoiceBox<String> choicebox;
 	String fikusnametext;
 	String perkusnametext;
 	String produktnametext;
@@ -193,6 +198,22 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		window.start(primaryStage);
 		DeliveryNoteWindow.stage11.close();
 	}
+	
+	@FXML
+	public void getchoice() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		
+		String option = choicebox.getValue();
+		java.sql.Connection conn;
+		
+		conn = Connection.connecten();
+		String query8 = "SELECT * FROM Produkt WHERE Name='"+option+"'";
+		PreparedStatement stmt8 = conn.prepareStatement(query8);			
+		ResultSet set = stmt8.executeQuery();
+		Product produkt = new Product(set.getInt(1),set.getString(2),set.getInt(3),set.getInt(4),
+				set.getString(5),set.getString(6),set.getInt(7));
+		ObservableList<Product> list = FXCollections.observableArrayList();
+		list.add(produkt);
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -210,6 +231,17 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 				set.getString(4),set.getDouble(5),set.getFloat(6),set.getInt(7));
 			}
 			idlieferschein = lieferschein.getlieferscheinid();
+			
+			String query1 = "SELECT Name FROM Produkt";
+			PreparedStatement stmt1 = conn.prepareStatement(query1);
+			ResultSet set1 = stmt1.executeQuery();
+			int counter = 1;
+			ArrayList<String> list = new ArrayList<String>();
+			while(set1.next()) {
+				list.add(set1.getString(counter));
+			}
+			
+			choicebox.getItems().addAll(list);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
