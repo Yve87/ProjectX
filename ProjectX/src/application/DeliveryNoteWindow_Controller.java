@@ -187,7 +187,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	
 	public void show(){
 		Stage primarystage = new Stage();
-		bisherige_dokumente_window window = new bisherige_dokumente_window();
+		PreviousDocumentWindow window = new PreviousDocumentWindow();
 		window.start(primarystage);
 	}
 	

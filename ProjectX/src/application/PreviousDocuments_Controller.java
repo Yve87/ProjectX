@@ -15,7 +15,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class bisherige_dokumente_controller implements Initializable{
+public class PreviousDocuments_Controller implements Initializable{
 
 	@FXML ChoiceBox<String> choicebox;
 	@FXML ListView listview;
