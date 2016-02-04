@@ -20,9 +20,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class PeopleCustomersWindow_Controller{
+public class CorporateCustomersWindow_Controller{
 	
-	@FXML private TextField namef; 
+	@FXML private TextField namef; 	
 	@FXML private TextField idf;
 	@FXML private Button button;
 	private String idtext;
@@ -41,6 +41,7 @@ public class PeopleCustomersWindow_Controller{
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Fikus is completed.");
 	}
+	
 	
 	@FXML
 	public void updaten() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
