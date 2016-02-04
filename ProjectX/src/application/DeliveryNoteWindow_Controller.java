@@ -270,21 +270,7 @@ public void postion_hinzufuegen() throws DocumentException{
 				set.getString(4),set.getDouble(5),set.getFloat(6),set.getInt(7));
 				idlieferschein = lieferschein.getlieferscheinid();
 			}
-<<<<<<< HEAD
-			
-			/*if(lieferschein.getlieferscheinid()==0) {
-				idlieferschein = 0;
-			} else {
-				idlieferschein = lieferschein.getlieferscheinid();
-			}*/
-			
-=======
-			if(lieferschein.getlieferscheinid().equals(null)){
-				idlieferschein = 0;
-			}else{
-			idlieferschein = lieferschein.getlieferscheinid();
-			}
->>>>>>> origin/master
+
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);
 			ResultSet set1 = stmt1.executeQuery();
