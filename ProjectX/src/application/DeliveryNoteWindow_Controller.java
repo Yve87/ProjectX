@@ -60,6 +60,9 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	int preistext;
 	int rabatttext;
 	int mengetext;
+	int listsize;
+	float erstesprodukt;
+	float zweitesprodukt;
 	int idlieferschein;
 	Date lieferungsdatum;
 	int zahl = 0;
@@ -68,15 +71,18 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	ObservableList<Product> list = FXCollections.observableArrayList();
 	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
+	float left = 30;
+    float right = 30;
+    float top = 100;
+    float bottom = 0;
+    Document document = new Document(PageSize.A4, left, right, top, bottom);
+	
 	public void lieferschein_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		idlieferschein++;
 		fikusnametext = fikusname.getText();
-		produktnametext = produktname.getText();
+
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
-		preistext = Integer.parseInt(preis.getText());
-		rabatttext = Integer.parseInt(rabatt.getText());
-		mengetext = Integer.parseInt(menge.getText());
 		lieferungsdatum = Date.valueOf(lieferdatum.getValue());
 		
 		java.sql.Connection conn = Connection.connecten();
@@ -102,21 +108,14 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		ResultSet set = stmt3.executeQuery();
 
 		int idPerkus = 8;
-		float gesamtpreistext = preistext * mengetext;
-		float rabattsumme = ((float)rabatttext)/100;
-		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
-		float rabattEuro = (float) gesamtpreistext * rabattsumme;
 		
-		float left = 30;
-        float right = 30;
-        float top = 100;
-        float bottom = 0;
-        Document document = new Document(PageSize.A4, left, right, top, bottom);
+		
+		
       //  document.setMargins(left, right, bottom, top);
         // step 2
         
         /** Path to the resulting PDF file. */
-        final String RESULT = "./DeliveryNote_"+perkusname+".pdf";
+        final String RESULT = "./DeliveryNote_"+perkusnametext+".pdf";
         
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 
@@ -141,7 +140,6 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         document.add(new Paragraph("People Customer: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Corporate Customer: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
-        document.add(new Paragraph("Street: ", new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
         Paragraph paragraph1 = new Paragraph("Delivery Note "+idlieferschein,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
@@ -150,20 +148,8 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         document.add(new Paragraph("Dear Sir or Madam, \n"
         		+ "attached you receive:\n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
         
-        document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "�",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"�", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph(" "));
+        postion_hinzufuegen();
+        float preistextRabatt = erstesprodukt + zweitesprodukt;
         document.add(new Paragraph("Accounting takes places separately. The product stays in our ownership until the product is completely paid.", 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));        
@@ -199,6 +185,52 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		MainWindow window = new MainWindow();
 		window.start(primaryStage);
 		DeliveryNoteWindow.stage11.close();
+	}
+	
+public void postion_hinzufuegen() throws DocumentException{
+		
+		listsize = list.size();
+		while(listsize > 0){
+			produkt = list.get(listsize-1);
+				float gesamtpreistext = produkt.getlistenspreis() * mengen.get(listsize-1);
+				float rabattsumme = ((float)rabatttext)/100;
+				float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
+				float rabattEuro = (float) gesamtpreistext * rabattsumme;
+				
+				if(listsize == 2){
+					erstesprodukt = preistextRabatt;
+				}
+				zweitesprodukt = preistextRabatt;	
+				
+			document.add(new Paragraph("Product: " + produkt.getname(),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Amount: " + mengen.get(listsize-1),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Price of a single item without discount: " + f.format(produkt.getlistenspreis()) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengen.get(listsize-1)) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" ")); 
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph(" "));
+	        if(listsize > 1){
+	        	document.add(new Paragraph(" "));
+				 document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+				 document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			}	
+			listsize--;
+		}
 	}
 	
 	@FXML

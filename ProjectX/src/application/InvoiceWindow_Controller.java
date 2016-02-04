@@ -164,7 +164,6 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("People Customer: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Corporate Customer: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
-        document.add(new Paragraph("Street: ", new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
         Paragraph paragraph1 = new Paragraph("Invoice "+rechnungsid,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              

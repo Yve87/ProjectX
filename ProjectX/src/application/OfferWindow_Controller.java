@@ -85,6 +85,7 @@ public class OfferWindow_Controller implements Initializable{
     float bottom = 0;
     Document document = new Document(PageSize.A4, left, right, top, bottom);
 	ObservableList<Product> list = FXCollections.observableArrayList();
+	ArrayList<Integer> mengen = new ArrayList<Integer>();
 	int index = 1;
 	int listsize;
 
@@ -215,11 +216,10 @@ public class OfferWindow_Controller implements Initializable{
 					set2.getInt(4),set2.getString(5),set2.getString(6),zahl);
 			if(option.equals(produkt.getname())){
 				list.add(produkt);
-<<<<<<< HEAD
+
 				mengetext = Integer.parseInt(menge.getText());
 				mengen.add(mengetext);
-=======
->>>>>>> origin/master
+
 			}
 		}
 		System.out.println(list.size());
