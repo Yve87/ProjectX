@@ -18,7 +18,7 @@ public class CorporateCustomersWindow {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage12 = primaryStage;
 			stage12.setScene(scene);
-			stage12.setTitle("People Customers");
+			stage12.setTitle("Corporate Customers");
 			stage12.show();
 			
 		} catch(Exception e) {
