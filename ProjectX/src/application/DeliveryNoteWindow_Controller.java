@@ -75,7 +75,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Fikus WHERE Name='"+ fikusnametext+"'";
 		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
-		String query3 = "SELECT Perkus WHERE Name='"+ perkusnametext+"'";
+		String query3 = "SELECT idPerkus FROM Perkus WHERE Name='"+ perkusnametext+"'";
 		String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
 		String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
 		String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
@@ -86,15 +86,15 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		PreparedStatement stmt4 = conn.prepareStatement(query4);
 		PreparedStatement stmt5 = conn.prepareStatement(query5);
 		PreparedStatement stmt6 = conn.prepareStatement(query6);
-		PreparedStatement stmt7 = conn.prepareStatement(query6);
 /*		stmt1.executeQuery();
 		stmt2.executeQuery();
-		stmt3.executeQuery();
 		stmt4.executeQuery();
 		stmt5.executeQuery();
 		stmt6.executeQuery();
 		*/
+		ResultSet set = stmt3.executeQuery();
 
+		int idPerkus = 8;
 		float gesamtpreistext = preistext * mengetext;
 		float rabattsumme = ((float)rabatttext)/100;
 		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
@@ -109,13 +109,13 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         // step 2
         
         /** Path to the resulting PDF file. */
-        final String RESULT = "./DeliveryNote"+idlieferschein+".pdf";
+        final String RESULT = "./DeliveryNote_"+perkusname+".pdf";
         
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 
         // step 3
         document.open();
-        document.addTitle("Delivery Note");
+        document.addTitle("Delivery Note ");
         document.addCreationDate();
         document.add(new Paragraph("Created: " + today.getDayOfMonth() + "." + today.getMonthValue() 
         + "." + today.getYear(), new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
@@ -137,7 +137,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         document.add(new Paragraph("Street: ", new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        Paragraph paragraph1 = new Paragraph("Delivery Note",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
+        Paragraph paragraph1 = new Paragraph("Delivery Note "+idlieferschein,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Dear Sir or Madam, \n"
@@ -172,12 +172,26 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         alert.setHeaderText(null);
         alert.setContentText("The Delivery Note PDF has been created!");
         alert.showAndWait();
+        
+        String query7 = "INSERT INTO Lieferschein(idLieferschein,Lieferdatum,Fikusname,Produktname,Gesamtpreis,Rabatt,Perkus_idPerkus)" 
+				+ "values('"+idlieferschein+"','"+lieferungsdatum+"','"+fikusnametext+"','"+produktnametext+"'"
+						+ ",'"+preistextRabatt+"','"+rabatttext+"','"+idPerkus+"')";
+        PreparedStatement stmt7 = conn.prepareStatement(query7);
+        stmt7.executeUpdate();
 	}
 	
 	public void show(){
 		Stage primarystage = new Stage();
 		bisherige_dokumente_window window = new bisherige_dokumente_window();
 		window.start(primarystage);
+	}
+	
+	public void back(){
+		
+		Stage primaryStage = new Stage();
+		MainWindow window = new MainWindow();
+		window.start(primaryStage);
+		DeliveryNoteWindow.stage11.close();
 	}
 
 	@Override
@@ -190,17 +204,15 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 			PreparedStatement stmt7 = conn.prepareStatement(query7);			
 			DeliveryNote lieferschein = null;
 			ResultSet set = stmt7.executeQuery();
-			while(set.isLast()){
-				lieferschein = new DeliveryNote(set.getInt(1),set.getString(2),set.getString(3),
-				set.getInt(4),set.getString(5),set.getDouble(6),set.getDouble(7),set.getFloat(8), set.getInt(9));
+			
+			while(set.next()){
+				lieferschein = new DeliveryNote(set.getInt(1),set.getDate(2),set.getString(3),
+				set.getString(4),set.getDouble(5),set.getFloat(6),set.getInt(7));
 			}
-			IntegerProperty iwas = lieferschein.getlieferscheinid();
-			//idlieferschein = iwas;
+			idlieferschein = lieferschein.getlieferscheinid();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		
 	}
 }

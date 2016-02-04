@@ -52,5 +52,6 @@
       </Button>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="134.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="60.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
+      <Button layoutX="767.0" layoutY="531.0" mnemonicParsing="false" onAction="#back" prefHeight="99.0" prefWidth="241.0" text="Back" />
    </children>
 </AnchorPane>

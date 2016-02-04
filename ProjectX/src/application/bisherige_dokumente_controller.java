@@ -60,8 +60,8 @@ public class bisherige_dokumente_controller implements Initializable{
 				
 				while(set.next()){
 					zähler++;
-					offer = new Offer(set.getInt(i), set.getString(j),set.getDouble(j),
-							set.getDouble(k),set.getFloat(l),zähler);
+					offer = new Offer(set.getInt(i),set.getString(j), set.getFloat(k),set.getInt(l),
+							set.getDate(m),set.getInt(n));
 					data.add(offer);
 				}
 				listview.setItems(data);
@@ -95,8 +95,8 @@ public class bisherige_dokumente_controller implements Initializable{
 			
 			while(set.next()){
 				zähler++;
-				deliverynote = new DeliveryNote(set.getInt(i), set.getString(j),set.getDouble(j),
-						set.getDouble(k),set.getFloat(l),zähler));
+				deliverynote = new DeliveryNote(set.getInt(i), set.getDate(j),set.getString(k),
+						set.getString(l),set.getDouble(m),set.getFloat(n),set.getInt(a));
 				data2.add(deliverynote);
 			}
 			listview.setItems(data2);
@@ -130,8 +130,8 @@ public class bisherige_dokumente_controller implements Initializable{
 			
 			while(set.next()){
 				zähler++;
-				invoice = new Invoice(set.getInt(i), set.getString(j),set.getDouble(j),
-						set.getDouble(k),set.getFloat(l),zähler);
+				invoice = new Invoice(set.getInt(i), set.getDate(j),set.getFloat(k),
+						set.getInt(l),set.getString(m),set.getString(n),set.getString(a),set.getInt(b));
 				data3.add(invoice);
 			}
 			listview.setItems(data3);

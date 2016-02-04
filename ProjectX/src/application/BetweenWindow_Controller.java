@@ -63,4 +63,12 @@ public class BetweenWindow_Controller {
 			window.start(primaryStage);
 			BetweenWindow.stage14.close();
 	}
+	
+	public void back(){
+		
+		Stage primaryStage = new Stage();
+		MainWindow window = new MainWindow();
+		window.start(primaryStage);
+		BetweenWindow.stage14.close();
+	}
 }

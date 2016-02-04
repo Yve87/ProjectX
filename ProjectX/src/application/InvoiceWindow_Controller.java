@@ -35,9 +35,7 @@ import javafx.stage.Stage;
  */
 public class InvoiceWindow_Controller implements Initializable{
 	
-    /** Path to the resulting PDF file. */
-    public static final String RESULT
-        = "./Rechnung.pdf";
+    
  
     LocalDate today = LocalDate.now();
     LocalDate todayplus30 = today.plusDays(30);
@@ -67,10 +65,10 @@ public class InvoiceWindow_Controller implements Initializable{
 
 	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
-	ListView<Object> listview;
 	
 	public void rechnung_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		
+		rechnungsid++;
 		rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
 		fikusnametext = fikusname.getText();
 		produktnametext = produktname.getText();
@@ -79,6 +77,8 @@ public class InvoiceWindow_Controller implements Initializable{
 		preistext = Integer.parseInt(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
+		
+		int lieferantennummer = 192384 + rechnungsid;
 		
 		float gesamtpreistext = preistext * mengetext;
 		float rabattsumme = ((float)rabatttext)/100;
@@ -93,11 +93,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		String query5 = "SELECT * FROM Produkt WHERE Listenpreis='"+preistext+"'";
 		String query6 = "SELECT * FROM Lizenz WHERE Rabatt='"+rabatttext+"'";
 		String idquery = "SELECT idRechnung FROM Rechnung WHERE Name='"+fikusnametext+"'";
-		// query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Vorg�ngerrechnung,"
-	//			+ "Bezahlt,Betrag,Lieferantennummer,Bestellnummer,Lieferschein_idLieferschein)"
-		//		+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+vorgaengerrechnung+"',"
-			//	+ "'"+bezahlt+"','"+preistext+"','"
-			//	+ ""+bestellnummer+"','"+lieferscheinid+"')";
+		
 		String query8 = "SELECT * FROM Rechnung WHERE idRechnung";
 
 		PreparedStatement stmt1 = conn.prepareStatement(query1);
@@ -106,7 +102,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		PreparedStatement stmt4 = conn.prepareStatement(query4);
 		PreparedStatement stmt5 = conn.prepareStatement(query5);
 		PreparedStatement stmt6 = conn.prepareStatement(query6);
-		//PreparedStatement stmt7 = conn.prepareStatement(query7);
+		
 		PreparedStatement stmt8 = conn.prepareStatement(query8);
 		PreparedStatement stmt9 = conn.prepareStatement(idquery);
 		stmt1.executeQuery();
@@ -115,7 +111,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		stmt4.executeQuery();
 		stmt5.executeQuery();
 		stmt6.executeQuery();
-		//stmt7.executeQuery();
+		
 		stmt8.executeQuery();
 		//stmt9.executeQuery();
 		
@@ -133,6 +129,11 @@ public class InvoiceWindow_Controller implements Initializable{
         Document document = new Document(PageSize.A4, left, right, top, bottom);
       //  document.setMargins(left, right, bottom, top);
         // step 2
+        
+        /** Path to the resulting PDF file. */
+        final String RESULT
+            = "./Rechnung"+perkusnametext+".pdf";
+        
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 
         // step 3
@@ -159,7 +160,7 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("Street: ", new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         document.add(new Paragraph(" "));
-        Paragraph paragraph1 = new Paragraph("Invoice",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
+        Paragraph paragraph1 = new Paragraph("Invoice "+rechnungsid,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Dear Sir or Madam, \n"
@@ -196,8 +197,17 @@ public class InvoiceWindow_Controller implements Initializable{
         alert.setHeaderText(null);
         alert.setContentText("The Invoice PDF has been created!");
         alert.showAndWait();
-        }
         
+        lieferscheinid = 2;
+        String query7 = "INSERT INTO Rechnung(idRechnung,Rechnungsdatum,Betrag,"
+    			+ "Lieferantennummer,Perkusname,Fikusname,Produktname,Lieferschein_idLieferschein)"
+    		+ "values('"+rechnungsid+"','"+rechnungsdatum+"','"+preistextRabatt+"','"+lieferantennummer
+    			+ "','"+perkusnametext+"','"+fikusnametext+"','"
+    			+ ""+produktnametext+"','"+lieferscheinid+"')";
+    		PreparedStatement stmt7 = conn.prepareStatement(query7);
+    		stmt7.executeUpdate();
+        }
+	
         // step 4
 		
 	public void show(){
@@ -213,8 +223,15 @@ public class InvoiceWindow_Controller implements Initializable{
 			conn = Connection.connecten();
 			String query = "SELECT * FROM Rechnung";
 			PreparedStatement stmt = conn.prepareStatement(query);
+			Invoice rechnung = null;
 			ResultSet set = stmt.executeQuery();
 			
+			while(set.next()){
+				rechnung = new Invoice(set.getInt(1),set.getDate(2),set.getFloat(3),
+				set.getInt(4),set.getString(5),set.getString(6),set.getString(7),set.getInt(8));
+			}
+			rechnungsid = rechnung.getrechnungsid();
+			System.out.println(rechnungsid);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

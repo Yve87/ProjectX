@@ -77,6 +77,7 @@ public class OfferWindow_Controller implements Initializable{
 	
 	@SuppressWarnings("deprecation")
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
+		idangebot++;
 		fikusString = fikusText.getText();
 		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
@@ -151,7 +152,7 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Street: " +strasse, new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
-        Paragraph paragraph1 = new Paragraph("Offer",new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
+        Paragraph paragraph1 = new Paragraph("Offer "+idangebot,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Dear Sir or Madam, \n"
@@ -175,7 +176,7 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph("Terms and Conditions:, \n"
         		+ "- The Sample Company license terms are valid. \n"
         		+ "- All prices are quoted in addition of sales tax.\n"
-        		+ "- Payment follows 30 days net. This offer is non-bindung and is valid until " 
+        		+ "- Payment follows 30 days net. This offer is non-binding and is valid until " 
         		+ + todayplus30.getDayOfMonth() +"." + todayplus30.getMonthValue() + "." + today.getYear(), 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));        
@@ -192,8 +193,8 @@ public class OfferWindow_Controller implements Initializable{
         alert.setContentText("The Offer PDF has been created!");
         alert.showAndWait();
         
-        String query7 = "INSERT INTO Angebot(idAngebot,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
-				+ "values('"+idangebot+"','"+preistextRabatt+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
+        String query7 = "INSERT INTO Angebot(idAngebot,Produktname,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
+				+ "values('"+idangebot+"','"+produktnametext+"','"+preistextRabatt+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
         PreparedStatement stmt7 = conn.prepareStatement(query7);
         stmt7.executeUpdate();
 	}
@@ -212,6 +213,17 @@ public class OfferWindow_Controller implements Initializable{
 			String query = "SELECT * FROM Angebot";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet set = stmt.executeQuery();
+			
+			Offer angebot = null;
+			
+			while(set.next()){
+				
+				angebot = new Offer(set.getInt(1),set.getString(2),set.getDouble(3),set.getFloat(4),set.getDate(5)
+						,set.getInt(6));
+			}
+			
+			idangebot = angebot.getangebotsid();
+			
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
