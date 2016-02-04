@@ -12,7 +12,7 @@ public class MainWindow_Controller {
 	DeliveryNoteWindow window1;
 	InvoiceWindow window2;
 	OfferWindow window3;
-	bisherige_dokumente_window window4;
+	PreviousDocumentWindow window4;
 	Stage primaryStage = new Stage();
 	
 	
@@ -41,7 +41,7 @@ public class MainWindow_Controller {
 	}
 	
 	public void show(){
-		window4 = new bisherige_dokumente_window();
+		window4 = new PreviousDocumentWindow();
 		window4.start(primaryStage);
 		MainWindow.stage.close();
 	}

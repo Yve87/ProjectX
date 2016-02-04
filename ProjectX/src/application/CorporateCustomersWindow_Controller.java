@@ -74,7 +74,7 @@ public class CorporateCustomersWindow_Controller{
 	@SuppressWarnings("unchecked")
 	public void show(){
 		Stage primarystage = new Stage();
-		showwindow window = new showwindow();
+		ShowWindow window = new ShowWindow();
 		window.start(primarystage);
 	}
 }

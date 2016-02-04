@@ -57,12 +57,14 @@ public class OfferWindow_Controller implements Initializable{
     
     @FXML private TextField fikusText;  
 	@FXML private TextField fikusname;
+	@FXML private TextField produktname;
 	@FXML private TextField perkusname;
 	@FXML private TextField standortname;
+	@FXML private TextField preis;
+	@FXML private TextField rabatt;
 	@FXML private TextField menge;
 	@FXML private ChoiceBox<String> choicebox;
 	String fikusString;
-	ArrayList<Integer> mengen = new ArrayList<Integer>();
 	
 	int zahl = 0;
 	int mengetext;
@@ -76,8 +78,6 @@ public class OfferWindow_Controller implements Initializable{
 	int idangebot;
 	Date gueltigkeit;
 	Product produkt = null;
-	float erstesprodukt = 0;
-	float zweitesprodukt = 0;
 	
 	float left = 30;
     float right = 30;
@@ -94,8 +94,11 @@ public class OfferWindow_Controller implements Initializable{
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		idangebot++;
 		fikusString = fikusText.getText();
+		//produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
+		//preistext = Float.parseFloat(preis.getText());
+		//rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
 		gueltigkeit = Date.valueOf(todayplus30);
 		
@@ -152,21 +155,19 @@ public class OfferWindow_Controller implements Initializable{
        
         Paragraph paragraph = new Paragraph("To Customer:", new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD));
         document.add(paragraph);
-        document.add(new Paragraph("People Customer: " + fikusString,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("People Customer: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Corporate Customer: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
+        document.add(new Paragraph("Street: " +strasse, new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         Paragraph paragraph1 = new Paragraph("Offer "+idangebot,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
         document.add(new Paragraph(" "));
-		 document.add(new Paragraph(" "));
         document.add(new Paragraph("Dear Sir or Madam, \n"
         		+ "attached you receive the following offer:  \n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
         document.add(new Paragraph(" "));
         
         postion_hinzufuegen();
-        float preistextRabatt = erstesprodukt + zweitesprodukt;
-        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) + "EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE)));
         document.add(new Paragraph("Terms and Conditions:, \n"
         		+ "- The Sample Company license terms are valid. \n"
         		+ "- All prices are quoted in addition of sales tax.\n"
@@ -186,7 +187,7 @@ public class OfferWindow_Controller implements Initializable{
         alert.setHeaderText(null);
         alert.setContentText("The Offer PDF has been created!");
         alert.showAndWait();
-        
+        float preistextRabatt = 100;
         String query7 = "INSERT INTO Angebot(idAngebot,Produktname,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
 				+ "values('"+idangebot+"','"+produktnametext+"','"+preistextRabatt+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
         PreparedStatement stmt7 = conn.prepareStatement(query7);
@@ -195,7 +196,7 @@ public class OfferWindow_Controller implements Initializable{
 
 	public void show(){
 		Stage primarystage = new Stage();
-		bisherige_dokumente_window window = new bisherige_dokumente_window();
+		PreviousDocumentWindow window = new PreviousDocumentWindow();
 		window.start(primarystage);
 	}
 	
@@ -214,42 +215,44 @@ public class OfferWindow_Controller implements Initializable{
 					set2.getInt(4),set2.getString(5),set2.getString(6),zahl);
 			if(option.equals(produkt.getname())){
 				list.add(produkt);
+<<<<<<< HEAD
 				mengetext = Integer.parseInt(menge.getText());
 				mengen.add(mengetext);
+=======
+>>>>>>> origin/master
 			}
 		}
+		System.out.println(list.size());
+		
 	}
 	
 	public void postion_hinzufuegen() throws DocumentException{
 		
 		listsize = list.size();
 		while(listsize > 0){
+			
+			System.out.println("Die: "+listsize);
 			produkt = list.get(listsize-1);
-				float gesamtpreistext = produkt.getlistenspreis() * mengen.get(listsize-1);
+				float gesamtpreistext = produkt.getlistenspreis() * mengetext;
 				float rabattsumme = ((float)rabatttext)/100;
 				float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
 				float rabattEuro = (float) gesamtpreistext * rabattsumme;
-				
-				if(listsize == 2){
-					erstesprodukt = preistextRabatt;
-				}
-				zweitesprodukt = preistextRabatt;	
-				
+			
 			document.add(new Paragraph("Product: " + produkt.getname(),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-	        document.add(new Paragraph("Amount: " + mengen.get(listsize-1),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph("Price of a single item without discount: " + f.format(produkt.getlistenspreis()) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
-	        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengen.get(listsize-1)) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-	        document.add(new Paragraph(" ")); 
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) + "EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph(" "));
 	        if(listsize > 1){
-	        	document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
@@ -257,7 +260,6 @@ public class OfferWindow_Controller implements Initializable{
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));

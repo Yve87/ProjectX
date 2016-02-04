@@ -115,7 +115,7 @@ public class LeasingWindow_Controller {
 	public void show(){
 	
 		Stage primarystage = new Stage();
-		showwindow window = new showwindow();
+		ShowWindow window = new ShowWindow();
 		window.start(primarystage);
 	}
 

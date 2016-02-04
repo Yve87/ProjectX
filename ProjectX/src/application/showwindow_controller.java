@@ -16,7 +16,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class showwindow_controller implements Initializable{
+public class ShowWindow_Controller implements Initializable{
 	
 	@FXML ChoiceBox<String> choicebox;
 	@FXML ListView listview;
