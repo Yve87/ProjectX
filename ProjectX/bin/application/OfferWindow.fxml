@@ -19,16 +19,12 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="262.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Offer - Please enter the data:" />
       <TextField fx:id="fikusText" layoutX="152.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="perkusname" layoutX="152.0" layoutY="394.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="rabatt" layoutX="477.0" layoutY="456.0" promptText="Discount" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="standortname" layoutX="152.0" layoutY="456.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="produktname" layoutX="477.0" layoutY="330.0" promptText="Product" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="63.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
-      <TextField fx:id="preis" layoutX="477.0" layoutY="394.0" promptText="Price" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
-      <TextField fx:id="menge" layoutX="815.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="menge" layoutX="484.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <ChoiceBox fx:id="choicebox" layoutX="807.0" layoutY="432.0" prefHeight="49.0" prefWidth="223.0" />
-      <Button layoutX="890.0" layoutY="381.0" mnemonicParsing="false" onAction="#postion_hinzufuegen" text="Add Product" />
-      <Button layoutX="1060.0" layoutY="381.0" mnemonicParsing="false" onAction="#getchoice" text="Get Choice" />
-      <Button layoutX="524.0" layoutY="558.0" mnemonicParsing="false" onAction="#show" text="Show" />
+      <Button layoutX="1061.0" layoutY="443.0" mnemonicParsing="false" onAction="#getchoice" text="Get Choice" />
+      <Button layoutX="524.0" layoutY="527.0" mnemonicParsing="false" onAction="#show" prefHeight="71.0" prefWidth="176.0" text="Show" />
    </children>
 </AnchorPane>
