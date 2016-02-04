@@ -31,5 +31,6 @@
       <TextField fx:id="idFikus" layoutX="446.0" layoutY="422.0" promptText="People Customers ID" />
       <TextField fx:id="idPerkus" layoutX="446.0" layoutY="370.0" promptText="Corporate Customers ID" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Button layoutX="1039.0" layoutY="46.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: lightblue; -fx-text-fill: #000; -fx-border-color: white; -fx-font-style: italic;" text="Back" />
    </children>
 </AnchorPane>

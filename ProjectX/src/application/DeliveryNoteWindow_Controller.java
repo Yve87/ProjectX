@@ -264,17 +264,18 @@ public void postion_hinzufuegen() throws DocumentException{
 			PreparedStatement stmt7 = conn.prepareStatement(query7);			
 			DeliveryNote lieferschein = null;
 			ResultSet set = stmt7.executeQuery();
-			
+			idlieferschein = 0;
 			while(set.next()){
 				lieferschein = new DeliveryNote(set.getInt(1),set.getDate(2),set.getString(3),
 				set.getString(4),set.getDouble(5),set.getFloat(6),set.getInt(7));
+				idlieferschein = lieferschein.getlieferscheinid();
 			}
 			
-			if(lieferschein.getlieferscheinid()==0) {
+			/*if(lieferschein.getlieferscheinid()==0) {
 				idlieferschein = 0;
 			} else {
 				idlieferschein = lieferschein.getlieferscheinid();
-			}
+			}*/
 			
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.image.*?>
+
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -22,11 +22,7 @@
       <Button layoutX="848.0" layoutY="565.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="409.0" layoutY="565.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
-      <Button layoutX="993.0" layoutY="29.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Back" /><graphic>
-        <ImageView image="$btnImage" />
-     </graphic> </Button>
-   <fx:define>
-   <Image fx:id="btnImage" url="/back.png" />
-</fx:define>
+      <Button layoutX="1029.0" layoutY="36.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: lightblue; -fx-text-fill: #000; -fx-border-color: white; -fx-font-style: italic;" text="Back" />
+
    </children>
 </AnchorPane>

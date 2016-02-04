@@ -69,8 +69,12 @@ public class CorporateCustomersWindow_Controller{
 		System.out.println("New Delete at Table Fikus is completed.");
 	}
 
-
-	
+	public void back(){
+		Stage primaryStage = new Stage();
+		BetweenWindow window = new BetweenWindow();
+		window.start(primaryStage);
+		CorporateCustomersWindow.stage12.close();
+	}
 	@SuppressWarnings("unchecked")
 	public void show(){
 		Stage primarystage = new Stage();

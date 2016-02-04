@@ -265,7 +265,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		String query8 = "SELECT * FROM Produkt";
 		PreparedStatement stmt8 = conn.prepareStatement(query8);			
 		ResultSet set2 = stmt8.executeQuery();
-
+		
 		while(set2.next()){
 			produkt = new Product(set2.getInt(1), set2.getString(2),set2.getInt(3),
 					set2.getInt(4),set2.getString(5),set2.getString(6),zahl);
@@ -286,12 +286,13 @@ public class InvoiceWindow_Controller implements Initializable{
 			PreparedStatement stmt = conn.prepareStatement(query);
 			Invoice rechnung = null;
 			ResultSet set = stmt.executeQuery();
-			
+			rechnungsid = 0;
 			while(set.next()){
 				rechnung = new Invoice(set.getInt(1),set.getDate(2),set.getFloat(3),
 				set.getInt(4),set.getString(5),set.getString(6),set.getString(7),set.getInt(8));
+				rechnungsid = rechnung.getrechnungsid();
 			}
-			rechnungsid = rechnung.getrechnungsid();
+			
 			
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);

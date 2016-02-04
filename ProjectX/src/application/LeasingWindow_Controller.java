@@ -118,5 +118,12 @@ public class LeasingWindow_Controller {
 		ShowWindow window = new ShowWindow();
 		window.start(primarystage);
 	}
+	
+	public void back(){
+		Stage primaryStage = new Stage();
+		BetweenWindow window = new BetweenWindow();
+		window.start(primaryStage);
+		LeasingWindow.stage8.close();
+	}
 
 }
