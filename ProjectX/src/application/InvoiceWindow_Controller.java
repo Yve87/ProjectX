@@ -291,6 +291,7 @@ public class InvoiceWindow_Controller implements Initializable{
 				rechnung = new Invoice(set.getInt(1),set.getDate(2),set.getFloat(3),
 				set.getInt(4),set.getString(5),set.getString(6),set.getString(7),set.getInt(8));
 			}
+			
 			rechnungsid = rechnung.getrechnungsid();
 			
 			String query1 = "SELECT Name FROM Produkt";

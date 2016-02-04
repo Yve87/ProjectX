@@ -283,9 +283,11 @@ public class OfferWindow_Controller implements Initializable{
 				angebot = new Offer(set.getInt(1),set.getString(2),set.getDouble(3),set.getFloat(4),set.getDate(5)
 						,set.getInt(6));
 			}
-			
+			if(angebot.getangebotsid().equals(null)){
+				idangebot = 0;
+			}else{
 			idangebot = angebot.getangebotsid();
-			
+			}
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);
 			ResultSet set1 = stmt1.executeQuery();
