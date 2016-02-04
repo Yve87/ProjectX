@@ -62,8 +62,10 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	int mengetext;
 	int idlieferschein;
 	Date lieferungsdatum;
-	ListView<Object> listview;
-	    
+	int zahl = 0;
+	Product produkt = null;
+	ArrayList<Integer> mengen = new ArrayList<Integer>();
+	ObservableList<Product> list = FXCollections.observableArrayList();
 	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
 	public void lieferschein_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
@@ -204,15 +206,20 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		
 		String option = choicebox.getValue();
 		java.sql.Connection conn;
-		
 		conn = Connection.connecten();
-		String query8 = "SELECT * FROM Produkt WHERE Name='"+option+"'";
+		String query8 = "SELECT * FROM Produkt";
 		PreparedStatement stmt8 = conn.prepareStatement(query8);			
-		ResultSet set = stmt8.executeQuery();
-		Product produkt = new Product(set.getInt(1),set.getString(2),set.getInt(3),set.getInt(4),
-				set.getString(5),set.getString(6),set.getInt(7));
-		ObservableList<Product> list = FXCollections.observableArrayList();
-		list.add(produkt);
+		ResultSet set2 = stmt8.executeQuery();
+
+		while(set2.next()){
+			produkt = new Product(set2.getInt(1), set2.getString(2),set2.getInt(3),
+					set2.getInt(4),set2.getString(5),set2.getString(6),zahl);
+			if(option.equals(produkt.getname())){
+				list.add(produkt);
+				mengetext = Integer.parseInt(menge.getText());
+				mengen.add(mengetext);
+			}
+		}
 	}
 
 	@Override

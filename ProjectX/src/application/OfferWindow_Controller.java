@@ -216,7 +216,6 @@ public class OfferWindow_Controller implements Initializable{
 				list.add(produkt);
 				mengetext = Integer.parseInt(menge.getText());
 				mengen.add(mengetext);
-				System.out.print(mengen.size());
 			}
 		}
 	}

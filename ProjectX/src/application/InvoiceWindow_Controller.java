@@ -58,6 +58,9 @@ public class InvoiceWindow_Controller implements Initializable{
 	String perkusnametext;
 	String produktnametext;
 	String standortnametext;
+	Product produkt = null;
+	ArrayList<Integer> mengen = new ArrayList<Integer>();
+	int zahl = 0;
 	int preistext;
 	int rabatttext;
 	int rechnungsid;
@@ -67,6 +70,16 @@ public class InvoiceWindow_Controller implements Initializable{
 	int vorgaengerrechnung;
 	int bezahlt;
 	int mengetext;
+	int listsize;
+	float erstesprodukt;
+	float zweitesprodukt;
+	
+	float left = 30;
+    float right = 30;
+    float top = 100;
+    float bottom = 0;
+    Document document = new Document(PageSize.A4, left, right, top, bottom);
+    ObservableList<Product> list = FXCollections.observableArrayList();
 	
 
 	DecimalFormat f = new DecimalFormat("#0.00"); 
@@ -77,19 +90,11 @@ public class InvoiceWindow_Controller implements Initializable{
 		rechnungsid++;
 		rechnungsdatum = Date.valueOf(rechnungdatum.getValue());
 		fikusnametext = fikusname.getText();
-		produktnametext = produktname.getText();
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
-		preistext = Integer.parseInt(preis.getText());
-		rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
 		
 		int lieferantennummer = 192384 + rechnungsid;
-		
-		float gesamtpreistext = preistext * mengetext;
-		float rabattsumme = ((float)rabatttext)/100;
-		float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
-		float rabattEuro = (float) gesamtpreistext * rabattsumme;
 		
 		java.sql.Connection conn = Connection.connecten();
 		String query1 = "SELECT Name FROM Fikus WHERE Name='"+fikusnametext+"'";
@@ -128,11 +133,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		//ResultSet set1 = stmt9.executeQuery();
 		//rechnungsid = set.getInt(0);
 		
-		float left = 30;
-        float right = 30;
-        float top = 100;
-        float bottom = 0;
-        Document document = new Document(PageSize.A4, left, right, top, bottom);
+		
       //  document.setMargins(left, right, bottom, top);
         // step 2
         
@@ -172,20 +173,8 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph("Dear Sir or Madam, \n"
         		+ "attached you receive the following invoice: Invoice ID " +rechnungsid +"\n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
         
-        document.add(new Paragraph("Product: " + produktnametext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item without discount: " + f.format(preistext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) +"EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
-        document.add(new Paragraph(" "));
-        document.add(new Paragraph(" "));
+      postion_hinzufuegen();
+      float preistextRabatt = erstesprodukt + zweitesprodukt;
         document.add(new Paragraph("We please you to transfer the total amount of EUR "+f.format(preistextRabatt)+"\n"
         		+ "on the Sample Company on the bank account 123456789, OurBank OurCity, \n"
         		+ "Bank Rounting Number 12300000. Term of payment: 30 days net", 
@@ -222,20 +211,71 @@ public class InvoiceWindow_Controller implements Initializable{
 		window.start(primarystage);
 	}
 	
+	public void postion_hinzufuegen() throws DocumentException{
+		
+		listsize = list.size();
+		while(listsize > 0){
+			produkt = list.get(listsize-1);
+				float gesamtpreistext = produkt.getlistenspreis() * mengen.get(listsize-1);
+				float rabattsumme = ((float)rabatttext)/100;
+				float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
+				float rabattEuro = (float) gesamtpreistext * rabattsumme;
+				
+				if(listsize == 2){
+					erstesprodukt = preistextRabatt;
+				}
+				zweitesprodukt = preistextRabatt;	
+				
+			document.add(new Paragraph("Product: " + produkt.getname(),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Amount: " + mengen.get(listsize-1),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Price of a single item without discount: " + f.format(produkt.getlistenspreis()) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengen.get(listsize-1)) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph(" ")); 
+	        document.add(new Paragraph(" "));
+	        document.add(new Paragraph(" "));
+	        if(listsize > 1){
+	        	document.add(new Paragraph(" "));
+				 document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+				 document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			}	
+			listsize--;
+		}
+	}
+
 	@FXML
 	public void getchoice() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
 		String option = choicebox.getValue();
 		java.sql.Connection conn;
-		
 		conn = Connection.connecten();
-		String query8 = "SELECT * FROM Produkt WHERE Name='"+option+"'";
+		String query8 = "SELECT * FROM Produkt";
 		PreparedStatement stmt8 = conn.prepareStatement(query8);			
-		ResultSet set = stmt8.executeQuery();
-		Product produkt = new Product(set.getInt(1),set.getString(2),set.getInt(3),set.getInt(4),
-				set.getString(5),set.getString(6),set.getInt(7));
-		ObservableList<Product> list = FXCollections.observableArrayList();
-		list.add(produkt);
+		ResultSet set2 = stmt8.executeQuery();
+
+		while(set2.next()){
+			produkt = new Product(set2.getInt(1), set2.getString(2),set2.getInt(3),
+					set2.getInt(4),set2.getString(5),set2.getString(6),zahl);
+			if(option.equals(produkt.getname())){
+				list.add(produkt);
+				mengetext = Integer.parseInt(menge.getText());
+				mengen.add(mengetext);
+			}
+		}
 	}
 
 	@Override
