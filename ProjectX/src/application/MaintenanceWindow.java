@@ -14,7 +14,7 @@ public class MaintenanceWindow {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("MaintenanceWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage5 = primaryStage;
 			stage5.setScene(scene);
 			stage5.setTitle("Maintenance");

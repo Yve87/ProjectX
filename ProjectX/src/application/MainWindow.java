@@ -27,8 +27,8 @@ public class MainWindow extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("MainWindow_Controller.fxml"));
 			Scene scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
-			//System.setProperty( "javafx.userAgentStylesheetUrl", "CASPIAN" );
-			//setUserAgentStylesheet(STYLESHEET_CASPIAN);
+			System.setProperty( "javafx.userAgentStylesheetUrl", "CASPIAN" );
+			setUserAgentStylesheet(STYLESHEET_CASPIAN);
 			stage = primaryStage;
 			stage.setScene(scene);
 			stage.setTitle("Start");

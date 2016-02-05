@@ -87,8 +87,14 @@ public class ProductWindow_Controller {
 	@FXML
 	public void show(){
 		Stage primarystage = new Stage();
-		ShowWindow window = new ShowWindow();
+		Show_Window window = new Show_Window();
 		window.start(primarystage);
 	}
 	
+	public void back(){
+		Stage primaryStage = new Stage();
+		BetweenWindow window = new BetweenWindow();
+		window.start(primaryStage);
+		ProductWindow.stage3.close();
+	}
 }

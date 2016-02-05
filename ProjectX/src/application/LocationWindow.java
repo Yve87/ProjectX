@@ -21,7 +21,7 @@ public class LocationWindow extends Application {
 
 			Parent root = FXMLLoader.load(getClass().getResource("LocationWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage6 = primaryStage;
 			stage6.setScene(scene);
 			stage6.setTitle("Location");

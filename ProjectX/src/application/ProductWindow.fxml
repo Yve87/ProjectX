@@ -26,5 +26,6 @@
       <Button layoutX="853.0" layoutY="578.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
       <Button layoutX="409.0" layoutY="578.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Button layoutX="1044.0" layoutY="66.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: lightblue; -fx-text-fill: #000; -fx-border-color: white; -fx-font-style: italic;" text="Back" />
    </children>
 </AnchorPane>

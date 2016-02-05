@@ -121,7 +121,7 @@ public class LicenseWindow_Controller {
 	@FXML
 	public void show(){
 		Stage primarystage = new Stage();
-		ShowWindow window = new ShowWindow();
+		Show_Window window = new Show_Window();
 		window.start(primarystage);
 	}
 	

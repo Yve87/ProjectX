@@ -13,13 +13,13 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Button layoutX="624.0" layoutY="568.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
+      <Button layoutX="624.0" layoutY="568.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" stylesheets="@DarkTheme.css" text="Update" />
       <TextField fx:id="id" layoutX="176.0" layoutY="289.0" promptText="ID" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="zimmernummer" layoutX="490.0" layoutY="442.0" promptText="Room Number" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="181.0" text="Search" />
-      <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" text="Show" />
-      <Button layoutX="843.0" layoutY="568.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" text="Delete" />
-      <Button layoutX="399.0" layoutY="568.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" text="Insert" />
+      <Button layoutX="176.0" layoutY="568.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="181.0" stylesheets="@DarkTheme.css" text="Show" />
+      <Button layoutX="843.0" layoutY="568.0" mnemonicParsing="false" onAction="#delete" prefHeight="70.0" prefWidth="181.0" stylesheets="@DarkTheme.css" text="Delete" />
+      <Button layoutX="399.0" layoutY="568.0" mnemonicParsing="false" onAction="#insert" prefHeight="70.0" prefWidth="181.0" stylesheets="@DarkTheme.css" text="Insert" />
       <TextField fx:id="anrede" layoutX="176.0" layoutY="444.0" promptText="Saluation" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="name" layoutX="176.0" layoutY="341.0" promptText="Surname" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="vorname" layoutX="176.0" layoutY="391.0" promptText="Name" styleClass="text-field" stylesheets="@DarkTheme.css" />
@@ -34,5 +34,6 @@
       <TextField fx:id="position" layoutX="805.0" layoutY="495.0" promptText="Position" />
       <TextField fx:id="fikusid" layoutX="805.0" layoutY="289.0" promptText="People Customers ID" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="140.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
+      <Button layoutX="1044.0" layoutY="65.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: lightblue; -fx-text-fill: #000; -fx-border-color: white; -fx-font-style: italic;" text="Back" />
    </children>
 </AnchorPane>

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class ShowWindow_Controller implements Initializable{
 	
@@ -329,6 +330,12 @@ public class ShowWindow_Controller implements Initializable{
 		}
 	}
 	
+	public void back(){
+		Stage primaryStage = new Stage();
+		BetweenWindow window = new BetweenWindow();
+		window.start(primaryStage);
+		Show_Window.stage2.close();
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		choicebox.getItems().addAll("CorporateCustomer","PeopleCustomer","Location","License",

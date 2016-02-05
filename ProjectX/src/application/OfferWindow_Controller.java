@@ -201,6 +201,13 @@ public class OfferWindow_Controller implements Initializable{
 		window.start(primarystage);
 	}
 	
+	public void back(){
+		Stage primaryStage = new Stage();
+		MainWindow window = new MainWindow();
+		window.start(primaryStage);
+		OfferWindow.stage4.close();
+	}
+	
 	@FXML
 	public void getchoice() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		
@@ -278,18 +285,12 @@ public class OfferWindow_Controller implements Initializable{
 			ResultSet set = stmt.executeQuery();
 			Offer angebot = null;
 			idangebot = 0;
-			while(set.next()){
-				
+			while(set.next()){		
 				angebot = new Offer(set.getInt(1),set.getString(2),set.getDouble(3),set.getFloat(4),set.getDate(5)
 						,set.getInt(6));
 				idangebot = angebot.getangebotsid();
 			}
 
-			if(angebot.getangebotsid().equals(null)){
-				idangebot = 0;
-			}else{
-			idangebot = angebot.getangebotsid();
-			}
 
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);

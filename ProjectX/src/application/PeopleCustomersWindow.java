@@ -12,14 +12,14 @@ import javafx.scene.layout.*;
 
 
 public class PeopleCustomersWindow extends Application {
-	public Stage stage15;
+	public static Stage stage15;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("PeopleCustomersWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage15 = primaryStage;
 			stage15.setScene(scene);
 			stage15.setTitle("People Customers");

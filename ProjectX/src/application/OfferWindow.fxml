@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -15,7 +16,7 @@
          </items>
       </SplitPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
-      <Button layoutX="799.0" layoutY="529.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="70.0" prefWidth="239.0" stylesheets="@DarkTheme.css" text="Create Offer" />
+      <Button layoutX="800.0" layoutY="529.0" mnemonicParsing="false" onAction="#angebot_erstellen" prefHeight="70.0" prefWidth="238.0" stylesheets="@DarkTheme.css" text="Create Offer" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="262.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Offer - Please enter the data:" />
       <TextField fx:id="fikusText" layoutX="152.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="perkusname" layoutX="152.0" layoutY="394.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
@@ -23,8 +24,12 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="63.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="349.0" layoutY="143.0" styleClass="label-subheader" stylesheets="@DarkTheme.css" text="Company Management Software" />
       <TextField fx:id="menge" layoutX="484.0" layoutY="330.0" promptText="Amount" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <ChoiceBox fx:id="choicebox" layoutX="807.0" layoutY="432.0" prefHeight="49.0" prefWidth="223.0" />
-      <Button layoutX="1061.0" layoutY="443.0" mnemonicParsing="false" onAction="#getchoice" text="Get Choice" />
-      <Button layoutX="524.0" layoutY="527.0" mnemonicParsing="false" onAction="#show" prefHeight="71.0" prefWidth="176.0" text="Show" />
+      <ChoiceBox fx:id="choicebox" layoutX="807.0" layoutY="326.0" prefHeight="49.0" prefWidth="223.0" stylesheets="@DarkTheme.css">
+         <effect>
+            <InnerShadow color="#29b6f6" />
+         </effect></ChoiceBox>
+      <Button layoutX="893.0" layoutY="406.0" mnemonicParsing="false" onAction="#getchoice" prefHeight="49.0" prefWidth="142.0" text="Get Choice" />
+      <Button layoutX="505.0" layoutY="529.0" mnemonicParsing="false" onAction="#show" prefHeight="70.0" prefWidth="231.0" text="Show" />
+      <Button layoutX="1038.0" layoutY="63.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: lightblue; -fx-text-fill: #000; -fx-border-color: white; -fx-font-style: italic;" text="Back" />
    </children>
 </AnchorPane>
