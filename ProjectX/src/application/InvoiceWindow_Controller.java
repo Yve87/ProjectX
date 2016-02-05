@@ -71,6 +71,7 @@ public class InvoiceWindow_Controller implements Initializable{
 	int bezahlt;
 	int mengetext;
 	int listsize;
+	int size;
 	float erstesprodukt;
 	float zweitesprodukt;
 	
@@ -139,7 +140,7 @@ public class InvoiceWindow_Controller implements Initializable{
         
         /** Path to the resulting PDF file. */
         final String RESULT
-            = "./Rechnung"+perkusnametext+".pdf";
+            = "./Rechnung_"+perkusnametext+".pdf";
         
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 
@@ -171,9 +172,20 @@ public class InvoiceWindow_Controller implements Initializable{
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Dear Sir or Madam, \n"
         		+ "attached you receive the following invoice: Invoice ID " +rechnungsid +"\n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
-        
-      postion_hinzufuegen();
-      float preistextRabatt = erstesprodukt + zweitesprodukt;
+        document.add(new Paragraph(" "));
+	    document.add(new Paragraph(" "));
+        postion_hinzufuegen();
+        float preistextRabatt = erstesprodukt + zweitesprodukt;
+        if(size >= 2){
+          	 document.add(new Paragraph(" "));
+   			 document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   			 document.add(new Paragraph(" "));
+          }
         document.add(new Paragraph("We please you to transfer the total amount of EUR "+f.format(preistextRabatt)+"\n"
         		+ "on the Sample Company on the bank account 123456789, OurBank OurCity, \n"
         		+ "Bank Rounting Number 12300000. Term of payment: 30 days net", 
@@ -213,6 +225,7 @@ public class InvoiceWindow_Controller implements Initializable{
 	public void postion_hinzufuegen() throws DocumentException{
 		
 		listsize = list.size();
+		size = listsize;
 		while(listsize > 0){
 			produkt = list.get(listsize-1);
 				float gesamtpreistext = produkt.getlistenspreis() * mengen.get(listsize-1);
@@ -247,9 +260,6 @@ public class InvoiceWindow_Controller implements Initializable{
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			}	
 			listsize--;

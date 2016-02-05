@@ -70,6 +70,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	ArrayList<Integer> mengen = new ArrayList<Integer>();
 	ObservableList<Product> list = FXCollections.observableArrayList();
 	DecimalFormat f = new DecimalFormat("#0.00"); 
+	int size;
 	
 	float left = 30;
     float right = 30;
@@ -147,9 +148,20 @@ public class DeliveryNoteWindow_Controller implements Initializable{
         document.add(new Paragraph(" "));
         document.add(new Paragraph("Dear Sir or Madam, \n"
         		+ "attached you receive:\n", new Font(Font.FontFamily.HELVETICA, 13, Font.ITALIC)));
-        
+        document.add(new Paragraph(" "));
+	    document.add(new Paragraph(" "));
         postion_hinzufuegen();
         float preistextRabatt = erstesprodukt + zweitesprodukt;
+        if(size >= 2){
+       	 document.add(new Paragraph(" "));
+			 document.add(new Paragraph(" "));
+		     document.add(new Paragraph(" "));
+		     document.add(new Paragraph(" "));
+		     document.add(new Paragraph(" "));
+		     document.add(new Paragraph(" "));
+		     document.add(new Paragraph(" "));
+			 document.add(new Paragraph(" "));
+       }
         document.add(new Paragraph("Accounting takes places separately. The product stays in our ownership until the product is completely paid.", 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
         document.add(new Paragraph(" "));        
@@ -190,6 +202,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 public void postion_hinzufuegen() throws DocumentException{
 		
 		listsize = list.size();
+		size = listsize;
 		while(listsize > 0){
 			produkt = list.get(listsize-1);
 				float gesamtpreistext = produkt.getlistenspreis() * mengen.get(listsize-1);
@@ -224,9 +237,6 @@ public void postion_hinzufuegen() throws DocumentException{
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
-			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			}	
 			listsize--;

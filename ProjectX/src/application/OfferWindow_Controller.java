@@ -78,6 +78,7 @@ public class OfferWindow_Controller implements Initializable{
 	int idangebot;
 	Date gueltigkeit;
 	Product produkt = null;
+	int size;
 	
 	float left = 30;
     float right = 30;
@@ -88,6 +89,9 @@ public class OfferWindow_Controller implements Initializable{
 	ArrayList<Integer> mengen = new ArrayList<Integer>();
 	int index = 1;
 	int listsize;
+	float erstesprodukt;
+	float zweitesprodukt;
+	PeopleCustomers perkus;
 
 	DecimalFormat f = new DecimalFormat("#0.00"); 
 	
@@ -108,7 +112,7 @@ public class OfferWindow_Controller implements Initializable{
 		java.sql.Connection conn = Connection.connecten();
 		String strasse = "SELECT Fikus WHERE Name='"+ fikusString+"'";
 		//String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
-		String query3 = "SELECT idPerkus FROM Perkus WHERE Name='"+ perkusnametext+"'";
+		String query3 = "SELECT Name FROM Perkus WHERE idPerkus='"+ perkusnametext+"'";
 		//String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
 		//String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
 		//String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
@@ -123,10 +127,9 @@ public class OfferWindow_Controller implements Initializable{
 		
 		//stmt2.executeQuery();
 		ResultSet set = stmt3.executeQuery();
-		//stmt4.executeQuery();
-		//stmt5.executeQuery();
-		//stmt6.executeQuery();
+
 		int idPerkus = 8;
+		
 	
 		 // PDF create step 1
     	// Using a custom page size
@@ -169,6 +172,20 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph(" "));
         
         postion_hinzufuegen();
+        float preistextRabatt = erstesprodukt + zweitesprodukt;
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) + "EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
+        document.add(new Paragraph(" "));
+        document.add(new Paragraph(" "));
+        if(size >= 2){
+          	 document.add(new Paragraph(" "));
+   			 document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   			 document.add(new Paragraph(" "));
+          }
         document.add(new Paragraph("Terms and Conditions:, \n"
         		+ "- The Sample Company license terms are valid. \n"
         		+ "- All prices are quoted in addition of sales tax.\n"
@@ -188,7 +205,6 @@ public class OfferWindow_Controller implements Initializable{
         alert.setHeaderText(null);
         alert.setContentText("The Offer PDF has been created!");
         alert.showAndWait();
-        float preistextRabatt = 100;
         String query7 = "INSERT INTO Angebot(idAngebot,Produktname,Gesamtpreis,Rabatt,gueltig_bis,Perkus_idPerkus)" 
 				+ "values('"+idangebot+"','"+produktnametext+"','"+preistextRabatt+"','"+rabatttext+"','"+gueltigkeit+"','"+idPerkus+"')";
         PreparedStatement stmt7 = conn.prepareStatement(query7);
@@ -229,29 +245,28 @@ public class OfferWindow_Controller implements Initializable{
 	public void postion_hinzufuegen() throws DocumentException{
 		
 		listsize = list.size();
+		size = listsize;
 		while(listsize > 0){
 			
 			System.out.println("Die: "+listsize);
 			produkt = list.get(listsize-1);
-				float gesamtpreistext = produkt.getlistenspreis() * mengetext;
+				float gesamtpreistext = produkt.getlistenspreis() * mengen.get(listsize-1);
 				float rabattsumme = ((float)rabatttext)/100;
 				float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
 				float rabattEuro = (float) gesamtpreistext * rabattsumme;
 			
 			document.add(new Paragraph("Product: " + produkt.getname(),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
-	        document.add(new Paragraph("Amount: " + mengetext,  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Amount: " + mengen.get(listsize-1),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph("Price of a single item without discount: " + f.format(produkt.getlistenspreis()) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph("Total price for all items without discount: " + f.format(gesamtpreistext) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph("Discount: " + rabatttext + "%",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
-	        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengetext) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
+	        document.add(new Paragraph("Price of a single item with discount: " + f.format(preistextRabatt/mengen.get(listsize-1)) +"EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph("Total discount: " + f.format(rabattEuro) + "EUR",  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph(" "));
-	        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) + "EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
-	        document.add(new Paragraph(" "));
-	        document.add(new Paragraph(" "));
+	       
 	        if(listsize > 1){
 				 document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));

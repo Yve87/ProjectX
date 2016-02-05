@@ -25,10 +25,6 @@ public class PeopleCustomers {
 	int perkusnummer;
 	
 	
-	public PeopleCustomers(){
-		this(0,null,null,null,null,null,null,null,null,null,null,null,0,0);
-		
-	}
 	
 	public PeopleCustomers(int id,String name,String vorname, String anrede, String titel, 
 			String abteilung,String gebaeudenummer, String zimmernummer,String tel,
