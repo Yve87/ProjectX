@@ -298,6 +298,10 @@ public class InvoiceWindow_Controller implements Initializable{
 				set.getInt(4),set.getString(5),set.getString(6),set.getString(7),set.getInt(8));
 				rechnungsid = rechnung.getrechnungsid();
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 			
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);
