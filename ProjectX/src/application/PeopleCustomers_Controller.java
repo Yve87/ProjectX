@@ -8,9 +8,11 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 /**
@@ -77,6 +79,12 @@ public class PeopleCustomers_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Perkus is completed.");
+		
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("People Customer has been inserted!");
+        alert.showAndWait();
 	}
 	
 	@FXML
@@ -90,6 +98,11 @@ public class PeopleCustomers_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("Update at Table Perkus is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("People Customer has been updated!");
+        alert.showAndWait();
 	}
 	
 	@FXML
@@ -121,6 +134,11 @@ public class PeopleCustomers_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Perkus is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("People Customer has been deleted!");
+        alert.showAndWait();
 	}
 	
 	@FXML

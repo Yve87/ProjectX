@@ -75,13 +75,13 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	float left = 30;
     float right = 30;
     float top = 100;
-    float bottom = 0;
+    float bottom = 30;
     Document document = new Document(PageSize.A4, left, right, top, bottom);
 	
 	public void lieferschein_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		idlieferschein++;
 		fikusnametext = fikusname.getText();
-
+		rabatttext = Integer.parseInt(rabatt.getText());
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
 		lieferungsdatum = Date.valueOf(lieferdatum.getValue());
@@ -108,7 +108,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		*/
 		ResultSet set = stmt3.executeQuery();
 
-		int idPerkus = 8;
+		int idPerkus = 1;
 		
 		
 		
@@ -152,15 +152,18 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	    document.add(new Paragraph(" "));
         postion_hinzufuegen();
         float preistextRabatt = erstesprodukt + zweitesprodukt;
+        document.add(new Paragraph("Total price with discount: " + f.format(preistextRabatt) + "EUR", new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD, BaseColor.BLUE))); 
         if(size >= 2){
-       	 document.add(new Paragraph(" "));
-			 document.add(new Paragraph(" "));
-		     document.add(new Paragraph(" "));
-		     document.add(new Paragraph(" "));
-		     document.add(new Paragraph(" "));
-		     document.add(new Paragraph(" "));
-		     document.add(new Paragraph(" "));
-			 document.add(new Paragraph(" "));
+         	 document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
        }
         document.add(new Paragraph("Accounting takes places separately. The product stays in our ownership until the product is completely paid.", 
         		new Font(Font.FontFamily.HELVETICA, 11, Font.ITALIC)));
@@ -229,7 +232,6 @@ public void postion_hinzufuegen() throws DocumentException{
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph(" "));
 	        if(listsize > 1){
-	        	document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
@@ -238,6 +240,12 @@ public void postion_hinzufuegen() throws DocumentException{
 			     document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+	   		     document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
+	   			document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
 			}	
 			listsize--;
 		}
@@ -279,16 +287,10 @@ public void postion_hinzufuegen() throws DocumentException{
 				lieferschein = new DeliveryNote(set.getInt(1),set.getDate(2),set.getString(3),
 				set.getString(4),set.getDouble(5),set.getFloat(6),set.getInt(7));
 				idlieferschein = lieferschein.getlieferscheinid();
-<<<<<<< HEAD
 			}			
-			/*if(lieferschein.getlieferscheinid()==0) {
-				idlieferschein = 0;
-			} else {
-				idlieferschein = lieferschein.getlieferscheinid();
-			}*/
-=======
-			}
->>>>>>> origin/master
+
+			
+
 
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);

@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 
@@ -67,6 +69,12 @@ public class LeasingWindow_Controller {
 	    PreparedStatement stmt = conn.prepareStatement(query);
 	    stmt.executeUpdate();			// execute preparedStatement
 	    System.out.println("New INSERT into Table Leasing is completed");
+	    
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Leasing has been inserted!");
+        alert.showAndWait();
 	}
 	
 	// update
@@ -91,6 +99,11 @@ public class LeasingWindow_Controller {
 	    PreparedStatement stmt = conn.prepareStatement(query);
 	    stmt.executeUpdate();			// execute preparedStatement
 	    System.out.println("New UPDATE of Table Leasing is completed");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Leasing has been updated!");
+        alert.showAndWait();
 	}
 	
 	@FXML
@@ -109,6 +122,11 @@ public class LeasingWindow_Controller {
 	    PreparedStatement stmt = conn.prepareStatement(query);
 	    stmt.executeUpdate();			// execute preparedStatement
 	    System.out.println("Delete of Table Leasing is completed");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Leasing has been deleted!");
+        alert.showAndWait();
 	}
 
 	@FXML

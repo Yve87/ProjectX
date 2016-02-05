@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -40,8 +41,13 @@ public class CorporateCustomersWindow_Controller{
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Fikus is completed.");
+		
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Corporate Customer has been inserted!");
+        alert.showAndWait();
 	}
-	
 	
 	@FXML
 	public void updaten() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -54,6 +60,12 @@ public class CorporateCustomersWindow_Controller{
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("Update at Table Fikus is completed.");
+		
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Corporate Customer has been updated!");
+        alert.showAndWait();
 	}
 	
 	@FXML
@@ -67,6 +79,11 @@ public class CorporateCustomersWindow_Controller{
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Fikus is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Corporate Customer has been deleted!");
+        alert.showAndWait();
 	}
 
 	public void back(){

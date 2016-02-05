@@ -10,9 +10,11 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class MaintenanceWindow_Controller {
@@ -38,6 +40,11 @@ public class MaintenanceWindow_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Lizenz is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Maintenance has been inserted!");
+        alert.showAndWait();
 	}
 	
 	@FXML
@@ -51,6 +58,11 @@ public class MaintenanceWindow_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Update at Table Maintenance is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Maintenance has been updated!");
+        alert.showAndWait();
 	}
 	
 	@FXML
@@ -64,6 +76,11 @@ public class MaintenanceWindow_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("Delete at Table Maintenance is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Maintenance has been deleted!");
+        alert.showAndWait();
 	}
 	
 	@FXML

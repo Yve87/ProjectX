@@ -8,8 +8,10 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class LocationWindow_Controller {
@@ -56,6 +58,11 @@ public class LocationWindow_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Insert into Table Standort is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Location has been inserted!");
+        alert.showAndWait();
 	}
 	
 	public void update() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -76,6 +83,11 @@ public class LocationWindow_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Update at Table Perkus is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Location has been updated!");
+        alert.showAndWait();
 	}
 	
 	public void delete() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
@@ -100,6 +112,11 @@ public class LocationWindow_Controller {
 		PreparedStatement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate();
 		System.out.println("New Delete at Table Standort is completed.");
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("Location has been deleted!");
+        alert.showAndWait();
 	}
 	
 	public void show(){
