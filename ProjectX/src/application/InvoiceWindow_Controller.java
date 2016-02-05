@@ -78,7 +78,7 @@ public class InvoiceWindow_Controller implements Initializable{
 	float left = 30;
     float right = 30;
     float top = 100;
-    float bottom = 0;
+    float bottom = 30;
     Document document = new Document(PageSize.A4, left, right, top, bottom);
     ObservableList<Product> list = FXCollections.observableArrayList();
 	
@@ -94,6 +94,7 @@ public class InvoiceWindow_Controller implements Initializable{
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
 		mengetext = Integer.parseInt(menge.getText());
+		rabatttext = Integer.parseInt(rabatt.getText());
 		
 		int lieferantennummer = 192384 + rechnungsid;
 		
@@ -140,7 +141,7 @@ public class InvoiceWindow_Controller implements Initializable{
         
         /** Path to the resulting PDF file. */
         final String RESULT
-            = "./Rechnung_"+perkusnametext+".pdf";
+            = "./Invoice_"+perkusnametext+".pdf";
         
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 
@@ -177,14 +178,18 @@ public class InvoiceWindow_Controller implements Initializable{
         postion_hinzufuegen();
         float preistextRabatt = erstesprodukt + zweitesprodukt;
         if(size >= 2){
-          	 document.add(new Paragraph(" "));
-   			 document.add(new Paragraph(" "));
-   		     document.add(new Paragraph(" "));
-   		     document.add(new Paragraph(" "));
-   		     document.add(new Paragraph(" "));
-   		     document.add(new Paragraph(" "));
-   		     document.add(new Paragraph(" "));
-   			 document.add(new Paragraph(" "));
+         	 document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
+  		     document.add(new Paragraph(" "));
+  			 document.add(new Paragraph(" "));
           }
         document.add(new Paragraph("We please you to transfer the total amount of EUR "+f.format(preistextRabatt)+"\n"
         		+ "on the Sample Company on the bank account 123456789, OurBank OurCity, \n"
@@ -258,7 +263,6 @@ public class InvoiceWindow_Controller implements Initializable{
 	        document.add(new Paragraph(" "));
 	        document.add(new Paragraph(" "));
 	        if(listsize > 1){
-	        	document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
@@ -267,6 +271,12 @@ public class InvoiceWindow_Controller implements Initializable{
 			     document.add(new Paragraph(" "));
 				 document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+			     document.add(new Paragraph(" "));
+	   		     document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
+	   			document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
 			}	
 			listsize--;
 		}
@@ -308,10 +318,8 @@ public class InvoiceWindow_Controller implements Initializable{
 				set.getInt(4),set.getString(5),set.getString(6),set.getString(7),set.getInt(8));
 				rechnungsid = rechnung.getrechnungsid();
 			}
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
 			
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);

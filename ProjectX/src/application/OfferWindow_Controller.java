@@ -83,7 +83,7 @@ public class OfferWindow_Controller implements Initializable{
 	float left = 30;
     float right = 30;
     float top = 60;
-    float bottom = 0;
+    float bottom = 30;
     Document document = new Document(PageSize.A4, left, right, top, bottom);
 	ObservableList<Product> list = FXCollections.observableArrayList();
 	ArrayList<Integer> mengen = new ArrayList<Integer>();
@@ -103,7 +103,7 @@ public class OfferWindow_Controller implements Initializable{
 		perkusnametext = perkusname.getText();
 		standortnametext = standortname.getText();
 		//preistext = Float.parseFloat(preis.getText());
-		//rabatttext = Integer.parseInt(rabatt.getText());
+		rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
 		gueltigkeit = Date.valueOf(todayplus30);
 		
@@ -128,7 +128,7 @@ public class OfferWindow_Controller implements Initializable{
 		//stmt2.executeQuery();
 		ResultSet set = stmt3.executeQuery();
 
-		int idPerkus = 8;
+		int idPerkus = 1;
 		
 	
 		 // PDF create step 1
@@ -136,7 +136,7 @@ public class OfferWindow_Controller implements Initializable{
 		
         /** Path to the resulting PDF file. */
         final String RESULT
-            = "./Angebot_"+perkusnametext+".pdf";
+            = "./Offer_"+perkusnametext+".pdf";
         // step 2
         PdfWriter.getInstance(document, new FileOutputStream(RESULT));
 ;
@@ -162,7 +162,6 @@ public class OfferWindow_Controller implements Initializable{
         document.add(new Paragraph("People Customer: " + fikusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Corporate Customer: " + perkusnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph("Location: " + standortnametext,  new Font(Font.FontFamily.HELVETICA, 9)));
-        document.add(new Paragraph("Street: " +strasse, new Font(Font.FontFamily.HELVETICA, 9)));
         document.add(new Paragraph(" "));
         Paragraph paragraph1 = new Paragraph("Offer "+idangebot,new Font(Font.FontFamily.HELVETICA, 20, Font.BOLDITALIC, BaseColor.BLUE));              
         document.add(paragraph1);
@@ -185,6 +184,11 @@ public class OfferWindow_Controller implements Initializable{
    		     document.add(new Paragraph(" "));
    		     document.add(new Paragraph(" "));
    			 document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   			 document.add(new Paragraph(" "));
+   		     document.add(new Paragraph(" "));
+   			 document.add(new Paragraph(" "));
+   		     
           }
         document.add(new Paragraph("Terms and Conditions:, \n"
         		+ "- The Sample Company license terms are valid. \n"
@@ -261,6 +265,11 @@ public class OfferWindow_Controller implements Initializable{
 				float rabattsumme = ((float)rabatttext)/100;
 				float preistextRabatt = (float) (gesamtpreistext * (1-rabattsumme));
 				float rabattEuro = (float) gesamtpreistext * rabattsumme;
+				
+				if(listsize == 2){
+					erstesprodukt = preistextRabatt;
+				}
+				zweitesprodukt = preistextRabatt;
 			
 			document.add(new Paragraph("Product: " + produkt.getname(),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
 	        document.add(new Paragraph("Amount: " + mengen.get(listsize-1),  new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD)));
@@ -285,6 +294,10 @@ public class OfferWindow_Controller implements Initializable{
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
 			     document.add(new Paragraph(" "));
+	   		     document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
+	   			document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
 			}	
 			listsize--;
 		}

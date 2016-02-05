@@ -22,7 +22,7 @@ public class PreviousDocuments_Controller implements Initializable{
 	@FXML ListView listview;
 	@FXML TextField text;
 	@FXML Button load;
-	int zähler = 0;
+	int counter = 0;
 	int i = 1;
 	int j = 2;
 	int k = 3;
@@ -60,13 +60,13 @@ public class PreviousDocuments_Controller implements Initializable{
 				ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 				
 				while(set.next()){
-					zähler++;
+					counter++;
 					offer = new Offer(set.getInt(i),set.getString(j), set.getFloat(k),set.getInt(l),
 							set.getDate(m),set.getInt(n));
 					data.add(offer);
 				}
 				listview.setItems(data);
-				zähler = 0;
+				counter = 0;
 				set.close();
 				conn.close();
 				data2.removeAll(data2);
@@ -95,13 +95,13 @@ public class PreviousDocuments_Controller implements Initializable{
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
 			while(set.next()){
-				zähler++;
+				counter++;
 				deliverynote = new DeliveryNote(set.getInt(i), set.getDate(j),set.getString(k),
 						set.getString(l),set.getDouble(m),set.getFloat(n),set.getInt(a));
 				data2.add(deliverynote);
 			}
 			listview.setItems(data2);
-			zähler = 0;
+			counter = 0;
 			set.close();
 			conn.close();
 			data.removeAll(data);
@@ -130,13 +130,13 @@ public class PreviousDocuments_Controller implements Initializable{
 			ResultSet set = stmt.executeQuery();	// SQL Befehl f�r Inhalt
 			
 			while(set.next()){
-				zähler++;
+				counter++;
 				invoice = new Invoice(set.getInt(i), set.getDate(j),set.getFloat(k),
 						set.getInt(l),set.getString(m),set.getString(n),set.getString(a),set.getInt(b));
 				data3.add(invoice);
 			}
 			listview.setItems(data3);
-			zähler = 0;
+			counter = 0;
 			set.close();
 			conn.close();
 			data2.removeAll(data2);
