@@ -15,7 +15,7 @@ public class LicenseWindow {
 
 			Parent root = FXMLLoader.load(getClass().getResource("LicenseWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage7 = primaryStage;
 			stage7.setScene(scene);
 			stage7.setTitle("License");

@@ -23,5 +23,6 @@
       </Pane>
       <TextField fx:id="text" layoutX="359.0" layoutY="209.0" prefHeight="24.0" prefWidth="282.0" promptText="Search Term" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="208.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="What do you search?" />
+      <Button layoutX="1044.0" layoutY="55.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: lightblue; -fx-text-fill: #000; -fx-border-color: white; -fx-font-style: italic;" text="Back" />
    </children>
 </AnchorPane>

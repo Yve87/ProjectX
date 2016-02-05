@@ -19,7 +19,7 @@ public class BetweenWindow extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("BetweenWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage14 = primaryStage;
 			stage14.setScene(scene);
 			stage14.setTitle("Choose the Table to modify");

@@ -5,14 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ShowWindow {
+public class Show_Window {
 
 	static Stage stage2;
 	Scene scene;
 
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("ShowWindow.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Show_Window.fxml"));
 			scene = new Scene(root, 1200,700);
 			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage2 = primaryStage;

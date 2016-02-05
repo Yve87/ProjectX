@@ -21,7 +21,7 @@ public class ProductWindow extends Application {
 
 			Parent root = FXMLLoader.load(getClass().getResource("ProductWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage3 = primaryStage;
 			stage3.setScene(scene);
 			stage3.setTitle("Product");

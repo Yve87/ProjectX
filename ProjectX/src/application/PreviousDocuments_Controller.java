@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class PreviousDocuments_Controller implements Initializable{
 
@@ -155,6 +156,13 @@ public class PreviousDocuments_Controller implements Initializable{
 			e.printStackTrace();
 		}
 		}
+	}
+	
+	public void back(){
+		Stage primaryStage = new Stage();
+		MainWindow window = new MainWindow();
+		window.start(primaryStage);
+		PreviousDocumentWindow.stage13.close();
 	}
 	
 	@Override

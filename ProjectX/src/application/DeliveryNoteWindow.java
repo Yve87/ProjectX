@@ -19,7 +19,7 @@ public class DeliveryNoteWindow extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("DeliveryNoteWindow.fxml"));
 			scene = new Scene(root, 1200,700);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("DarkTheme.css").toExternalForm());
 			stage11 = primaryStage;
 			stage11.setScene(scene);
 			stage11.setTitle("New Delivery Note");

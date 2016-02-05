@@ -19,7 +19,7 @@
       <TextField fx:id="NutzerzahlFXML" layoutX="131.0" layoutY="422.0" promptText="Number of Users" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <DatePicker fx:id="VertragsdatumFXML" layoutX="755.0" layoutY="370.0" prefHeight="41.0" prefWidth="288.0" promptText="Contract Date" />
       <DatePicker fx:id="RechnungsdatumFXML" layoutX="755.0" layoutY="474.0" prefHeight="41.0" prefWidth="288.0" promptText="Invoice Date" />
-      <DatePicker fx:id="Datum_letzter_RechnungsbetragFXML" layoutX="755.0" layoutY="319.0" prefHeight="41.0" prefWidth="288.0" promptText="Date of last Invoice Amount" />
+      <DatePicker fx:id="Datum_letzter_RechnungsbetragFXML" layoutX="755.0" layoutY="319.0" prefHeight="41.0" prefWidth="288.0" promptText="Date of last Invoice Amount" styleClass="date-picker" stylesheets="@DarkTheme.css" />
       <DatePicker fx:id="Datum_naechster_RechnungsbetragFXML" layoutX="755.0" layoutY="422.0" prefHeight="41.0" prefWidth="288.0" promptText="Date of next Invoice Amount" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="67.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />
       <Button layoutX="635.0" layoutY="570.0" mnemonicParsing="false" onAction="#update" prefHeight="70.0" prefWidth="181.0" text="Update" />
