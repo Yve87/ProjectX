@@ -15,10 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-/**
- * @author Yve
- *
- */
 public class PeopleCustomers_Controller {
 	
 	@FXML private TextField id;
@@ -148,6 +144,7 @@ public class PeopleCustomers_Controller {
 		window.start(primarystage);
 	}
 	
+	@FXML
 	public void back(){
 		Stage primaryStage = new Stage();
 		BetweenWindow window = new BetweenWindow();
@@ -155,8 +152,3 @@ public class PeopleCustomers_Controller {
 		PeopleCustomersWindow.stage15.close();
 	}
 }
-
-// alerts : meldung warning,
-// man kann keine fikus l�schen
-// ausf�hrbare jar Datei. artefakte, dependencies
-// main. build artefacts

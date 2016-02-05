@@ -55,11 +55,7 @@ public class MainWindow extends Application {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			/*alert.setTitle("Error");
-			alert.setHeaderText("Database Connection Fail");
-			alert.setContentText("Oops en Error occured");
-			alert.showAndWait();
-			System.out.println("Database Connection failed!");*/
+			System.out.println("Database Connection failed!");
 		}
 		launch(args);	
 	}

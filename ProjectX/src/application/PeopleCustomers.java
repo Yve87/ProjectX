@@ -24,8 +24,6 @@ public class PeopleCustomers {
 	public IntegerProperty fikusid;
 	int perkusnummer;
 	
-	
-	
 	public PeopleCustomers(int id,String name,String vorname, String anrede, String titel, 
 			String abteilung,String gebaeudenummer, String zimmernummer,String tel,
 			String fax,String email,String position,int fikusid,int zähler){

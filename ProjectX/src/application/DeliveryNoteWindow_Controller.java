@@ -109,10 +109,6 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		ResultSet set = stmt3.executeQuery();
 
 		int idPerkus = 1;
-		
-		
-		
-      //  document.setMargins(left, right, bottom, top);
         // step 2
         
         /** Path to the resulting PDF file. */
@@ -244,7 +240,7 @@ public void postion_hinzufuegen() throws DocumentException{
 			     document.add(new Paragraph(" "));
 	   		     document.add(new Paragraph(" "));
 	   			 document.add(new Paragraph(" "));
-	   			document.add(new Paragraph(" "));
+	   			 document.add(new Paragraph(" "));
 	   			 document.add(new Paragraph(" "));
 			}	
 			listsize--;
@@ -283,14 +279,12 @@ public void postion_hinzufuegen() throws DocumentException{
 			DeliveryNote lieferschein = null;
 			ResultSet set = stmt7.executeQuery();
 			idlieferschein = 0;
+			
 			while(set.next()){
 				lieferschein = new DeliveryNote(set.getInt(1),set.getDate(2),set.getString(3),
 				set.getString(4),set.getDouble(5),set.getFloat(6),set.getInt(7));
 				idlieferschein = lieferschein.getlieferscheinid();
 			}			
-
-			
-
 
 			String query1 = "SELECT Name FROM Produkt";
 			PreparedStatement stmt1 = conn.prepareStatement(query1);
@@ -302,6 +296,7 @@ public void postion_hinzufuegen() throws DocumentException{
 			}
 			
 			choicebox.getItems().addAll(list);
+			
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

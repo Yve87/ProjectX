@@ -250,7 +250,6 @@ public class OfferWindow_Controller implements Initializable{
 			}
 		}
 		System.out.println(list.size());
-		
 	}
 	
 	public void postion_hinzufuegen() throws DocumentException{

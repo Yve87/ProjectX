@@ -100,7 +100,7 @@ public class PreviousDocuments_Controller implements Initializable{
 						set.getString(l),set.getDouble(m),set.getFloat(n),set.getInt(a));
 				data2.add(deliverynote);
 			}
-			listview.setItems(data2);
+			listview.setItems(data2.filtered(Lieferschein -> Lieferschein.getfikusname().startsWith(text.getText())));
 			counter = 0;
 			set.close();
 			conn.close();
@@ -135,7 +135,7 @@ public class PreviousDocuments_Controller implements Initializable{
 						set.getInt(l),set.getString(m),set.getString(n),set.getString(a),set.getInt(b));
 				data3.add(invoice);
 			}
-			listview.setItems(data3);
+			listview.setItems(data3.filtered(Rechnung -> Rechnung.getperkusname().startsWith(text.getText())));
 			counter = 0;
 			set.close();
 			conn.close();

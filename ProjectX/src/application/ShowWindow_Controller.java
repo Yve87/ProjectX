@@ -341,6 +341,4 @@ public class ShowWindow_Controller implements Initializable{
 		choicebox.getItems().addAll("CorporateCustomer","PeopleCustomer","Location","License",
 				"Maintenance","Leasing","Product");
 	}
-	
-
 }
