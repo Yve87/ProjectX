@@ -18,8 +18,8 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="74.0" styleClass="label-header" stylesheets="@DarkTheme.css" />
       <Button layoutX="820.0" layoutY="546.0" mnemonicParsing="false" onAction="#lieferschein_erstellen" prefHeight="70.0" prefWidth="239.0" stylesheets="@DarkTheme.css" text="Create Delivery Note" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="246.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="New Delivery Note - Please enter the data:" />
-      <TextField fx:id="fikusname" layoutX="138.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
-      <TextField fx:id="perkusname" layoutX="138.0" layoutY="412.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="perkusid" layoutX="138.0" layoutY="330.0" promptText="People Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
+      <TextField fx:id="fikusname" layoutX="138.0" layoutY="412.0" promptText="Corporate Customer" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <TextField fx:id="standortname" layoutX="138.0" layoutY="488.0" promptText="Location" styleClass="text-field" stylesheets="@DarkTheme.css" />
       <DatePicker fx:id="lieferdatum" layoutX="443.0" layoutY="330.0" promptText="Delivery Date" styleClass="date-picker" stylesheets="@DarkTheme.css" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="59.0" styleClass="label-header" stylesheets="@DarkTheme.css" text="Project X" />

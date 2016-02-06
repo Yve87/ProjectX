@@ -45,16 +45,14 @@ public class DeliveryNoteWindow_Controller implements Initializable{
     LocalDate todayplus30 = today.plusDays(30);
     
 	@FXML private TextField fikusname;
-	@FXML private TextField produktname;
-	@FXML private TextField perkusname;
+	@FXML private TextField perkusid;
 	@FXML private TextField standortname;
-	@FXML private TextField preis;
 	@FXML private TextField rabatt;
 	@FXML private DatePicker lieferdatum;
 	@FXML private TextField menge;
 	@FXML private ChoiceBox<String> choicebox;
 	String fikusnametext;
-	String perkusnametext;
+	int perkusidtext;
 	String produktnametext;
 	String standortnametext;
 	int preistext;
@@ -67,6 +65,7 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 	Date lieferungsdatum;
 	int zahl = 0;
 	Product produkt = null;
+	PeopleCustomers customer = null;
 	ArrayList<Integer> mengen = new ArrayList<Integer>();
 	ObservableList<Product> list = FXCollections.observableArrayList();
 	DecimalFormat f = new DecimalFormat("#0.00"); 
@@ -82,33 +81,21 @@ public class DeliveryNoteWindow_Controller implements Initializable{
 		idlieferschein++;
 		fikusnametext = fikusname.getText();
 		rabatttext = Integer.parseInt(rabatt.getText());
-		perkusnametext = perkusname.getText();
+		perkusidtext = Integer.parseInt(perkusid.getText());
 		standortnametext = standortname.getText();
 		lieferungsdatum = Date.valueOf(lieferdatum.getValue());
 		
 		java.sql.Connection conn = Connection.connecten();
-		String query1 = "SELECT Fikus WHERE Name='"+ fikusnametext+"'";
-		String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
-		String query3 = "SELECT idPerkus FROM Perkus WHERE Name='"+ perkusnametext+"'";
-		String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
-		String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
-		String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
-
-		PreparedStatement stmt1 = conn.prepareStatement(query1);
-		PreparedStatement stmt2 = conn.prepareStatement(query2);
+		String query3 = "SELECT * FROM Perkus WHERE idPerkus = '"+ perkusidtext+"'";
 		PreparedStatement stmt3 = conn.prepareStatement(query3);
-		PreparedStatement stmt4 = conn.prepareStatement(query4);
-		PreparedStatement stmt5 = conn.prepareStatement(query5);
-		PreparedStatement stmt6 = conn.prepareStatement(query6);
-/*		stmt1.executeQuery();
-		stmt2.executeQuery();
-		stmt4.executeQuery();
-		stmt5.executeQuery();
-		stmt6.executeQuery();
-		*/
 		ResultSet set = stmt3.executeQuery();
-
-		int idPerkus = 1;
+		
+		while(set.next()){
+			customer = new PeopleCustomers(idlieferschein, set.getString(2), query3, query3, query3, query3, query3, query3, query3, query3, query3, query3, idlieferschein, idlieferschein);
+		}
+		String perkusnametext = customer.getname();
+		
+		int idPerkus = perkusidtext;
         // step 2
         
         /** Path to the resulting PDF file. */

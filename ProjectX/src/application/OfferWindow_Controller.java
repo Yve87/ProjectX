@@ -56,11 +56,8 @@ public class OfferWindow_Controller implements Initializable{
     LocalDate todayplus30 = today.plusDays(30);
     
     @FXML private TextField fikusText;  
-	@FXML private TextField fikusname;
-	@FXML private TextField produktname;
-	@FXML private TextField perkusname;
+	@FXML private TextField perkusid;
 	@FXML private TextField standortname;
-	@FXML private TextField preis;
 	@FXML private TextField rabatt;
 	@FXML private TextField menge;
 	@FXML private ChoiceBox<String> choicebox;
@@ -79,7 +76,8 @@ public class OfferWindow_Controller implements Initializable{
 	Date gueltigkeit;
 	Product produkt = null;
 	int size;
-	
+	int perkusidtext;
+	PeopleCustomers customer;
 	float left = 30;
     float right = 30;
     float top = 60;
@@ -99,10 +97,8 @@ public class OfferWindow_Controller implements Initializable{
 	public void angebot_erstellen() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, FileNotFoundException, DocumentException{
 		idangebot++;
 		fikusString = fikusText.getText();
-		//produktnametext = produktname.getText();
-		perkusnametext = perkusname.getText();
+		perkusidtext = Integer.parseInt(perkusid.getText());
 		standortnametext = standortname.getText();
-		//preistext = Float.parseFloat(preis.getText());
 		rabatttext = Integer.parseInt(rabatt.getText());
 		mengetext = Integer.parseInt(menge.getText());
 		gueltigkeit = Date.valueOf(todayplus30);
@@ -110,25 +106,16 @@ public class OfferWindow_Controller implements Initializable{
 		
 			
 		java.sql.Connection conn = Connection.connecten();
-		String strasse = "SELECT Fikus WHERE Name='"+ fikusString+"'";
-		//String query2 = "SELECT Produkt WHERE Name='"+ produktnametext+"'";
-		String query3 = "SELECT Name FROM Perkus WHERE idPerkus='"+ perkusnametext+"'";
-		//String query4 = "SELECT Standort WHERE Name='"+ standortnametext+"'";
-		//String query5 = "SELECT Produkt WHERE Preis='"+ preistext+"'";
-		//String query6 = "SELECT Produkt WHERE Rabatt='"+ rabatttext+"'";
-		
-		//PreparedStatement stmt1 = conn.prepareStatement(strasse);
-		//PreparedStatement stmt2 = conn.prepareStatement(query2);
+		String query3 = "SELECT * FROM Perkus WHERE idPerkus='"+ perkusnametext+"'";
 		PreparedStatement stmt3 = conn.prepareStatement(query3);
-		//PreparedStatement stmt4 = conn.prepareStatement(query4);
-		//PreparedStatement stmt5 = conn.prepareStatement(query5);
-		//PreparedStatement stmt6 = conn.prepareStatement(query6);
-		
-		
-		//stmt2.executeQuery();
 		ResultSet set = stmt3.executeQuery();
 
-		int idPerkus = 1;
+		while(set.next()){
+			customer = new PeopleCustomers(idangebot, set.getString(2), query3, query3, query3, query3, query3, query3, query3, query3, query3, query3, idangebot, idangebot);
+		}
+		String perkusnametext = customer.getname();
+		
+		int idPerkus = perkusidtext;
 		
 	
 		 // PDF create step 1
